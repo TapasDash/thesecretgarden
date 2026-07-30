@@ -2,6 +2,7 @@
 
 import { HeaderNavBar } from '@/components/hostel/HeaderNavBar'
 import { HeroBookingWidget } from '@/components/hostel/HeroBookingWidget'
+import { InteriorShowcase } from '@/components/hostel/InteriorShowcase'
 import { RoomGrid } from '@/components/hostel/RoomGrid'
 import { HostelAmenities } from '@/components/hostel/HostelAmenities'
 import { BottomNavBar } from '@/components/hostel/BottomNavBar'
@@ -53,6 +54,9 @@ export default function Page() {
 
       {/* Hero Section & Booking Widget */}
       <HeroBookingWidget />
+
+      {/* Real Interior & Atmosphere Showcase */}
+      <InteriorShowcase />
 
       {/* Accommodations Grid */}
       <RoomGrid />

@@ -39,10 +39,61 @@ export function HeroBookingWidget() {
             Secret Garden Hostel
           </h1>
           <p
-            className="text-lg md:text-xl leading-relaxed text-[var(--text-secondary)]"
+            className="text-lg md:text-xl leading-relaxed text-[var(--text-secondary)] mb-8"
           >
             Immerse yourself in lush botanical gardens, vibrant café culture, and authentic Vietnamese warmth in Cat Ba Town.
           </p>
+
+          {/* Quick Interior Highlights Pill Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto mb-10 text-left">
+            <a
+              href="#interior-showcase"
+              className="group relative h-28 border border-[var(--border-primary)] overflow-hidden shadow-sm transition-all hover:scale-102 flex items-end p-3 bg-black"
+            >
+              <img
+                src="/images/secret_garden_entrance_arch.jpg"
+                alt="Botanical Entrance"
+                className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="relative z-10 text-white">
+                <span className="text-[9px] uppercase font-bold tracking-widest text-[var(--accent-gold)] block">Grounds</span>
+                <span className="text-xs font-serif font-bold drop-shadow">Botanical Canopy Entrance</span>
+              </div>
+            </a>
+
+            <a
+              href="#interior-showcase"
+              className="group relative h-28 border border-[var(--border-primary)] overflow-hidden shadow-sm transition-all hover:scale-102 flex items-end p-3 bg-black"
+            >
+              <img
+                src="/images/secret_garden_reception_bar.jpg"
+                alt="Espresso Bar & Reception"
+                className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="relative z-10 text-white">
+                <span className="text-[9px] uppercase font-bold tracking-widest text-[var(--accent-gold)] block">Café & Bar</span>
+                <span className="text-xs font-serif font-bold drop-shadow">Living-Tree Espresso Bar</span>
+              </div>
+            </a>
+
+            <a
+              href="#interior-showcase"
+              className="group relative h-28 border border-[var(--border-primary)] overflow-hidden shadow-sm transition-all hover:scale-102 flex items-end p-3 bg-black"
+            >
+              <img
+                src="/images/secret_garden_social_night.jpg"
+                alt="Night Courtyard"
+                className="absolute inset-0 w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="relative z-10 text-white">
+                <span className="text-[9px] uppercase font-bold tracking-widest text-[var(--accent-gold)] block">Nightlife</span>
+                <span className="text-xs font-serif font-bold drop-shadow">Jellyfish Lantern Social Hub</span>
+              </div>
+            </a>
+          </div>
         </div>
 
         {/* Booking Card Form */}
