@@ -66,8 +66,15 @@ export default function Page() {
 
       {/* Footer Section */}
       <footer className="w-full py-12 bg-[var(--bg-secondary)] border-t border-[var(--border-primary)] text-center text-sm text-[var(--text-secondary)]">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <p className="font-serif font-bold text-lg text-[var(--text-primary)] mb-2">
+        <div className="container mx-auto px-4 max-w-6xl flex flex-col items-center">
+          <div className="w-14 h-14 rounded-full overflow-hidden border border-[var(--accent-gold)] p-0.5 bg-white shadow-sm mb-3">
+            <img
+              src="/images/secret_garden_logo.jpg"
+              alt="Secret Garden Hostel Logo"
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
+          <p className="font-serif font-bold text-lg text-[var(--text-primary)] mb-1">
             Secret Garden Hostel • Cat Ba Island
           </p>
           <p className="text-xs mb-4">

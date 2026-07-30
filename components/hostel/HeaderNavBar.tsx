@@ -24,8 +24,12 @@ export function HeaderNavBar() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="flex items-center gap-3 cursor-pointer group"
         >
-          <div className="w-10 h-10 rounded-full bg-[var(--accent-green)] text-white flex items-center justify-center shadow-indochine transition-transform group-hover:scale-105">
-            <Trees className="w-5 h-5 text-[var(--accent-gold)]" />
+          <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[var(--accent-gold)] shadow-indochine transition-transform group-hover:scale-105 bg-white p-0.5 flex items-center justify-center">
+            <img
+              src="/images/secret_garden_logo.jpg"
+              alt="Secret Garden Hostel Emblem Logo"
+              className="w-full h-full object-cover rounded-full"
+            />
           </div>
           <div>
             <span className="font-serif font-bold text-xl md:text-2xl tracking-wide text-[var(--text-primary)] block leading-tight">
