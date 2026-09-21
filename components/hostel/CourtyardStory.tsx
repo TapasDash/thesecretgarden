@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Sparkles, Heart, Coffee, Users, ShieldCheck, MapPin, Sun, TreePine } from 'lucide-react'
+import { Heart, Coffee, TreePine } from 'lucide-react'
 import { useHostelStore } from '@/lib/store'
 
 export const CourtyardStory: React.FC = () => {
@@ -20,20 +20,20 @@ export const CourtyardStory: React.FC = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
-          {/* Left Column: Visual Collage with Texture & Stamp */}
+          {/* Left Column */}
           <div className="lg:col-span-6 relative">
             <div className="grid grid-cols-2 gap-4">
               <div className="border-2 border-[#1B3320] shadow-[5px_5px_0px_0px_#1B3320] overflow-hidden bg-[#1B3320] h-60">
                 <img
                   src="/images/courtyard_mural.png"
-                  alt="Courtyard Mural & Plants"
+                  alt="Courtyard wall and garden"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="border-2 border-[#1B3320] shadow-[5px_5px_0px_0px_#3E2723] overflow-hidden bg-[#3E2723] h-60 mt-6">
                 <img
                   src="/images/indochine_cement_tile.png"
-                  alt="Indochine Cement Tiles"
+                  alt="Courtyard tiles"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -42,38 +42,38 @@ export const CourtyardStory: React.FC = () => {
             {/* Quote Badge */}
             <div className="mt-4 p-4 bg-[#F5F5F0] border-2 border-[#1B3320] shadow-[4px_4px_0px_0px_#1B3320]">
               <p className="font-serif italic text-sm text-[#1B3320] leading-relaxed">
-                &ldquo;We didn&apos;t build a commercial hotel. We opened our family garden gates to wanderers who value raw conversations over generic luxury.&rdquo;
+                &ldquo;We started this place in 2017 because we were tired of noisy party hostels with wobbly metal bunks and cold showers. We just wanted a good garden where travelers can rest, eat good food together, and drink cold beer.&rdquo;
               </p>
               <div className="mt-2 text-[11px] font-mono text-[#3E2723] font-bold">
-                — Mama Huong & Son (Secret Garden Founders)
+                — Mama Huong & Son (Secret Garden)
               </div>
             </div>
           </div>
 
-          {/* Right Column: Narrative Story & Island Pillars */}
+          {/* Right Column */}
           <div className="lg:col-span-6 space-y-6">
             <div>
               <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#1B3320] text-[#D4AF37] text-[11px] font-mono tracking-widest uppercase border border-[#1B3320] mb-2">
                 <TreePine className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span>THE INDOCHINE SANCTUARY</span>
+                <span>HOW WE RUN THE PLACE</span>
               </div>
               <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#1B3320] leading-tight">
-                An authentic haven nestled under Cat Ba karst cliffs.
+                A simple garden spot under Cat Ba&apos;s limestone cliffs.
               </h2>
             </div>
 
             <p className="text-sm sm:text-base text-[#3E2723]/90 font-sans leading-relaxed">
-              Tucked away behind climbing bougainvillea and tall bamboo palms, Secret Garden is where island adventurers gather to trade route tips, drink fresh drip coffee, and rest in handmade teakwood beds.
+              We are tucked two minutes off the main strip in Cat Ba town. It is quiet at night so you actually get sleep, but lively during the evening when everyone comes back from boat trips and sits down for family dinner.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-3.5 bg-[#F5F5F0] border border-[#1B3320]">
                 <div className="flex items-center gap-2 mb-1">
                   <Coffee className="w-4 h-4 text-[#D4AF37]" />
-                  <h4 className="font-serif font-bold text-sm text-[#1B3320]">Artisanal Phin Bar</h4>
+                  <h4 className="font-serif font-bold text-sm text-[#1B3320]">Real Drip Coffee</h4>
                 </div>
                 <p className="text-xs text-[#3E2723]/80">
-                  Slow-dripped robusta sourced from Dalat highlands, condensed milk, and fresh coconuts.
+                  Strong Vietnamese Robusta brewed fresh, served with condensed milk or fresh black over ice.
                 </p>
               </div>
 
@@ -83,7 +83,7 @@ export const CourtyardStory: React.FC = () => {
                   <h4 className="font-serif font-bold text-sm text-[#1B3320]">Family Dinners</h4>
                 </div>
                 <p className="text-xs text-[#3E2723]/80">
-                  Every evening at 6:30 PM, all travelers sit together around long courtyard tables.
+                  Every night at 6:30 PM. 70k VND for home-cooked food and all the rice and veggies you can eat.
                 </p>
               </div>
             </div>
@@ -93,7 +93,7 @@ export const CourtyardStory: React.FC = () => {
                 onClick={() => openBooking()}
                 className="px-6 py-3.5 bg-[#1B3320] hover:bg-[#3E2723] text-[#F5F5F0] font-bold text-xs uppercase tracking-wider border-2 border-[#1B3320] shadow-[4px_4px_0px_0px_#D4AF37] active:translate-x-[1px] active:translate-y-[1px] transition-all cursor-pointer"
               >
-                Reserve Your Bed & Join The Family
+                Book a Bed & Come Stay With Us
               </button>
             </div>
           </div>

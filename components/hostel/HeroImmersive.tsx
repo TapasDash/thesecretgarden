@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Calendar, Users, MapPin, Compass, ArrowDownRight, Sparkles, Coffee } from 'lucide-react'
+import { Calendar, Users, MapPin, ArrowDownRight, Sparkles, Coffee } from 'lucide-react'
 import { useHostelStore } from '@/lib/store'
 
 export const HeroImmersive: React.FC = () => {
@@ -19,52 +19,51 @@ export const HeroImmersive: React.FC = () => {
 
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top Location & Hostel Badge Strip */}
+        {/* Top Location & Quick Facts */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-[#D8D8CC]/80">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#3E2723]">
             <span className="inline-block w-2.5 h-2.5 bg-[#1B3320] border border-[#D4AF37]" />
             <MapPin className="w-3.5 h-3.5 text-[#1B3320]" />
-            <span>Cat Ba Island • Lan Ha Bay • Vietnam</span>
+            <span>Cat Ba Island • Vietnam</span>
           </div>
           <div className="flex items-center gap-3 text-xs font-semibold text-[#1B3320]/80">
             <span className="bg-[#E8E8DF] px-2.5 py-1 border border-[#D8D8CC] text-[11px] font-mono">
-              GPS 20.7275° N, 107.0467° E
+              2 min walk from town center
             </span>
             <span className="hidden sm:inline-flex items-center gap-1 text-[#3E2723] font-medium">
-              <Sparkles className="w-3 h-3 text-[#D4AF37]" /> Organic Courtyard & Social Vibe
+              <Sparkles className="w-3 h-3 text-[#D4AF37]" /> Free family dinner every night
             </span>
           </div>
         </div>
 
-        {/* Hero Grid: Left Typographic Narrative & Booking, Right Densely Layered Visual Courtyard */}
+        {/* Hero Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
-          {/* Left Column: Massive Indochine Typography & Pinned Gold CTA */}
+          {/* Left Column: Direct Backpacker Copy & Booking */}
           <div className="lg:col-span-7 flex flex-col justify-between">
             <div className="space-y-4">
               
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1B3320] text-[#F5F5F0] text-xs font-mono tracking-widest uppercase border border-[#1B3320] shadow-[2px_2px_0px_0px_#3E2723]">
-                <span>SANCTUARY EST. 2017</span>
+                <span>RUNNING SINCE 2017</span>
                 <span className="text-[#D4AF37]">✦</span>
-                <span>HOST-CENTRIC COURTYARD</span>
+                <span>CAT BA ISLAND</span>
               </div>
 
               <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-[#1B3320] leading-[1.05]">
-                Lose track of time <br />
-                <span className="italic font-normal text-[#3E2723]">in our lush tropical</span> <br />
-                island courtyard.
+                Clean beds, cold AC, <br />
+                <span className="italic font-normal text-[#3E2723]">cheap cold beer,</span> <br />
+                and good people.
               </h1>
 
               <p className="text-base sm:text-lg text-[#3E2723]/90 leading-relaxed font-sans max-w-[54ch]">
-                Raw teakwood dorms, chilled acoustic jam nights, and cold Hanoi beer under rain tree canopies. 
-                Your authentic launchpad for Lan Ha Bay expeditions and Cat Ba limestone adventures.
+                Heavy wooden bunks with real privacy curtains. A garden courtyard where everyone hangs out after boat trips. No cheesy games. Just a solid spot to crash, eat with other travelers, and book good island tours.
               </p>
             </div>
 
-            {/* Heavy Indochine Quick-Booking Bar (Tactile & Solid Shadow) */}
+            {/* Quick Booking Bar */}
             <div className="mt-8 p-5 bg-[#E8E8DF] border-2 border-[#1B3320] shadow-[6px_6px_0px_0px_#1B3320] relative">
               <div className="absolute -top-3 left-4 bg-[#1B3320] text-[#D4AF37] text-[10px] font-mono uppercase tracking-widest px-2.5 py-0.5 border border-[#D4AF37]">
-                DIRECT BOOKING ENGINE • BEST RATE GUARANTEE
+                DIRECT BOOKING • CHEAPEST PRICE HERE
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
@@ -97,109 +96,109 @@ export const HeroImmersive: React.FC = () => {
                       onChange={(e) => setGuests(Number(e.target.value))}
                       className="bg-transparent border-none p-0 text-xs font-semibold focus:outline-none w-full text-[#1B3320] cursor-pointer"
                     >
-                      <option value={1}>1 Solo Explorer</option>
-                      <option value={2}>2 Companions</option>
-                      <option value={3}>3 Travel Crew</option>
-                      <option value={4}>4+ Group Tribe</option>
+                      <option value={1}>1 Solo traveler</option>
+                      <option value={2}>2 People</option>
+                      <option value={3}>3 Friends</option>
+                      <option value={4}>4+ Group</option>
                     </select>
                   </div>
                 </div>
 
-                {/* Massive Gold CTA Button */}
+                {/* Direct CTA Button */}
                 <button
                   onClick={() => openBooking()}
                   className="w-full bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold text-sm uppercase tracking-wider py-3 px-4 border-2 border-[#1B3320] shadow-[3px_3px_0px_0px_#1B3320] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_0px_#1B3320] transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span>Book Your Stay</span>
+                  <span>Book a Bed</span>
                   <ArrowDownRight className="w-4 h-4 text-[#1B3320]" />
                 </button>
               </div>
 
-              {/* Host Perks Micro-Tag */}
+              {/* Real hostel perks */}
               <div className="mt-3 flex flex-wrap items-center justify-between text-[11px] font-mono text-[#3E2723]/80 border-t border-[#D8D8CC] pt-2">
-                <span>✓ Free Courtyard Family Breakfast</span>
-                <span>✓ Free Plankton Night Tour Briefing</span>
-                <span>✓ High-Speed Mesh Wi-Fi</span>
+                <span>✓ Free big breakfast included</span>
+                <span>✓ Pay on arrival (cash or card)</span>
+                <span>✓ Fast Wi-Fi that actually works</span>
               </div>
             </div>
 
-            {/* Quick Courtyard Pulse Teaser */}
+            {/* Tonight's Event Strip */}
             <div className="mt-6 flex items-center gap-4 text-xs font-medium text-[#3E2723]">
               <div className="flex -space-x-2 overflow-hidden border border-[#1B3320] p-0.5 bg-[#E8E8DF]">
                 <img 
                   src="/images/community_moment.png" 
-                  alt="Hostel Guest" 
+                  alt="Hostel guest" 
                   className="inline-block h-6 w-6 object-cover border border-[#1B3320]"
                 />
                 <img 
                   src="/images/secret_garden_social_night.jpg" 
-                  alt="Hostel Host" 
+                  alt="Hostel team" 
                   className="inline-block h-6 w-6 object-cover border border-[#1B3320]"
                 />
                 <img 
                   src="/images/secret_garden_logo.jpg" 
-                  alt="Hostel Staff" 
+                  alt="Secret Garden staff" 
                   className="inline-block h-6 w-6 object-cover border border-[#1B3320]"
                 />
               </div>
               <p className="text-xs text-[#1B3320] font-semibold">
-                <span className="font-bold text-[#1B3320]">Tonight&apos;s Pulse:</span> Acoustic Jam Session & Lime Rum Punch in courtyard from 7:30 PM
+                <span className="font-bold text-[#1B3320]">Tonight at 7:30 PM:</span> Acoustic jam in the courtyard. Free welcome drink on the house.
               </p>
             </div>
           </div>
 
-          {/* Right Column: Densely Layered Overlapping Image Grid (No Flat Backgrounds) */}
+          {/* Right Column: Layered Real Hostel Photos */}
           <div className="lg:col-span-5 relative">
             <div className="relative w-full min-h-[460px] sm:min-h-[520px]">
               
-              {/* Back Layer: Courtyard Arch / Bar Atmosphere */}
+              {/* Back Layer */}
               <div className="absolute top-0 right-0 w-[88%] h-[320px] sm:h-[360px] border-2 border-[#1B3320] shadow-[6px_6px_0px_0px_#1B3320] overflow-hidden bg-[#1B3320]">
                 <img
                   src="/images/secret_garden_reception_bar.jpg"
-                  alt="Secret Garden Hostel Reception & Tropical Bar"
+                  alt="Garden Bar and Reception"
                   className="w-full h-full object-cover filter saturate-[1.1] contrast-[1.05]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1B3320]/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-3 left-3 bg-[#1B3320]/90 text-[#F5F5F0] border border-[#D4AF37] px-2.5 py-1 text-[11px] font-mono uppercase">
-                  Lush Reception Bar • Free Rum Shots at 7PM
+                  Garden Bar • 25k VND Cold Beer
                 </div>
               </div>
 
-              {/* Overlapping Mid Layer: Social Evening Gathering */}
+              {/* Overlapping Mid Layer */}
               <div className="absolute bottom-12 left-0 w-[72%] h-[240px] sm:h-[270px] border-2 border-[#1B3320] shadow-[6px_6px_0px_0px_#3E2723] overflow-hidden bg-[#3E2723] z-20">
                 <img
                   src="/images/secret_garden_social_night.jpg"
-                  alt="Secret Garden Hostel Social Evening"
+                  alt="Evening in the garden courtyard"
                   className="w-full h-full object-cover filter saturate-[1.15]"
                 />
                 <div className="absolute top-2 right-2 bg-[#D4AF37] text-[#1B3320] font-mono font-bold text-[10px] px-2 py-0.5 border border-[#1B3320]">
-                  COMMUNITY NIGHTS
+                  EVENING COURTYARD
                 </div>
                 <div className="absolute bottom-2 left-2 right-2 bg-[#F5F5F0]/95 text-[#1B3320] p-2 text-xs font-semibold border border-[#1B3320]">
-                  &quot;The warmest hostel in Southeast Asia&quot; • 9.8 Host Score
+                  Family dinner starts at 6:30 PM • 9.8 score on Hostelworld
                 </div>
               </div>
 
-              {/* Foreground Floating Polaroid Stamp: Entrance & Botanical Canopy */}
+              {/* Foreground Floating Polaroid Stamp */}
               <div className="absolute -bottom-4 right-2 w-[52%] border-2 border-[#1B3320] bg-[#F5F5F0] p-2 shadow-[5px_5px_0px_0px_#1B3320] z-30 transform rotate-1 hover:rotate-0 transition-transform">
                 <div className="relative h-28 sm:h-32 overflow-hidden border border-[#1B3320]">
                   <img
                     src="/images/secret_garden_entrance_arch.jpg"
-                    alt="Entrance Botanical Archway"
+                    alt="Hostel garden gate"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="pt-2 flex items-center justify-between text-[10px] font-mono text-[#3E2723]">
-                  <span className="font-bold">GARDEN ARCHWAY</span>
+                  <span className="font-bold">GARDEN GATE</span>
                   <span className="text-[#D4AF37]">✦ CAT BA</span>
                 </div>
               </div>
 
-              {/* Vintage Indochine Stamp Badge */}
+              {/* Coffee badge */}
               <div className="absolute -top-3 -left-3 z-30 bg-[#3E2723] text-[#F5F5F0] border-2 border-[#D4AF37] p-2.5 shadow-[3px_3px_0px_0px_#1B3320] flex flex-col items-center justify-center text-center">
                 <Coffee className="w-4 h-4 text-[#D4AF37] mb-0.5" />
-                <span className="font-mono text-[9px] uppercase tracking-widest text-[#D4AF37]">PHIN COFFEE</span>
-                <span className="text-[11px] font-bold font-serif">& GARDEN CAFE</span>
+                <span className="font-mono text-[9px] uppercase tracking-widest text-[#D4AF37]">DRIP COFFEE</span>
+                <span className="text-[11px] font-bold font-serif">& BREAKFAST</span>
               </div>
 
             </div>

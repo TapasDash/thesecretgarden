@@ -17,8 +17,8 @@ const beVietnamPro = Be_Vietnam_Pro({
 })
 
 export const metadata: Metadata = {
-  title: 'Secret Garden Hostel | Cat Ba Island Social Sanctuary',
-  description: 'An organic, Indochine-tropical, host-centric sanctuary in Cat Ba Island. Dense courtyard energy, daily social pulse, epic expeditions, and handcrafted beds.',
+  title: 'Secret Garden Hostel | Cat Ba Island',
+  description: 'Good beds, cold AC, cheap beer, and free family dinners. The main spot to stay and meet people on Cat Ba Island.',
   icons: {
     icon: '/icon.svg',
   },

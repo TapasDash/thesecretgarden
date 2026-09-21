@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Users, Bed, Wifi, Wind, Lock, Shield, Check, Sparkles, ArrowRight, Sun, Bath } from 'lucide-react'
+import { Users, Bed, Check, Sparkles, ArrowRight, Lock, Wind } from 'lucide-react'
 import { useHostelStore, RoomCategory } from '@/lib/store'
 
 interface RoomOption {
@@ -23,76 +23,76 @@ interface RoomOption {
 const ROOM_OPTIONS: RoomOption[] = [
   {
     id: 'bamboo-dorm-8',
-    title: '8-Bed Botanical Bamboo Dorm',
+    title: '8-Bed Wooden Dorm',
     type: 'dorm',
     categoryLabel: 'Dorm Bed',
-    capacity: '1 Person (Single Pod)',
+    capacity: '1 Person (Single Bunk)',
     priceUSD: '$8',
     priceVND: '200,000 VND',
     unit: '/ night',
-    description: 'Custom crafted solid teakwood bunk pods with privacy blackout curtains, dedicated USB & AC power sockets, personal locker, and reading light.',
-    amenities: ['Individual Privacy Curtain', 'Solid Teak Construction', 'AC Aircon 24/7', 'Large Underbed Locker', 'Fresh Linen & Towel'],
-    badge: 'MOST SOCIAL',
+    description: 'Heavy solid wooden bunks that do not squeak or shake when people climb up. Full blackout privacy curtain, personal power socket, reading light, and large under-bed lockbox.',
+    amenities: ['Full blackout privacy curtain', 'Solid wood frame (no squeaks)', 'AC on all night', 'Big lockbox under bed', 'Clean sheets & towel provided'],
+    badge: 'MOST POPULAR',
     availableCount: 4,
     image: '/images/secret_garden_social_night.jpg',
   },
   {
     id: 'teak-dorm-4',
-    title: '4-Bed Intimate Garden Dorm',
+    title: '4-Bed Small Garden Dorm',
     type: 'dorm',
     categoryLabel: 'Dorm Bed',
-    capacity: '1 Person (Spacious Pod)',
+    capacity: '1 Person (Spacious Bunk)',
     priceUSD: '$11',
     priceVND: '275,000 VND',
     unit: '/ night',
-    description: 'Quiet, premium low-density dorm with garden balcony views, orthopedic memory foam mattress, whisper-quiet Daikin aircon, and ensuite hot shower.',
-    amenities: ['Ensuite Hot Shower', 'Garden Balcony Access', 'Orthopedic Mattress', 'Electronic Locker', 'Daily Housekeeping'],
-    badge: 'COZY & QUIET',
+    description: 'Quieter 4-bed room with its own private ensuite bathroom and strong hot shower. Great if you want a good night of sleep before early morning hikes.',
+    amenities: ['Ensuite bathroom & hot shower', 'Garden view window', 'Comfortable thick mattress', 'Electronic locker', 'Daily room cleaning'],
+    badge: 'QUIET & COZY',
     availableCount: 2,
     image: '/images/secret_garden_reception_bar.jpg',
   },
   {
-    id: 'female-sanctuary-6',
-    title: '6-Bed Female Courtyard Sanctuary',
+    id: 'female-dorm-6',
+    title: '6-Bed Female Dorm',
     type: 'dorm',
     categoryLabel: 'Dorm Bed',
-    capacity: '1 Female Explorer',
+    capacity: '1 Female Traveler',
     priceUSD: '$10',
     priceVND: '250,000 VND',
     unit: '/ night',
-    description: 'Exclusive female-only sanctuary dorm located right near the inner herb courtyard. Features full vanity mirrors, hairdryer station, and security keypad lock.',
-    amenities: ['Keypad Security Lock', 'Vanity & Hairdryer Hub', 'Privacy Curtains', 'Organic Herbal Toiletries', 'Courtyard View'],
+    description: 'Female-only dorm located right off the quiet garden courtyard. Full vanity mirror, hair dryer station, privacy curtains on all bunks, and secure door code.',
+    amenities: ['Secure keypad door lock', 'Vanity mirror & hair dryers', 'Full privacy curtains', 'Individual locked storage', 'Courtyard garden view'],
     badge: 'FEMALE ONLY',
     availableCount: 3,
     image: '/images/secret_garden_entrance_arch.jpg',
   },
   {
     id: 'indochine-private-balcony',
-    title: 'Colonial Deluxe Double Room',
+    title: 'Private Double Room with Balcony',
     type: 'private',
-    categoryLabel: 'Private Suite',
-    capacity: 'Up to 2 Guests',
+    categoryLabel: 'Private Room',
+    capacity: 'Up to 2 people',
     priceUSD: '$29',
     priceVND: '725,000 VND',
     unit: '/ room / night',
-    description: 'Grand colonial master bedroom with king teakwood bed, private French balcony overlooking limestone karst hills, ensuite mosaic bathroom, and artisanal tea bar.',
-    amenities: ['King Teakwood Bed', 'Private Karst View Balcony', 'Ensuite Rain Shower', 'Handmade Phin Coffee Bar', 'Work Desk & Fast Fiber'],
-    badge: 'PRIVATE SANCTUARY',
+    description: 'Big wooden king bed, private balcony overlooking the limestone mountain, private bathroom with strong hot shower, and quiet split AC.',
+    amenities: ['King-size wooden bed', 'Private mountain view balcony', 'Ensuite hot rain shower', 'Coffee station & kettle', 'Desk space & fast Wi-Fi'],
+    badge: 'PRIVATE ROOM',
     availableCount: 1,
     image: '/images/courtyard_mural.png',
   },
   {
     id: 'garden-bungalow-suite',
-    title: 'Secret Garden Botanical Suite',
+    title: 'Garden Bungalow (1 Double + 1 Single)',
     type: 'private',
-    categoryLabel: 'Private Suite',
-    capacity: 'Up to 3 Guests',
+    categoryLabel: 'Private Room',
+    capacity: 'Up to 3 people',
     priceUSD: '$38',
     priceVND: '950,000 VND',
     unit: '/ room / night',
-    description: 'Secluded courtyard garden villa with 1 Queen Bed + 1 Daybed, outdoor bamboo outdoor shower patio, hammock corner, and complimentary fruit basket.',
-    amenities: ['Queen Bed + Daybed', 'Private Bamboo Patio', 'Hammock Nook', 'Ensuite Stone Bathroom', 'Daily Breakfast Buffet'],
-    badge: 'HOST FAVORITE',
+    description: 'Detached garden bungalow with 1 queen bed and 1 single daybed. Private bamboo outdoor patio with hammock, ensuite stone bathroom, and free breakfast.',
+    amenities: ['1 Queen Bed + 1 Single Bed', 'Private bamboo patio with hammock', 'Ensuite stone bathroom', 'Free big breakfast included', 'Quiet corner of the garden'],
+    badge: 'GREAT FOR GROUPS',
     availableCount: 2,
     image: '/images/community_moment.png',
   },
@@ -123,17 +123,17 @@ export const AccommodationMenu: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#3E2723] text-[#D4AF37] text-[11px] font-mono tracking-widest uppercase border border-[#3E2723] mb-2">
               <Bed className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>ACCOMMODATION MENU</span>
+              <span>ROOMS & BEDS</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#1B3320]">
-              Handcrafted Beds & Suites
+              Dorms & Private Rooms
             </h2>
             <p className="text-xs sm:text-sm text-[#3E2723]/90 font-sans max-w-[52ch] mt-1">
-              Custom-welded steel & natural teakwood. Built for deep restorative sleep after long island treks.
+              Solid wood beds, real mattresses, cold AC running all night, and hot high-pressure showers.
             </p>
           </div>
 
-          {/* Filter Pills (Zustand Controlled) */}
+          {/* Filter Pills */}
           <div className="flex items-center bg-[#E8E8DF] p-1 border-2 border-[#1B3320] shadow-[3px_3px_0px_0px_#1B3320]">
             {(['all', 'dorm', 'private'] as RoomCategory[]).map((cat) => (
               <button
@@ -145,13 +145,13 @@ export const AccommodationMenu: React.FC = () => {
                     : 'text-[#3E2723] hover:text-[#1B3320]'
                 }`}
               >
-                {cat === 'all' ? 'All Spaces' : cat === 'dorm' ? 'Dorm Pods' : 'Private Rooms'}
+                {cat === 'all' ? 'All Rooms' : cat === 'dorm' ? 'Dorms' : 'Private Rooms'}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Brutalist / Indochine List Layout (1px Solid Separator Lines) */}
+        {/* Brutalist / List Layout */}
         <div className="border-2 border-[#1B3320] shadow-[6px_6px_0px_0px_#1B3320] bg-[#F5F5F0] divide-y divide-[#D8D8CC]">
           {filteredRooms.map((room) => (
             <div
@@ -184,7 +184,7 @@ export const AccommodationMenu: React.FC = () => {
                       {room.capacity}
                     </span>
                     <span className="text-[10px] font-mono text-[#3E2723]/70">
-                      • {room.availableCount} {room.type === 'dorm' ? 'beds' : 'rooms'} left for today
+                      • {room.availableCount} {room.type === 'dorm' ? 'beds' : 'rooms'} open right now
                     </span>
                   </div>
 
@@ -241,19 +241,19 @@ export const AccommodationMenu: React.FC = () => {
           ))}
         </div>
 
-        {/* Bottom Booking Perks Strip */}
+        {/* Bottom Reassurance */}
         <div className="mt-6 p-4 bg-[#E8E8DF] border border-[#1B3320] flex flex-wrap items-center justify-around gap-4 text-xs font-mono text-[#1B3320]">
           <div className="flex items-center gap-1.5">
             <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-            <span>Complimentary Island Breakfast (7:30 - 10:00 AM)</span>
+            <span>Free Big Breakfast Every Morning (7:30 - 10:00 AM)</span>
           </div>
           <div className="flex items-center gap-1.5">
             <Lock className="w-4 h-4 text-[#D4AF37]" />
-            <span>Secure Luggage Storage Before & After Check-In</span>
+            <span>Free Bag Storage Before Check-In & After Check-Out</span>
           </div>
           <div className="flex items-center gap-1.5">
             <Wind className="w-4 h-4 text-[#D4AF37]" />
-            <span>Cold AC & High-Pressure Showers Always Guaranteed</span>
+            <span>Ice Cold AC & Strong Hot Showers Every Day</span>
           </div>
         </div>
 

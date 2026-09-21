@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Music, HelpCircle, UtensilsCrossed, Film, Clock, Users, Sparkles, MapPin, CheckCircle2 } from 'lucide-react'
+import { Music, HelpCircle, UtensilsCrossed, Film, Clock, Users, Sparkles, CheckCircle2 } from 'lucide-react'
 import { useHostelStore } from '@/lib/store'
 
 interface VibeEvent {
@@ -25,64 +25,64 @@ const VIBE_EVENTS: VibeEvent[] = [
   {
     id: 'jam-session',
     title: 'Jam Session',
-    subtitle: 'Acoustic Strings & Jungle Beats',
+    subtitle: 'Acoustic guitars, drums & free rum punch',
     day: 'TUESDAY & FRIDAY',
     time: '7:30 PM - 11:00 PM',
-    host: 'Linh & The Cat Ba Travelers Crew',
-    location: 'Courtyard Bamboo Pavilion',
-    description: 'Grab an acoustic guitar, cajón, or djembe from our stage rack. We light the kerosene lanterns, pour complementary passionfruit rum, and sing classic anthems under the palms.',
-    perks: ['Free Welcome Rum Punch', 'Instruments Provided', 'Songbook & Open Mic'],
+    host: 'Linh & the hostel crew',
+    location: 'Courtyard bamboo corner',
+    description: 'We have guitars, a cajón box, and drums by the bar. Grab an instrument or just sit with a beer and sing along. Free welcome rum punch for everyone who shows up.',
+    perks: ['Free welcome drink', 'Guitars and percussion to use', 'No pressure, just good songs'],
     icon: <Music className="w-5 h-5 text-[#D4AF37]" />,
     tag: 'MOST POPULAR',
-    accentBadge: 'LIVE SOUND',
+    accentBadge: 'ACOUSTIC NIGHT',
     colSpan: 'lg:col-span-7',
     image: '/images/secret_garden_social_night.jpg',
   },
   {
     id: 'quiz-night',
     title: 'Quiz Night',
-    subtitle: 'Wild Trivia & Free Drink Rounds',
+    subtitle: 'Pub trivia & free shots for winning team',
     day: 'WEDNESDAY & SUNDAY',
     time: '8:00 PM - 10:00 PM',
-    host: 'Alex (Vietnam Expat & Geographer)',
-    location: 'Garden Bar & Patio',
-    description: 'High-energy team trivia covering backpacker survival, world music, geography fails, and Vietnam lore. The winning dorm table scores a free tour discount & shots for everyone.',
-    perks: ['Free Entry for Guests', 'Winning Team Grand Prize', 'Happy Hour Prices All Night'],
+    host: 'Alex (tour guide & island local)',
+    location: 'Garden bar area',
+    description: 'Easy way to meet people. We put everyone into random dorm teams so you do not have to walk in with a group. Questions about music, geography, and funny travel stories.',
+    perks: ['Free to join for guests', 'Winning team gets free drinks', 'Happy hour prices all night'],
     icon: <HelpCircle className="w-5 h-5 text-[#D4AF37]" />,
-    tag: 'TEAM BATTLE',
-    accentBadge: 'TRIVIA & SHOTS',
+    tag: 'EASY TO MEET PEOPLE',
+    accentBadge: 'TRIVIA & DRINKS',
     colSpan: 'lg:col-span-5',
     image: '/images/community_moment.png',
   },
   {
     id: 'cooking-class',
     title: 'Cooking Class',
-    subtitle: 'Hand-rolled Spring Rolls & Phở Secrets',
-    day: 'DAILY AT SUNSET',
+    subtitle: 'Roll fresh spring rolls with Mama Huong',
+    day: 'EVERY DAY AT 5 PM',
     time: '5:00 PM - 6:30 PM',
-    host: 'Mama Huong (Hostel Matriarch)',
-    location: 'Open Courtyard Kitchen',
-    description: 'Learn family recipes passed down 3 generations. Roll crispy nem rán (fried spring rolls), mix authentic dipping nuoc mam sauce, and devour your creations together before nightfall.',
-    perks: ['Fresh Island Herbs Included', 'Recipe Postcard to Take Home', 'Eat Everything You Cook'],
+    host: 'Mama Huong',
+    location: 'Courtyard open kitchen',
+    description: 'Mama Huong shows you how to roll crispy Vietnamese spring rolls and mix real sweet-chili dipping sauce. You get to eat everything you make right before dinner.',
+    perks: ['All ingredients included', 'Simple recipe you can make at home', 'Eat everything you cook'],
     icon: <UtensilsCrossed className="w-5 h-5 text-[#D4AF37]" />,
-    tag: 'AUTHENTIC TASTE',
-    accentBadge: 'FAMILY RECIPES',
+    tag: 'FREE FOOD',
+    accentBadge: 'MAMA HUONG',
     colSpan: 'lg:col-span-5',
     image: '/images/courtyard_mural.png',
   },
   {
     id: 'movie-night',
     title: 'Movie Night',
-    subtitle: 'Courtyard Starlight Projector & Popcorn',
+    subtitle: 'Outdoor projector, beanbags & popcorn',
     day: 'THURSDAY & MONDAY',
-    time: '8:30 PM - Late',
-    host: 'Secret Garden Cine Club',
-    location: 'Rooftop Hammocks & Beanbag Deck',
-    description: 'Chill vibe cinema on our massive weathered whitewash wall. We screen cult travel classics, Ghibli gems, and indie documentaries with freshly popped buttered corn and cold coconuts.',
-    perks: ['Fresh Popcorn Included', 'Cozy Blanket & Hammocks', 'Cold Coconut & Cocktail Service'],
+    time: '8:30 PM - 10:30 PM',
+    host: 'Garden Movie Club',
+    location: 'Rooftop hammock deck',
+    description: 'Chill evening after a long day of kayaking or motorbiking. We set up the big screen on the whitewashed wall, hand out warm popcorn, and play classic travel films.',
+    perks: ['Free hot popcorn', 'Big beanbags and hammocks', 'Cold beer and coconut water at the bar'],
     icon: <Film className="w-5 h-5 text-[#D4AF37]" />,
-    tag: 'CHILL SANCTUARY',
-    accentBadge: 'CINEMA UNDER STARS',
+    tag: 'CHILL NIGHT',
+    accentBadge: 'BIG SCREEN',
     colSpan: 'lg:col-span-7',
     image: '/images/secret_garden_reception_bar.jpg',
   },
@@ -105,38 +105,36 @@ export const TheHostVibeBoard: React.FC = () => {
 
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header: Anti-slop, Indochine Editorial Headline */}
+        {/* Section Header */}
         <div className="mb-10 sm:mb-12 border-b border-[#F5F5F0]/20 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#3E2723] text-[#D4AF37] text-[11px] font-mono tracking-widest uppercase border border-[#D4AF37]/50">
               <Sparkles className="w-3 h-3 text-[#D4AF37]" />
-              <span>THE DAILY SOCIAL PULSE</span>
+              <span>WHAT HAPPENS EVERY WEEK</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F0]">
-              The Host Vibe Board
+              What&apos;s On This Week
             </h2>
             <p className="text-sm sm:text-base text-[#F5F5F0]/80 font-sans max-w-[55ch]">
-              Never a boring night in Cat Ba. Every gathering is hosted by our island family, 
-              crafted to connect solo wanderers without awkward forced icebreakers.
+              You never have to sit alone in your dorm room. Every night has something going on downstairs in the courtyard. Show up, grab a drink, and meet people naturally.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
             <div className="bg-[#3E2723] border border-[#D4AF37] px-4 py-2 text-right shadow-[3px_3px_0px_0px_#000]">
-              <span className="block text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider">ALL EVENTS INCLUDED</span>
-              <span className="text-xs font-bold text-[#F5F5F0]">Free for Staying Guests</span>
+              <span className="block text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider">ALL HOSTEL EVENTS</span>
+              <span className="text-xs font-bold text-[#F5F5F0]">100% Free for Guests</span>
             </div>
           </div>
         </div>
 
-        {/* Asymmetrical Bento Grid: 4 Core Events with Rice Paper & Teakwood Accents */}
+        {/* Asymmetrical Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {VIBE_EVENTS.map((event) => (
             <div
               key={event.id}
               className={`${event.colSpan} bg-[#142618] border-2 border-[#D4AF37]/40 p-6 sm:p-7 relative flex flex-col justify-between shadow-[6px_6px_0px_0px_#3E2723] hover:border-[#D4AF37] transition-all group`}
             >
-              {/* Card Top Stamp & Details */}
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                   <div className="flex items-center gap-2">
@@ -169,7 +167,7 @@ export const TheHostVibeBoard: React.FC = () => {
                   {event.description}
                 </p>
 
-                {/* Event Highlights List */}
+                {/* Highlights */}
                 <div className="space-y-1.5 mb-6 bg-[#1B3320] p-3 border border-[#F5F5F0]/10">
                   {event.perks.map((perk, i) => (
                     <div key={i} className="flex items-center gap-2 text-xs text-[#F5F5F0]/90">
@@ -180,43 +178,43 @@ export const TheHostVibeBoard: React.FC = () => {
                 </div>
               </div>
 
-              {/* Card Footer: Host Name & Interactive RSVP / Detail Button */}
+              {/* Host & View Details */}
               <div className="pt-4 border-t border-[#F5F5F0]/15 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2 text-xs text-[#F5F5F0]/70 font-mono">
                   <Users className="w-3.5 h-3.5 text-[#D4AF37]" />
-                  <span>Host: <strong className="text-[#F5F5F0]">{event.host}</strong></span>
+                  <span>Organized by: <strong className="text-[#F5F5F0]">{event.host}</strong></span>
                 </div>
 
                 <button
                   onClick={() => setActiveVibeModal(event.id)}
                   className="px-3.5 py-1.5 bg-[#3E2723] hover:bg-[#D4AF37] text-[#F5F5F0] hover:text-[#1B3320] font-mono text-xs uppercase tracking-wider border border-[#D4AF37] transition-colors cursor-pointer"
                 >
-                  View Details & Photos →
+                  See Photos & Info →
                 </button>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom Courtyard Philosophy Strip */}
+        {/* Bottom philosophy */}
         <div className="mt-8 p-4 bg-[#3E2723] border border-[#D4AF37]/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-3">
-            <span className="text-lg">🌿</span>
+            <span className="text-lg">🍺</span>
             <p className="text-[#F5F5F0]/90 font-medium">
-              <strong>The Secret Garden Guarantee:</strong> No forced commercial nightlife. Real friendships formed around crackling acoustic nights and home-cooked family dinners.
+              <strong>Family dinners every night at 6:30 PM:</strong> 70,000 VND for all-you-can-eat Vietnamese dishes around one big table. Vegetarians and vegans always covered.
             </p>
           </div>
           <button
             onClick={() => openBooking()}
             className="shrink-0 px-4 py-2 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold uppercase tracking-wider text-xs border border-[#1B3320] shadow-[2px_2px_0px_0px_#000] cursor-pointer"
           >
-            Join This Week&apos;s Circle
+            Book a Bed & Join In
           </button>
         </div>
 
       </div>
 
-      {/* Interactive Event Detail Modal */}
+      {/* Modal */}
       {selectedEvent && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
           <div className="w-full max-w-lg bg-[#1B3320] border-2 border-[#D4AF37] shadow-[8px_8px_0px_0px_#000] p-6 text-[#F5F5F0] relative">
@@ -256,7 +254,7 @@ export const TheHostVibeBoard: React.FC = () => {
             </p>
 
             <div className="bg-[#142618] p-3 border border-[#F5F5F0]/20 mb-5 space-y-1.5">
-              <div className="text-[11px] font-mono text-[#D4AF37] uppercase font-bold">What to expect:</div>
+              <div className="text-[11px] font-mono text-[#D4AF37] uppercase font-bold">Good to know:</div>
               {selectedEvent.perks.map((p, i) => (
                 <div key={i} className="text-xs text-[#F5F5F0]/90 flex items-center gap-2">
                   <CheckCircle2 className="w-3 h-3 text-[#D4AF37]" />
@@ -267,7 +265,7 @@ export const TheHostVibeBoard: React.FC = () => {
 
             <div className="flex items-center justify-between gap-3 pt-3 border-t border-[#F5F5F0]/20">
               <span className="text-xs font-mono text-[#F5F5F0]/70">
-                Location: <strong>{selectedEvent.location}</strong>
+                Where: <strong>{selectedEvent.location}</strong>
               </span>
               <button
                 onClick={() => {

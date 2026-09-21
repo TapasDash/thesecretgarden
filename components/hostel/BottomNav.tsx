@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Calendar, Sparkles, Coffee, Compass, Bed, Phone, X, Check } from 'lucide-react'
+import { Sparkles, Coffee, Compass, Bed, X } from 'lucide-react'
 import { useHostelStore } from '@/lib/store'
 
 export const BottomNav: React.FC = () => {
@@ -24,7 +24,7 @@ export const BottomNav: React.FC = () => {
       >
         <div className="grid grid-cols-4 items-stretch h-16">
           
-          {/* 1. Book / Stay Button (Gold Highlighted) */}
+          {/* 1. Book / Stay Button */}
           <button
             onClick={() => openBooking()}
             className="flex flex-col items-center justify-center gap-1 bg-[#D4AF37] text-[#1B3320] font-bold border-r border-[#1B3320] active:bg-[#c29f30] transition-colors cursor-pointer"
@@ -35,14 +35,14 @@ export const BottomNav: React.FC = () => {
             </span>
           </button>
 
-          {/* 2. Vibe Pulse Button */}
+          {/* 2. Vibe Button */}
           <button
             onClick={() => scrollToSection('vibe')}
             className="flex flex-col items-center justify-center gap-1 hover:bg-[#1B3320] border-r border-[#D4AF37]/30 text-[#F5F5F0] active:text-[#D4AF37] transition-colors cursor-pointer"
           >
             <Sparkles className="w-5 h-5 text-[#D4AF37]" />
             <span className="text-[10px] font-mono uppercase tracking-wider font-semibold">
-              Vibe
+              Events
             </span>
           </button>
 
@@ -53,7 +53,7 @@ export const BottomNav: React.FC = () => {
           >
             <Coffee className="w-5 h-5 text-[#D4AF37]" />
             <span className="text-[10px] font-mono uppercase tracking-wider font-semibold">
-              Cafe Menu
+              Drinks & Food
             </span>
           </button>
 
@@ -80,7 +80,7 @@ export const BottomNav: React.FC = () => {
               <div className="flex items-center gap-2">
                 <Coffee className="w-5 h-5 text-[#3E2723]" />
                 <h3 className="font-serif text-xl font-bold text-[#1B3320]">
-                  Courtyard Cafe & Bar
+                  Garden Cafe & Bar Menu
                 </h3>
               </div>
               <button
@@ -96,41 +96,41 @@ export const BottomNav: React.FC = () => {
               {/* Coffee Section */}
               <div className="bg-[#E8E8DF] p-3 border border-[#D8D8CC]">
                 <div className="text-[11px] font-mono text-[#3E2723] font-bold uppercase mb-2">
-                  ☕ Handcrafted Island Phin Coffee
+                  ☕ Vietnamese Drip Coffee
                 </div>
                 <div className="space-y-1.5 font-sans">
                   <div className="flex justify-between font-semibold">
-                    <span>Traditional Phin Black / Condensed Milk (Cà Phê Sữa Đá)</span>
+                    <span>Iced Coffee with Condensed Milk (Cà Phê Sữa Đá)</span>
                     <span>35,000 VND</span>
                   </div>
                   <div className="flex justify-between font-semibold">
-                    <span>Hanoi Egg Coffee (Hand-whipped custard yolk)</span>
+                    <span>Hanoi Egg Coffee (Whipped yolk cream)</span>
                     <span>50,000 VND</span>
                   </div>
                   <div className="flex justify-between font-semibold">
-                    <span>Salted Coconut Cream Iced Coffee</span>
+                    <span>Iced Coconut Milk Coffee</span>
                     <span>45,000 VND</span>
                   </div>
                 </div>
               </div>
 
-              {/* Jungle Bar Section */}
+              {/* Garden Bar Section */}
               <div className="bg-[#1B3320] text-[#F5F5F0] p-3 border border-[#D4AF37]">
                 <div className="text-[11px] font-mono text-[#D4AF37] font-bold uppercase mb-2">
-                  🍹 Tropical Sunset Bar & Cold Drafts
+                  🍹 Beer & Rum Punch
                 </div>
                 <div className="space-y-1.5 font-sans">
+                  <div className="flex justify-between">
+                    <span>Cold Hanoi Beer / Saigon Special</span>
+                    <span className="text-[#D4AF37] font-bold">25,000 VND</span>
+                  </div>
                   <div className="flex justify-between">
                     <span>Fresh Lime & Passionfruit Rum Punch</span>
                     <span className="text-[#D4AF37] font-bold">55,000 VND</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Cat Ba Dragon Fruit Mojito</span>
-                    <span className="text-[#D4AF37] font-bold">60,000 VND</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Cold Hanoi Beer / Saigon Special</span>
-                    <span className="text-[#D4AF37] font-bold">25,000 VND</span>
+                    <span>Fresh Whole Coconut</span>
+                    <span className="text-[#D4AF37] font-bold">35,000 VND</span>
                   </div>
                 </div>
               </div>
@@ -138,19 +138,19 @@ export const BottomNav: React.FC = () => {
               {/* Kitchen Bites */}
               <div className="bg-[#E8E8DF] p-3 border border-[#D8D8CC]">
                 <div className="text-[11px] font-mono text-[#3E2723] font-bold uppercase mb-2">
-                  🥖 Garden Kitchen Bites
+                  🥖 Kitchen Snacks
                 </div>
                 <div className="space-y-1.5 font-sans">
                   <div className="flex justify-between font-semibold">
-                    <span>Crispy Pork / Tofu Bánh Mì</span>
+                    <span>Crispy Pork or Fried Tofu Bánh Mì</span>
                     <span>40,000 VND</span>
                   </div>
                   <div className="flex justify-between font-semibold">
-                    <span>Fresh Herbal Spring Rolls (3 pcs)</span>
+                    <span>Crispy Spring Rolls (3 pieces)</span>
                     <span>50,000 VND</span>
                   </div>
                   <div className="flex justify-between font-semibold">
-                    <span>Morning Dragon Fruit Smoothie Bowl</span>
+                    <span>Tropical Fruit Smoothie Bowl</span>
                     <span>65,000 VND</span>
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export const BottomNav: React.FC = () => {
                 }}
                 className="w-full py-2.5 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold uppercase text-xs tracking-wider border border-[#1B3320] shadow-[2px_2px_0px_0px_#1B3320] cursor-pointer"
               >
-                Stay With Us & Enjoy 15% Cafe Discount
+                Book a Bed Directly
               </button>
             </div>
 

@@ -9,7 +9,7 @@ import { AccommodationMenu } from '@/components/hostel/AccommodationMenu'
 import { CourtyardStory } from '@/components/hostel/CourtyardStory'
 import { BottomNav } from '@/components/hostel/BottomNav'
 import { BookingDrawer } from '@/components/hostel/BookingDrawer'
-import { MapPin, Phone, Mail, Compass, Heart, Sparkles, Coffee } from 'lucide-react'
+import { MapPin, Phone, Mail } from 'lucide-react'
 import { useHostelStore } from '@/lib/store'
 
 export default function Page() {
@@ -18,30 +18,30 @@ export default function Page() {
   return (
     <main className="w-full min-h-screen bg-[#F5F5F0] text-[#1B3320] relative pb-20 md:pb-0 overflow-x-hidden">
       
-      {/* 1. Colonial Header with Live Island Weather */}
+      {/* 1. Header with Live Island Weather */}
       <HeaderNavBar />
 
-      {/* 2. HeroImmersive: Layered Overlapping Visuals & Pinned Gold CTA */}
+      {/* 2. Hero Section: Direct facts, photo grid & booking bar */}
       <HeroImmersive />
 
-      {/* 3. TheHostVibeBoard: Asymmetrical Bento Grid for Daily Social Pulse */}
+      {/* 3. The Host Vibe Board: Weekly hostel events */}
       <TheHostVibeBoard />
 
-      {/* 4. Expeditions: Horizontal Swipeable Tours Container */}
+      {/* 4. Expeditions: Honest tours & treks */}
       <Expeditions />
 
-      {/* 5. AccommodationMenu: Brutalist Indochine List Layout */}
+      {/* 5. Accommodation Menu: Clean dorms & private rooms */}
       <AccommodationMenu />
 
-      {/* 6. Courtyard Atmosphere & Story */}
+      {/* 6. Courtyard Story: How we run the hostel */}
       <CourtyardStory />
 
-      {/* 7. Indochine Deep Courtyard Footer */}
+      {/* 7. Footer */}
       <footer className="w-full bg-[#1B3320] text-[#F5F5F0] pt-16 pb-12 border-t-2 border-[#D4AF37] relative">
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-[#F5F5F0]/20">
             
-            {/* Column 1: Brand & Emblem */}
+            {/* Column 1: Brand */}
             <div className="md:col-span-5 space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 border-2 border-[#D4AF37] bg-white overflow-hidden shadow-[3px_3px_0px_0px_#000]">
@@ -62,27 +62,27 @@ export default function Page() {
               </div>
 
               <p className="text-xs text-[#F5F5F0]/80 leading-relaxed max-w-[42ch]">
-                An organic, host-centric sanctuary built with raw teakwood, Vietnamese brick, and lush rain tree foliage. Your home on the island.
+                Solid wooden bunks, cold AC, good coffee, cheap beer, and free family dinners. Just a straightforward hostel where it is easy to meet people.
               </p>
 
               <div className="text-xs font-mono text-[#D4AF37] flex items-center gap-2">
-                <span>✦ Est. 2017</span>
+                <span>✦ Open since 2017</span>
                 <span>•</span>
-                <span>Hostelworld 9.8 Rated</span>
+                <span>9.8 on Hostelworld</span>
                 <span>•</span>
-                <span>Lonely Planet Recommended</span>
+                <span>In Cat Ba Town</span>
               </div>
             </div>
 
             {/* Column 2: Quick Links */}
             <div className="md:col-span-3 space-y-3">
               <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-                Courtyard Navigation
+                Quick Links
               </h4>
               <ul className="space-y-2 text-xs font-mono text-[#F5F5F0]/85">
                 <li>
                   <a href="#vibe" className="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
-                    <span>→</span> The Host Vibe Board
+                    <span>→</span> What&apos;s On This Week
                   </a>
                 </li>
                 <li>
@@ -92,12 +92,12 @@ export default function Page() {
                 </li>
                 <li>
                   <a href="#expeditions" className="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
-                    <span>→</span> Ha Giang Loop Expeditions
+                    <span>→</span> Ha Giang Loop Bookings
                   </a>
                 </li>
                 <li>
                   <a href="#rooms" className="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
-                    <span>→</span> Handcrafted Dorms & Suites
+                    <span>→</span> Dorms & Private Rooms
                   </a>
                 </li>
                 <li>
@@ -105,7 +105,7 @@ export default function Page() {
                     onClick={() => openBooking()}
                     className="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5 text-[#D4AF37] font-bold cursor-pointer"
                   >
-                    <span>✦</span> Book Direct for Best Rates
+                    <span>✦</span> Book Direct (Best Price)
                   </button>
                 </li>
               </ul>
@@ -114,7 +114,7 @@ export default function Page() {
             {/* Column 3: Contact & Location */}
             <div className="md:col-span-4 space-y-3">
               <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-                Island Reception Desk
+                Front Desk & Location
               </h4>
               <div className="space-y-2 text-xs text-[#F5F5F0]/85">
                 <div className="flex items-start gap-2">
@@ -123,7 +123,7 @@ export default function Page() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>WhatsApp: +84 987 654 321 (24/7 Desk)</span>
+                  <span>WhatsApp: +84 987 654 321 (Desk open all day)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
@@ -143,24 +143,22 @@ export default function Page() {
 
           </div>
 
-          {/* Bottom Copyright & Design Badge */}
+          {/* Bottom Line */}
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#F5F5F0]/60">
             <div>
-              © {new Date().getFullYear()} Secret Garden Hostel Cat Ba. All rights reserved.
+              © {new Date().getFullYear()} Secret Garden Hostel Cat Ba.
             </div>
             <div className="flex items-center gap-2 text-[#D4AF37]">
-              <span>Crafted with Organic Indochine Aesthetics</span>
-              <span>•</span>
-              <span>No AI Slop</span>
+              <span>Cat Ba Island, Vietnam</span>
             </div>
           </div>
         </div>
       </footer>
 
-      {/* 8. Heavy Dark Mahogany Pinned Bottom Navigation for Mobile */}
+      {/* 8. Mobile Pinned Bottom Nav */}
       <BottomNav />
 
-      {/* 9. Global Functional Booking Drawer */}
+      {/* 9. Booking Drawer */}
       <BookingDrawer />
 
     </main>
