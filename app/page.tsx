@@ -9,7 +9,6 @@ import { AccommodationMenu } from '@/components/hostel/AccommodationMenu'
 import { CourtyardStory } from '@/components/hostel/CourtyardStory'
 import { BottomNav } from '@/components/hostel/BottomNav'
 import { BookingDrawer } from '@/components/hostel/BookingDrawer'
-import { MapPin, Phone, Mail } from 'lucide-react'
 import { useHostelStore } from '@/lib/store'
 
 export default function Page() {
@@ -18,36 +17,36 @@ export default function Page() {
   return (
     <main className="w-full min-h-screen bg-[#F5F5F0] text-[#1B3320] relative pb-20 md:pb-0 overflow-x-hidden">
       
-      {/* 1. Header with Live Island Weather */}
+      {/* 1. Header */}
       <HeaderNavBar />
 
-      {/* 2. Hero Section: Direct facts, photo grid & booking bar */}
+      {/* 2. Hero */}
       <HeroImmersive />
 
-      {/* 3. The Host Vibe Board: Weekly hostel events */}
+      {/* 3. The Host Vibe Board */}
       <TheHostVibeBoard />
 
-      {/* 4. Expeditions: Honest tours & treks */}
+      {/* 4. Expeditions */}
       <Expeditions />
 
-      {/* 5. Accommodation Menu: Clean dorms & private rooms */}
+      {/* 5. Accommodation Menu */}
       <AccommodationMenu />
 
-      {/* 6. Courtyard Story: How we run the hostel */}
+      {/* 6. Courtyard Story */}
       <CourtyardStory />
 
-      {/* 7. Footer */}
-      <footer className="w-full bg-[#1B3320] text-[#F5F5F0] pt-16 pb-12 border-t-2 border-[#D4AF37] relative">
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-[#F5F5F0]/20">
+      {/* 7. Clean Editorial Footer */}
+      <footer className="w-full bg-[#1B3320] text-[#F5F5F0] pt-20 pb-16 border-t-2 border-[#D4AF37] relative">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-[#F5F5F0]/15">
             
             {/* Column 1: Brand */}
             <div className="md:col-span-5 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 border-2 border-[#D4AF37] bg-white overflow-hidden shadow-[3px_3px_0px_0px_#000]">
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 border-2 border-[#D4AF37] bg-white overflow-hidden shadow-[2px_2px_0px_0px_#000] shrink-0">
                   <img
                     src="/images/secret_garden_logo.jpg"
-                    alt="Secret Garden Logo"
+                    alt="Secret Garden Hostel Logo"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -61,80 +60,67 @@ export default function Page() {
                 </div>
               </div>
 
-              <p className="text-xs text-[#F5F5F0]/80 leading-relaxed max-w-[42ch]">
-                Solid wooden bunks, cold AC, good coffee, cheap beer, and free family dinners. Just a straightforward hostel where it is easy to meet people.
+              <p className="text-sm text-[#F5F5F0]/80 leading-relaxed max-w-md font-sans">
+                Solid wooden bunks, cold AC, good coffee, cheap beer, and free family dinners. A straightforward spot to stay and meet people.
               </p>
 
-              <div className="text-xs font-mono text-[#D4AF37] flex items-center gap-2">
-                <span>✦ Open since 2017</span>
-                <span>•</span>
-                <span>9.8 on Hostelworld</span>
-                <span>•</span>
-                <span>In Cat Ba Town</span>
+              <div className="text-xs font-mono text-[#D4AF37] pt-1">
+                Open since 2017 • 9.8 on Hostelworld • 123 Nui Ngoc, Cat Ba Town
               </div>
             </div>
 
-            {/* Column 2: Quick Links */}
+            {/* Column 2: Navigation */}
             <div className="md:col-span-3 space-y-3">
               <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-                Quick Links
+                Navigation
               </h4>
-              <ul className="space-y-2 text-xs font-mono text-[#F5F5F0]/85">
+              <ul className="space-y-2 text-xs font-mono text-[#F5F5F0]/80">
                 <li>
-                  <a href="#vibe" className="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
-                    <span>→</span> What&apos;s On This Week
+                  <a href="#rooms" className="hover:text-[#D4AF37] transition-colors">
+                    Dorms & Private Rooms
                   </a>
                 </li>
                 <li>
-                  <a href="#expeditions" className="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
-                    <span>→</span> Lan Ha Bay Plankton Tour
+                  <a href="#vibe" className="hover:text-[#D4AF37] transition-colors">
+                    Weekly Events
                   </a>
                 </li>
                 <li>
-                  <a href="#expeditions" className="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
-                    <span>→</span> Ha Giang Loop Bookings
+                  <a href="#expeditions" className="hover:text-[#D4AF37] transition-colors">
+                    Lan Ha Bay Plankton Tour
                   </a>
                 </li>
                 <li>
-                  <a href="#rooms" className="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5">
-                    <span>→</span> Dorms & Private Rooms
+                  <a href="#expeditions" className="hover:text-[#D4AF37] transition-colors">
+                    Ha Giang Loop Road Trip
                   </a>
                 </li>
                 <li>
                   <button
                     onClick={() => openBooking()}
-                    className="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5 text-[#D4AF37] font-bold cursor-pointer"
+                    className="hover:text-[#D4AF37] transition-colors text-[#D4AF37] font-bold cursor-pointer"
                   >
-                    <span>✦</span> Book Direct (Best Price)
+                    Book Direct (Cheapest Price)
                   </button>
                 </li>
               </ul>
             </div>
 
-            {/* Column 3: Contact & Location */}
+            {/* Column 3: Contact */}
             <div className="md:col-span-4 space-y-3">
               <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
                 Front Desk & Location
               </h4>
-              <div className="space-y-2 text-xs text-[#F5F5F0]/85">
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                  <span>123 Nui Ngoc Street, Cat Ba Town, Hai Phong, Vietnam</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>WhatsApp: +84 987 654 321 (Desk open all day)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
-                  <span>hello@secretgardenhostelcatba.com</span>
-                </div>
+              <div className="space-y-1.5 text-xs font-mono text-[#F5F5F0]/80">
+                <div>123 Nui Ngoc Street, Cat Ba Town, Hai Phong</div>
+                <div>WhatsApp: +84 987 654 321 (Desk open all day)</div>
+                <div>hello@secretgardenhostelcatba.com</div>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-3">
                 <button
                   onClick={() => openBooking()}
-                  className="w-full py-2.5 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold text-xs uppercase tracking-wider border border-[#1B3320] shadow-[3px_3px_0px_0px_#000] cursor-pointer"
+                  className="px-6 py-3 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider border border-[#1B3320] shadow-[2px_2px_0px_0px_#000] cursor-pointer"
                 >
                   Direct Booking Desk
                 </button>
@@ -144,18 +130,18 @@ export default function Page() {
           </div>
 
           {/* Bottom Line */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#F5F5F0]/60">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#F5F5F0]/50">
             <div>
               © {new Date().getFullYear()} Secret Garden Hostel Cat Ba.
             </div>
-            <div className="flex items-center gap-2 text-[#D4AF37]">
-              <span>Cat Ba Island, Vietnam</span>
+            <div>
+              Cat Ba Island, Hai Phong, Vietnam
             </div>
           </div>
         </div>
       </footer>
 
-      {/* 8. Mobile Pinned Bottom Nav */}
+      {/* 8. Mobile Bottom Nav */}
       <BottomNav />
 
       {/* 9. Booking Drawer */}
