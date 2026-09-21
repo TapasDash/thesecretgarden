@@ -51,9 +51,7 @@ export function ParticleEffects() {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={dustPositions.length / 3}
-            array={dustPositions}
-            itemSize={3}
+            args={[dustPositions, 3]}
           />
         </bufferGeometry>
         <pointsMaterial
@@ -70,14 +68,12 @@ export function ParticleEffects() {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={sparkPositions.length / 3}
-            array={sparkPositions}
-            itemSize={3}
+            args={[sparkPositions, 3]}
           />
         </bufferGeometry>
         <pointsMaterial
           size={0.3}
-          color="#FF00FF"
+          color="#D4AF37"
           transparent={true}
           opacity={0.4}
           sizeAttenuation={true}
@@ -89,14 +85,12 @@ export function ParticleEffects() {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={500}
-            array={new Float32Array(500 * 3).map(() => (Math.random() - 0.5) * 20)}
-            itemSize={3}
+            args={[new Float32Array(500 * 3).map(() => (Math.random() - 0.5) * 20), 3]}
           />
         </bufferGeometry>
         <pointsMaterial
           size={0.2}
-          color="#00FF00"
+          color="#4A7C59"
           transparent={true}
           opacity={0.3}
           sizeAttenuation={true}

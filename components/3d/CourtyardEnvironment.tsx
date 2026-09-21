@@ -106,7 +106,7 @@ function BananaPlant() {
           receiveShadow
         >
           <boxGeometry args={[1.2, 3, 0.2]} />
-          <meshStandardMaterial color="#1B7D1B" roughness={0.4} translucency={0.2} />
+          <meshStandardMaterial color="#1B7D1B" roughness={0.4} />
         </mesh>
       ))}
     </group>
