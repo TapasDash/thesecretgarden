@@ -9,10 +9,9 @@ export const HOSTEL_CONFIG = {
   tagline: 'Clean beds, cold beer, good people.',
   location: '123 Nui Ngoc Street, Cat Ba Town, Hai Phong, Vietnam',
   
-  // Real WhatsApp & Phone: update this to your manager's or your phone number for testing
-  // Format for WhatsApp link: numbers only without '+' or spaces (e.g. '84912345678' or '447123456789')
-  whatsappNumber: process.env.NEXT_PUBLIC_HOSTEL_WHATSAPP || '84987654321',
-  whatsappDisplay: process.env.NEXT_PUBLIC_HOSTEL_WHATSAPP_DISPLAY || '+84 987 654 321',
+  // Real WhatsApp & Phone: set to your number +919815002866 for live testing
+  whatsappNumber: process.env.NEXT_PUBLIC_HOSTEL_WHATSAPP || '919815002866',
+  whatsappDisplay: process.env.NEXT_PUBLIC_HOSTEL_WHATSAPP_DISPLAY || '+91 98150 02866',
   
   // Zalo number for domestic Vietnamese travelers
   zaloNumber: process.env.NEXT_PUBLIC_HOSTEL_ZALO || '0987654321',

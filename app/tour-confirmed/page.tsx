@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { Check, ArrowLeft, Phone, Mail, MapPin } from 'lucide-react'
+import { HOSTEL_CONFIG } from '@/lib/config'
 
 export default function TourConfirmedPage() {
   return (
@@ -35,13 +36,13 @@ export default function TourConfirmedPage() {
           <div className="flex items-center gap-2">
             <Phone className="w-4 h-4 text-[#1B3320] shrink-0" />
             <div>
-              <strong>Front Desk WhatsApp:</strong> +84 987 654 321
+              <strong>Front Desk WhatsApp:</strong> {HOSTEL_CONFIG.whatsappDisplay}
             </div>
           </div>
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4 text-[#1B3320] shrink-0" />
             <div>
-              <strong>Contact:</strong> hello@secretgardenhostelcatba.com
+              <strong>Contact:</strong> {HOSTEL_CONFIG.email}
             </div>
           </div>
           <div className="pt-2 border-t border-[#D8D8CC] text-[#3E2723]">
