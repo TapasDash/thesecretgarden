@@ -1,25 +1,79 @@
 'use client'
 
-import React, { useState } from 'react'
-import { X, Check, Sparkles, ShieldCheck, ArrowRight } from 'lucide-react'
+import React, { useState, useMemo } from 'react'
+import { X, Check, Sparkles, ShieldCheck, ArrowRight, MessageSquare, Phone } from 'lucide-react'
 import { useHostelStore } from '@/lib/store'
+import { HOSTEL_CONFIG } from '@/lib/config'
+
+const AVAILABLE_ROOMS = [
+  { id: 'bamboo-dorm-8', name: '8-Bed Wooden Dorm', priceUSD: 8, priceVND: 200000, type: 'dorm' },
+  { id: 'teak-dorm-4', name: '4-Bed Small Garden Dorm', priceUSD: 11, priceVND: 275000, type: 'dorm' },
+  { id: 'female-dorm-6', name: '6-Bed Female Dorm', priceUSD: 10, priceVND: 250000, type: 'dorm' },
+  { id: 'indochine-private-balcony', name: 'Private Double Room with Mountain Balcony', priceUSD: 29, priceVND: 725000, type: 'private' },
+  { id: 'garden-bungalow-suite', name: 'Garden Bungalow (1 Double + 1 Single)', priceUSD: 38, priceVND: 950000, type: 'private' },
+]
 
 export const BookingDrawer: React.FC = () => {
-  const { isBookingOpen, closeBooking, checkInDate, checkOutDate, setDates } = useHostelStore()
+  const { isBookingOpen, closeBooking, selectedRoomId, checkInDate, checkOutDate, setDates, selectRoom } = useHostelStore()
+  
+  const [roomId, setRoomId] = useState<string>(selectedRoomId || 'bamboo-dorm-8')
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     whatsapp: '',
+    guestsCount: 1,
     notes: '',
     includeBreakfast: true,
     motorbikeRental: false,
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
 
+  // Synchronize with external room selection
+  React.useEffect(() => {
+    if (selectedRoomId) {
+      setRoomId(selectedRoomId)
+    }
+  }, [selectedRoomId])
+
+  // Calculate nights
+  const nightsCount = useMemo(() => {
+    try {
+      const inDate = new Date(checkInDate)
+      const outDate = new Date(checkOutDate)
+      const diffTime = outDate.getTime() - inDate.getTime()
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+      return diffDays > 0 ? diffDays : 1
+    } catch {
+      return 1
+    }
+  }, [checkInDate, checkOutDate])
+
+  const selectedRoom = AVAILABLE_ROOMS.find((r) => r.id === roomId) || AVAILABLE_ROOMS[0]
+  const totalPriceUSD = selectedRoom.priceUSD * nightsCount * formData.guestsCount
+  const totalPriceVND = selectedRoom.priceVND * nightsCount * formData.guestsCount
+
   if (!isBookingOpen) return null
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    
+    const rawMessage = 
+      `🌴 *NEW DIRECT RESERVATION - SECRET GARDEN*\n\n` +
+      `👤 *Guest Name:* ${formData.fullName}\n` +
+      `🛏️ *Room/Bed:* ${selectedRoom.name}\n` +
+      `👥 *Guests:* ${formData.guestsCount}\n` +
+      `📅 *Check-in:* ${checkInDate}\n` +
+      `📅 *Check-out:* ${checkOutDate} (${nightsCount} night${nightsCount > 1 ? 's' : ''})\n` +
+      `💰 *Est. Total:* $${totalPriceUSD} (~${totalPriceVND.toLocaleString()} VND)\n` +
+      `🍳 *Free Breakfast:* ${formData.includeBreakfast ? 'Yes' : 'No'}\n` +
+      `🛵 *Motorbike:* ${formData.motorbikeRental ? 'Yes (Hold 1 bike)' : 'No'}\n` +
+      (formData.notes ? `📝 *Notes:* ${formData.notes}\n` : '') +
+      `📱 *Contact:* ${formData.whatsapp || formData.email}\n\n` +
+      `_Sent via Secret Garden Direct Web Engine_`
+
+    // Open WhatsApp in new tab / app with configured number
+    window.open(HOSTEL_CONFIG.getWhatsAppLink(rawMessage), '_blank')
+
     setIsSubmitted(true)
   }
 
@@ -29,8 +83,8 @@ export const BookingDrawer: React.FC = () => {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-      <div className="w-full max-w-xl bg-[#F5F5F0] border-2 border-[#1B3320] shadow-[8px_8px_0px_0px_#1B3320] p-6 sm:p-8 text-[#1B3320] relative my-8 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div className="w-full max-w-xl bg-[#F5F5F0] border-2 border-[#1B3320] shadow-[8px_8px_0px_0px_#1B3320] p-6 sm:p-8 text-[#1B3320] relative my-8 max-h-[92vh] overflow-y-auto">
         
         {/* Close Button */}
         <button
@@ -47,21 +101,42 @@ export const BookingDrawer: React.FC = () => {
             <div className="border-b border-[#D8D8CC] pb-4 mb-5">
               <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#1B3320] text-[#D4AF37] text-[10px] font-mono tracking-widest uppercase border border-[#1B3320] mb-2">
                 <Sparkles className="w-3 h-3 text-[#D4AF37]" />
-                <span>BOOK DIRECT • PAY WHEN YOU ARRIVE</span>
+                <span>DIRECT BOOKING • PAY ON ARRIVAL • ZERO FEES</span>
               </div>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1B3320]">
-                Save Your Bed
+                Reserve Your Bed / Room
               </h2>
               <p className="text-xs text-[#3E2723]/90 font-sans mt-1">
-                No deposit needed. Free cancellation anytime. Pay cash or card at the front desk when you check in.
+                No deposit needed. Instant confirmation via WhatsApp &amp; Email. Pay cash or card at front desk.
               </p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+            <form onSubmit={handleFormSubmit} className="space-y-4 text-xs">
               
-              {/* Dates */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-[#E8E8DF] p-3 border border-[#1B3320]">
+              {/* Room Selection Dropdown */}
+              <div>
+                <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
+                  Select Room / Bed Type
+                </label>
+                <select
+                  value={roomId}
+                  onChange={(e) => {
+                    setRoomId(e.target.value)
+                    selectRoom(e.target.value)
+                  }}
+                  className="w-full bg-[#E8E8DF] border-2 border-[#1B3320] p-2.5 text-xs font-bold text-[#1B3320] focus:outline-none cursor-pointer"
+                >
+                  {AVAILABLE_ROOMS.map((r) => (
+                    <option key={r.id} value={r.id}>
+                      {r.name} — ${r.priceUSD} / {r.priceVND.toLocaleString()} VND per night
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Dates & Guests */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-[#E8E8DF] p-3 border border-[#1B3320]">
                 <div>
                   <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
                     Check-in Date
@@ -86,18 +161,53 @@ export const BookingDrawer: React.FC = () => {
                     className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2 text-xs font-semibold text-[#1B3320] focus:outline-none"
                   />
                 </div>
+                <div>
+                  <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
+                    Guests
+                  </label>
+                  <select
+                    value={formData.guestsCount}
+                    onChange={(e) => setFormData({ ...formData, guestsCount: Number(e.target.value) })}
+                    className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2 text-xs font-semibold text-[#1B3320] focus:outline-none"
+                  >
+                    <option value={1}>1 Guest</option>
+                    <option value={2}>2 Guests</option>
+                    <option value={3}>3 Guests</option>
+                    <option value={4}>4+ (Group)</option>
+                  </select>
+                </div>
               </div>
 
-              {/* Guest Details */}
+              {/* Live Price Calculation Summary Box */}
+              <div className="p-3 bg-[#1B3320] text-[#F5F5F0] border border-[#D4AF37] flex items-center justify-between">
+                <div>
+                  <div className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider">
+                    Total for {nightsCount} Night{nightsCount > 1 ? 's' : ''} ({formData.guestsCount} guest{formData.guestsCount > 1 ? 's' : ''})
+                  </div>
+                  <div className="text-sm font-sans text-white/80">
+                    {selectedRoom.name}
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="font-serif text-xl font-bold text-[#D4AF37]">
+                    ${totalPriceUSD} USD
+                  </div>
+                  <div className="text-[11px] font-mono text-white/70">
+                    ≈ {totalPriceVND.toLocaleString()} VND
+                  </div>
+                </div>
+              </div>
+
+              {/* Guest Contact Details */}
               <div className="space-y-3">
                 <div>
                   <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
-                    Your Name
+                    Your Full Name
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Sam Miller"
+                    placeholder="e.g. Alex Morgan"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                     className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2.5 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none"
@@ -105,20 +215,6 @@ export const BookingDrawer: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="sam@gmail.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2.5 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none"
-                    />
-                  </div>
-
                   <div>
                     <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
                       WhatsApp or Phone Number
@@ -132,13 +228,26 @@ export const BookingDrawer: React.FC = () => {
                       className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2.5 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none"
                     />
                   </div>
+
+                  <div>
+                    <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
+                      Email Address (Optional)
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="alex@gmail.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2.5 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none"
+                    />
+                  </div>
                 </div>
               </div>
 
               {/* Addons */}
               <div className="bg-[#E8E8DF] p-3 border border-[#D8D8CC] space-y-2">
                 <div className="text-[10px] font-mono uppercase font-bold text-[#3E2723]">
-                  Optional Extras
+                  Hostel Perks &amp; Extras
                 </div>
                 <label className="flex items-center gap-2 cursor-pointer font-medium text-[#1B3320]">
                   <input
@@ -147,7 +256,7 @@ export const BookingDrawer: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, includeBreakfast: e.target.checked })}
                     className="accent-[#1B3320] w-4 h-4"
                   />
-                  <span>Free Big Breakfast (Eggs, pancakes, bread & fruit)</span>
+                  <span>Free Big Breakfast (Eggs, pancakes, bread &amp; fruit)</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer font-medium text-[#1B3320]">
                   <input
@@ -156,18 +265,18 @@ export const BookingDrawer: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, motorbikeRental: e.target.checked })}
                     className="accent-[#1B3320] w-4 h-4"
                   />
-                  <span>Hold a Semi-Automatic Motorbike (+120,000 VND / day)</span>
+                  <span>Reserve a Semi-Automatic Motorbike (+120,000 VND / day)</span>
                 </label>
               </div>
 
               {/* Special Requests */}
               <div>
                 <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
-                  Arrival time or ferry details (Optional)
+                  Estimated arrival time or ferry info (Optional)
                 </label>
                 <textarea
                   rows={2}
-                  placeholder="e.g. Taking the 2 PM ferry from Hai Phong, should get there around 4:30 PM..."
+                  placeholder="e.g. Taking 12:30 PM speedboat from Hai Phong, arriving around 3 PM..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none"
@@ -177,15 +286,16 @@ export const BookingDrawer: React.FC = () => {
               {/* Submit CTA */}
               <button
                 type="submit"
-                className="w-full py-3.5 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold text-sm uppercase tracking-wider border-2 border-[#1B3320] shadow-[4px_4px_0px_0px_#1B3320] active:translate-x-[2px] active:translate-y-[2px] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
+                className="w-full py-4 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold text-sm uppercase tracking-wider border-2 border-[#1B3320] shadow-[4px_4px_0px_0px_#1B3320] active:translate-x-[2px] active:translate-y-[2px] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
               >
-                <span>Confirm Bed Reservation</span>
+                <MessageSquare className="w-4 h-4 text-[#1B3320]" />
+                <span>Confirm &amp; Message on WhatsApp</span>
                 <ArrowRight className="w-4 h-4 text-[#1B3320]" />
               </button>
 
               <div className="flex items-center justify-center gap-2 text-[10px] font-mono text-[#3E2723]/70 pt-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#1B3320]" />
-                <span>We will message you on WhatsApp to confirm your check-in.</span>
+                <span>Instantly connects with reception WhatsApp • Pay at front desk on arrival</span>
               </div>
 
             </form>
@@ -198,26 +308,29 @@ export const BookingDrawer: React.FC = () => {
             </div>
 
             <h3 className="font-serif text-3xl font-bold text-[#1B3320]">
-              You&apos;re All Set!
+              Reservation Sent!
             </h3>
 
             <p className="text-xs sm:text-sm text-[#3E2723] max-w-[42ch] mx-auto leading-relaxed">
-              We received your booking details. We will shoot you a quick message on WhatsApp or email right away with directions to the hostel.
+              Your booking details have been generated and dispatched to the front desk. We will confirm your bed immediately on WhatsApp.
             </p>
 
             <div className="bg-[#E8E8DF] p-4 border border-[#1B3320] text-left text-xs font-mono space-y-1 max-w-sm mx-auto">
               <div><strong>Name:</strong> {formData.fullName}</div>
-              <div><strong>Dates:</strong> {checkInDate} to {checkOutDate}</div>
-              <div><strong>Contact:</strong> {formData.whatsapp || formData.email}</div>
-              <div><strong>Payment:</strong> <span className="text-[#1B3320] font-bold">Pay at front desk on arrival</span></div>
+              <div><strong>Room:</strong> {selectedRoom.name}</div>
+              <div><strong>Dates:</strong> {checkInDate} &rarr; {checkOutDate} ({nightsCount} nights)</div>
+              <div><strong>Total:</strong> ${totalPriceUSD} (~{totalPriceVND.toLocaleString()} VND)</div>
+              <div><strong>Payment:</strong> <span className="text-[#1B3320] font-bold">Pay cash or card at front desk</span></div>
             </div>
 
-            <button
-              onClick={handleReset}
-              className="px-6 py-3 bg-[#1B3320] text-[#F5F5F0] hover:bg-[#3E2723] font-bold text-xs uppercase tracking-wider border border-[#1B3320] shadow-[3px_3px_0px_0px_#D4AF37] cursor-pointer"
-            >
-              Back to Home
-            </button>
+            <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={handleReset}
+                className="px-6 py-3 bg-[#1B3320] text-[#F5F5F0] hover:bg-[#3E2723] font-bold text-xs uppercase tracking-wider border border-[#1B3320] shadow-[3px_3px_0px_0px_#D4AF37] cursor-pointer"
+              >
+                Done
+              </button>
+            </div>
           </div>
         )}
 

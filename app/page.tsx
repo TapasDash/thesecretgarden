@@ -9,7 +9,9 @@ import { AccommodationMenu } from '@/components/hostel/AccommodationMenu'
 import { CourtyardStory } from '@/components/hostel/CourtyardStory'
 import { BottomNav } from '@/components/hostel/BottomNav'
 import { BookingDrawer } from '@/components/hostel/BookingDrawer'
+import { FloatingContactWidget } from '@/components/hostel/FloatingContactWidget'
 import { useHostelStore } from '@/lib/store'
+import { HOSTEL_CONFIG } from '@/lib/config'
 
 export default function Page() {
   const { openBooking } = useHostelStore()
@@ -112,9 +114,25 @@ export default function Page() {
                 Front Desk &amp; Location
               </h4>
               <div className="space-y-1.5 text-xs font-mono text-[#F5F5F0]/80">
-                <div>123 Nui Ngoc Street, Cat Ba Town, Hai Phong</div>
-                <div>WhatsApp: +84 987 654 321 (Desk open all day)</div>
-                <div>hello@secretgardenhostelcatba.com</div>
+                <div>{HOSTEL_CONFIG.location}</div>
+                <div>
+                  <a
+                    href={HOSTEL_CONFIG.getWhatsAppLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    WhatsApp: {HOSTEL_CONFIG.whatsappDisplay} (Front Desk 24/7)
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href={`mailto:${HOSTEL_CONFIG.email}`}
+                    className="hover:text-[#D4AF37] transition-colors"
+                  >
+                    {HOSTEL_CONFIG.email}
+                  </a>
+                </div>
               </div>
 
               <div className="pt-3">
@@ -146,6 +164,9 @@ export default function Page() {
 
       {/* 9. Direct Reservation Drawer */}
       <BookingDrawer />
+
+      {/* 10. Floating WhatsApp & Zalo Quick Desk */}
+      <FloatingContactWidget />
 
     </main>
   )
