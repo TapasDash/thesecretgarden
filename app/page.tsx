@@ -17,22 +17,22 @@ export default function Page() {
   return (
     <main className="w-full min-h-screen bg-[#F5F5F0] text-[#1B3320] relative pb-20 md:pb-0 overflow-x-hidden">
       
-      {/* 1. Header */}
+      {/* 1. Header Navigation */}
       <HeaderNavBar />
 
-      {/* 2. Hero */}
+      {/* 2. Hero Availability & Atmosphere */}
       <HeroImmersive />
 
-      {/* 3. The Host Vibe Board */}
+      {/* 3. The Courtyard Events Noticeboard (Bracelet Workshop, Cooking Class, Quiz Night, Movie Night) */}
       <TheHostVibeBoard />
 
-      {/* 4. Expeditions */}
+      {/* 4. Island Expeditions (Lan Ha Bay Kayak & Bioluminescent Plankton, Ha Giang Loop) */}
       <Expeditions />
 
-      {/* 5. Accommodation Menu */}
+      {/* 5. Accommodation Menu (Solid Teak Dorms & Balcony Private Rooms) */}
       <AccommodationMenu />
 
-      {/* 6. Courtyard Story */}
+      {/* 6. Courtyard & Founder Story */}
       <CourtyardStory />
 
       {/* 7. Clean Editorial Footer */}
@@ -77,12 +77,12 @@ export default function Page() {
               <ul className="space-y-2 text-xs font-mono text-[#F5F5F0]/80">
                 <li>
                   <a href="#rooms" className="hover:text-[#D4AF37] transition-colors">
-                    Dorms & Private Rooms
+                    Dorms &amp; Private Rooms
                   </a>
                 </li>
                 <li>
                   <a href="#vibe" className="hover:text-[#D4AF37] transition-colors">
-                    Weekly Events
+                    Weekly Events &amp; Workshops
                   </a>
                 </li>
                 <li>
@@ -109,7 +109,7 @@ export default function Page() {
             {/* Column 3: Contact */}
             <div className="md:col-span-4 space-y-3">
               <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-                Front Desk & Location
+                Front Desk &amp; Location
               </h4>
               <div className="space-y-1.5 text-xs font-mono text-[#F5F5F0]/80">
                 <div>123 Nui Ngoc Street, Cat Ba Town, Hai Phong</div>
@@ -144,7 +144,7 @@ export default function Page() {
       {/* 8. Mobile Bottom Nav */}
       <BottomNav />
 
-      {/* 9. Booking Drawer */}
+      {/* 9. Direct Reservation Drawer */}
       <BookingDrawer />
 
     </main>

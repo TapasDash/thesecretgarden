@@ -34,13 +34,13 @@ export const HeaderNavBar: React.FC = () => {
           </div>
         </a>
 
-        {/* Clean Editorial Nav Links (No icon clutter) */}
+        {/* Clean Editorial Nav Links for Travelers */}
         <nav aria-label="Main navigation" className="hidden md:flex items-center gap-8 text-xs font-mono font-semibold uppercase tracking-widest text-[#3E2723]">
           <button
             onClick={() => scrollTo('rooms')}
             className="hover:text-[#1B3320] transition-colors cursor-pointer"
           >
-            Rooms & Beds
+            Rooms &amp; Beds
           </button>
           <button
             onClick={() => scrollTo('vibe')}
@@ -52,17 +52,17 @@ export const HeaderNavBar: React.FC = () => {
             onClick={() => scrollTo('expeditions')}
             className="hover:text-[#1B3320] transition-colors cursor-pointer"
           >
-            Boat & Island Tours
+            Boat &amp; Island Tours
           </button>
           <button
             onClick={() => scrollTo('courtyard')}
             className="hover:text-[#1B3320] transition-colors cursor-pointer"
           >
-            The Courtyard
+            The Courtyard &amp; Story
           </button>
         </nav>
 
-        {/* High-Contrast CTA Button */}
+        {/* High-Contrast Direct CTA Button */}
         <div className="flex items-center gap-4">
           <button
             onClick={() => openBooking()}

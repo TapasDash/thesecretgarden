@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Key, ShieldCheck, Sparkles } from 'lucide-react'
 import { useHostelStore, RoomCategory } from '@/lib/store'
 
 interface RoomOption {
@@ -29,10 +29,10 @@ const ROOM_OPTIONS: RoomOption[] = [
     priceUSD: '$8',
     priceVND: '200,000 VND',
     unit: '/ night',
-    description: 'Heavy solid wooden bunks that do not squeak or shake when someone climbs up. Thick blackout curtains, personal power socket, reading light, and large under-bed lockbox.',
+    description: 'Heavy solid teak wooden bunks that do not squeak or shake when someone climbs up. Thick blackout curtains, personal power socket, reading light, and large under-bed lockbox.',
     amenities: ['Full blackout privacy curtain', 'Solid wooden bunks (no squeaks)', 'AC running all night', 'Large lockbox under bed', 'Clean sheets & towel included'],
     availableCount: 4,
-    image: '/images/secret_garden_social_night.jpg',
+    image: '/images/wooden_dorm_room.jpg',
   },
   {
     id: 'teak-dorm-4',
@@ -46,7 +46,7 @@ const ROOM_OPTIONS: RoomOption[] = [
     description: 'Quieter 4-bed dorm with its own ensuite bathroom and strong hot shower. Ideal if you want proper rest before early morning island hikes.',
     amenities: ['Ensuite bathroom & hot shower', 'Garden view window', 'Thick spring mattress', 'Keypad door lock', 'Daily housekeeping'],
     availableCount: 2,
-    image: '/images/secret_garden_reception_bar.jpg',
+    image: '/images/wooden_dorm_room.jpg',
   },
   {
     id: 'female-dorm-6',
@@ -64,17 +64,17 @@ const ROOM_OPTIONS: RoomOption[] = [
   },
   {
     id: 'indochine-private-balcony',
-    title: 'Private Double Room with Balcony',
+    title: 'Private Double Room with Mountain Balcony',
     type: 'private',
     categoryLabel: 'Private Room',
     capacity: 'Up to 2 people',
     priceUSD: '$29',
     priceVND: '725,000 VND',
     unit: '/ night',
-    description: 'King wooden bed, private balcony overlooking limestone cliffs, private bathroom with strong hot shower, and quiet Daikin air conditioning.',
+    description: 'King wooden bed, French doors opening to private balcony overlooking limestone cliffs, private bathroom with strong hot shower, and quiet Daikin air conditioning.',
     amenities: ['King-size wooden bed', 'Private mountain balcony', 'Ensuite hot rain shower', 'Coffee station & kettle', 'Work desk & fast Wi-Fi'],
     availableCount: 1,
-    image: '/images/courtyard_mural.png',
+    image: '/images/private_balcony_room.jpg',
   },
   {
     id: 'garden-bungalow-suite',
@@ -108,7 +108,7 @@ export const AccommodationMenu: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-6 border-b border-[#D8D8CC]">
           <div>
             <div className="text-xs font-mono uppercase tracking-widest text-[#3E2723] font-semibold mb-3">
-              Rooms & Beds
+              Rooms &amp; Beds
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#1B3320] mb-3">
               Dorms and private rooms
@@ -146,13 +146,13 @@ export const AccommodationMenu: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center flex-1">
                 
                 {/* Thumbnail */}
-                <div className="relative w-full sm:w-48 h-36 overflow-hidden border-2 border-[#1B3320] shrink-0 bg-[#1B3320]">
+                <div className="relative w-full sm:w-56 h-40 overflow-hidden border-2 border-[#1B3320] shrink-0 bg-[#1B3320]">
                   <img
                     src={room.image}
                     alt={room.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute top-2 left-2 bg-[#1B3320] text-[#D4AF37] text-[10px] font-mono font-bold px-2 py-0.5 border border-[#D4AF37]">
+                  <div className="absolute top-2 left-2 bg-[#1B3320] text-[#D4AF37] text-[10px] font-mono font-bold px-2.5 py-1 border border-[#D4AF37]">
                     {room.categoryLabel}
                   </div>
                 </div>
@@ -219,8 +219,8 @@ export const AccommodationMenu: React.FC = () => {
         {/* Bottom Bar */}
         <div className="mt-8 p-6 bg-[#E8E8DF] border-2 border-[#1B3320] flex flex-wrap items-center justify-around gap-6 text-xs font-mono text-[#1B3320]">
           <div>Free big breakfast every morning (7:30 - 10:00 AM)</div>
-          <div>Free bag storage before check-in & after check-out</div>
-          <div>Cold AC & hot showers guaranteed 24/7</div>
+          <div>Free bag storage before check-in &amp; after check-out</div>
+          <div>Cold AC &amp; hot showers guaranteed 24/7</div>
         </div>
 
       </div>

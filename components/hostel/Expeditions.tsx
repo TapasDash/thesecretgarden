@@ -1,11 +1,12 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
-import { useHostelStore } from '@/lib/store'
+import { TourBookingForm } from './TourBookingForm'
 
 interface ExpeditionItem {
   id: string
+  tourKey: 'ha-giang-loop' | 'plankton-night-kayak' | 'deep-water-solo' | 'jungle-trek'
   title: string
   subtitle: string
   price: string
@@ -20,6 +21,7 @@ interface ExpeditionItem {
 const EXPEDITION_LIST: ExpeditionItem[] = [
   {
     id: 'lan-ha-plankton',
+    tourKey: 'plankton-night-kayak',
     title: 'Lan Ha Bay Plankton Tour',
     subtitle: 'Sunset kayak & night swim with glowing plankton',
     price: '$28',
@@ -27,11 +29,12 @@ const EXPEDITION_LIST: ExpeditionItem[] = [
     duration: '4:30 PM - 9:30 PM',
     groupSize: 'Max 12 people',
     description: 'We take a small wooden boat into quiet karst lagoons where no big cruise ships go. Kayak through sea caves at sunset, then jump in for a night swim in glowing blue plankton.',
-    image: '/images/secret_garden_entrance_arch.jpg',
+    image: '/images/lan_ha_bay_kayak.jpg',
     features: ['Kayak through cave arches', 'Swim with blue bioluminescent plankton', 'Seafood & beer on floating fish farm'],
   },
   {
     id: 'deep-water-solo',
+    tourKey: 'deep-water-solo',
     title: 'Deep Water Solo Climbing',
     subtitle: 'Climb limestone cliffs over deep ocean water',
     price: '$35',
@@ -44,6 +47,7 @@ const EXPEDITION_LIST: ExpeditionItem[] = [
   },
   {
     id: 'ha-giang-loop',
+    tourKey: 'ha-giang-loop',
     title: 'Ha Giang Loop Road Trip',
     subtitle: '4 days through the high Northern mountain passes',
     price: '$145',
@@ -56,6 +60,7 @@ const EXPEDITION_LIST: ExpeditionItem[] = [
   },
   {
     id: 'national-park-trek',
+    tourKey: 'jungle-trek',
     title: 'National Park Jungle Trek',
     subtitle: 'Hike through the jungle to Frog Lake and Viet Hai',
     price: '$22',
@@ -70,7 +75,7 @@ const EXPEDITION_LIST: ExpeditionItem[] = [
 
 export const Expeditions: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const { selectExpedition } = useHostelStore()
+  const [selectedTour, setSelectedTour] = useState<ExpeditionItem['tourKey'] | null>(null)
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -87,7 +92,7 @@ export const Expeditions: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-6 border-b border-[#D8D8CC]">
           <div className="max-w-2xl">
             <div className="text-xs font-mono uppercase tracking-widest text-[#3E2723] font-semibold mb-3">
-              Island Tours & Road Trips
+              Island Tours &amp; Road Trips
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#1B3320] mb-3">
               Tours we actually recommend
@@ -161,7 +166,7 @@ export const Expeditions: React.FC = () => {
               </div>
 
               <button
-                onClick={() => selectExpedition(expedition.id)}
+                onClick={() => setSelectedTour(expedition.tourKey)}
                 className="w-full py-3 bg-[#1B3320] hover:bg-[#3E2723] text-[#F5F5F0] font-mono font-bold text-xs uppercase tracking-wider border border-[#1B3320] shadow-[3px_3px_0px_0px_#D4AF37] active:translate-x-[1px] active:translate-y-[1px] transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Book This Tour</span>
@@ -177,6 +182,25 @@ export const Expeditions: React.FC = () => {
         </div>
 
       </div>
+
+      {/* Direct Tour Booking Modal */}
+      {selectedTour && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
+          <div className="relative w-full max-w-2xl my-8">
+            <button
+              onClick={() => setSelectedTour(null)}
+              className="absolute -top-3 -right-3 z-10 p-2 bg-[#3E2723] text-white hover:bg-[#1B3320] border border-[#1B3320] font-mono text-xs cursor-pointer shadow-[2px_2px_0px_0px_#000]"
+              aria-label="Close"
+            >
+              ✕ Close
+            </button>
+            <TourBookingForm
+              initialTourId={selectedTour}
+              onSuccess={() => setSelectedTour(null)}
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
