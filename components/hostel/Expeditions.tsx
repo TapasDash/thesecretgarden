@@ -106,14 +106,14 @@ export const Expeditions: React.FC = () => {
             <button
               onClick={() => scroll('left')}
               aria-label="Scroll left"
-              className="w-12 h-12 bg-[#F5F5F0] hover:bg-[#D4AF37] text-[#1B3320] border-2 border-[#1B3320] shadow-[2px_2px_0px_0px_#1B3320] flex items-center justify-center transition-colors cursor-pointer"
+              className="w-11 h-11 bg-white hover:bg-[#FAF8F5] text-[#1B3320] border border-[#1B3320]/15 rounded-full shadow-sm flex items-center justify-center transition-transform active:scale-95 cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => scroll('right')}
               aria-label="Scroll right"
-              className="w-12 h-12 bg-[#F5F5F0] hover:bg-[#D4AF37] text-[#1B3320] border-2 border-[#1B3320] shadow-[2px_2px_0px_0px_#1B3320] flex items-center justify-center transition-colors cursor-pointer"
+              className="w-11 h-11 bg-white hover:bg-[#FAF8F5] text-[#1B3320] border border-[#1B3320]/15 rounded-full shadow-sm flex items-center justify-center transition-transform active:scale-95 cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -129,16 +129,16 @@ export const Expeditions: React.FC = () => {
           {EXPEDITION_LIST.map((expedition) => (
             <div
               key={expedition.id}
-              className="min-w-[320px] sm:min-w-[380px] md:min-w-[420px] max-w-[440px] bg-[#F5F5F0] border-2 border-[#1B3320] shadow-[6px_6px_0px_0px_#1B3320] p-6 flex flex-col justify-between snap-start shrink-0 group"
+              className="min-w-[320px] sm:min-w-[380px] md:min-w-[420px] max-w-[440px] bg-white/90 backdrop-blur-md border border-[#1B3320]/10 rounded-[2.25rem] shadow-[0_16px_40px_rgba(27,51,32,0.06)] p-6 sm:p-7 flex flex-col justify-between snap-start shrink-0 group hover:-translate-y-1 transition-all duration-300"
             >
               <div>
-                <div className="relative h-48 w-full overflow-hidden border border-[#1B3320] mb-5 bg-[#1B3320]">
+                <div className="relative h-48 w-full overflow-hidden rounded-2xl border border-[#1B3320]/10 mb-5 bg-[#1B3320]">
                   <img
                     src={expedition.image}
                     alt={expedition.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute top-2 right-2 bg-[#1B3320] text-[#D4AF37] font-mono font-bold text-xs px-2.5 py-1 border border-[#D4AF37]">
+                  <div className="absolute top-3 right-3 bg-[#1B3320]/90 backdrop-blur-sm text-[#D4AF37] font-mono font-bold text-xs px-3 py-1 rounded-full border border-[#D4AF37]/30 shadow-sm">
                     {expedition.price} ({expedition.priceVND})
                   </div>
                 </div>
@@ -155,10 +155,10 @@ export const Expeditions: React.FC = () => {
                   {expedition.description}
                 </p>
 
-                <div className="space-y-1.5 mb-6 bg-[#E8E8DF] p-3 border border-[#D8D8CC] text-xs font-mono text-[#1B3320]">
+                <div className="space-y-1.5 mb-6 bg-[#FAF8F5] p-3.5 rounded-2xl border border-[#1B3320]/8 text-xs font-mono text-[#1B3320]">
                   {expedition.features.map((f, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <span className="text-[#1B3320] font-bold">—</span>
+                      <span className="text-[#D4AF37] font-bold">✦</span>
                       <span>{f}</span>
                     </div>
                   ))}
@@ -167,7 +167,7 @@ export const Expeditions: React.FC = () => {
 
               <button
                 onClick={() => setSelectedTour(expedition.tourKey)}
-                className="w-full py-3 bg-[#1B3320] hover:bg-[#3E2723] text-[#F5F5F0] font-mono font-bold text-xs uppercase tracking-wider border border-[#1B3320] shadow-[3px_3px_0px_0px_#D4AF37] active:translate-x-[1px] active:translate-y-[1px] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3.5 bg-[#1B3320] hover:bg-[#284a30] text-[#FAF8F5] font-mono font-bold text-xs uppercase tracking-wider rounded-full shadow-[0_4px_14px_rgba(27,51,32,0.18)] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Book This Tour</span>
                 <ArrowRight className="w-4 h-4" />
@@ -185,11 +185,11 @@ export const Expeditions: React.FC = () => {
 
       {/* Direct Tour Booking Modal */}
       {selectedTour && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
           <div className="relative w-full max-w-2xl my-8">
             <button
               onClick={() => setSelectedTour(null)}
-              className="absolute -top-3 -right-3 z-10 p-2 bg-[#3E2723] text-white hover:bg-[#1B3320] border border-[#1B3320] font-mono text-xs cursor-pointer shadow-[2px_2px_0px_0px_#000]"
+              className="absolute -top-3 -right-3 z-10 p-2 rounded-full bg-white text-[#1B3320] hover:bg-[#FAF8F5] border border-[#1B3320]/15 font-mono text-xs cursor-pointer shadow-md"
               aria-label="Close"
             >
               ✕ Close

@@ -90,13 +90,13 @@ function AmenityCard({ amenity }: { amenity: Amenity }) {
   const Icon = amenity.icon
   return (
     <div
-      className="p-6 text-center shadow-indochine transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 bg-white border border-[var(--border-primary)] rounded-none group"
+      className="p-6 text-center shadow-[0_10px_30px_rgba(27,51,32,0.05)] transition-all duration-300 hover:-translate-y-1.5 bg-white/90 backdrop-blur-sm border border-[#1B3320]/10 rounded-2xl group"
     >
-      <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[var(--bg-primary)] border border-[var(--border-primary)] flex items-center justify-center text-[var(--accent-green)] transition-all group-hover:bg-[var(--accent-gold)] group-hover:text-[var(--text-primary)] shadow-sm">
+      <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-[#FAF8F5] border border-[#1B3320]/10 flex items-center justify-center text-[#1B3320] transition-all group-hover:bg-[#1B3320] group-hover:text-[#D4AF37] shadow-sm">
         <Icon className="w-7 h-7" />
       </div>
       <h3
-        className="text-lg font-serif font-bold mb-2 text-[var(--text-primary)] group-hover:text-[var(--accent-green)] transition-colors"
+        className="text-lg font-serif font-bold mb-2 text-[#1B3320] group-hover:text-[#3E2723] transition-colors"
       >
         {amenity.name}
       </h3>

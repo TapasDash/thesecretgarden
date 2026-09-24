@@ -156,7 +156,7 @@ export const TheHostVibeBoard: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#3E2723] border border-[#D4AF37] px-4 py-2.5 text-right shadow-[3px_3px_0px_0px_#000]">
+            <div className="bg-[#3E2723] border border-[#D4AF37]/40 rounded-2xl px-4 py-2.5 text-right shadow-md">
               <span className="block text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider">ALL HOSTEL NIGHTS</span>
               <span className="text-xs font-bold text-[#F5F5F0]">Free for Staying Guests</span>
             </div>
@@ -169,17 +169,17 @@ export const TheHostVibeBoard: React.FC = () => {
             <div
               key={event.id}
               onClick={() => setSelectedPoster(event)}
-              className={`relative bg-gradient-to-b ${event.bgGradient} border-2 ${
+              className={`relative bg-gradient-to-b ${event.bgGradient} border ${
                 event.theme === 'neon'
-                  ? 'border-[#00F0FF] shadow-[0_0_15px_rgba(0,240,255,0.3),6px_6px_0px_0px_#000]'
+                  ? 'border-[#00F0FF]/40 shadow-[0_12px_30px_rgba(0,240,255,0.15)]'
                   : event.theme === 'cinema'
-                  ? 'border-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.2),6px_6px_0px_0px_#000]'
+                  ? 'border-[#D4AF37]/40 shadow-[0_12px_30px_rgba(212,175,55,0.15)]'
                   : event.theme === 'cooking'
-                  ? 'border-[#4A7C59] shadow-[6px_6px_0px_0px_#000]'
+                  ? 'border-[#4A7C59]/50 shadow-[0_12px_30px_rgba(74,124,89,0.15)]'
                   : event.theme === 'bracelet'
-                  ? 'border-[#E07A5F] shadow-[6px_6px_0px_0px_#000]'
-                  : 'border-[#D4AF37] shadow-[6px_6px_0px_0px_#000]'
-              } p-6 flex flex-col justify-between cursor-pointer group hover:-translate-y-1 transition-all duration-300`}
+                  ? 'border-[#E07A5F]/50 shadow-[0_12px_30px_rgba(224,122,95,0.15)]'
+                  : 'border-[#D4AF37]/40 shadow-[0_12px_30px_rgba(212,175,55,0.15)]'
+              } rounded-[2.5rem] p-6 flex flex-col justify-between cursor-pointer group hover:-translate-y-1.5 transition-all duration-300`}
             >
               
               {/* Poster Top: Secret Garden Round Logo + Tagline */}
@@ -204,16 +204,16 @@ export const TheHostVibeBoard: React.FC = () => {
                   </div>
 
                   {/* Price Tag Badge */}
-                  <span className={`px-2.5 py-1 text-[10px] font-mono font-bold tracking-wider uppercase border ${
+                  <span className={`px-3 py-1 text-[10px] font-mono font-bold tracking-wider uppercase rounded-full border ${
                     event.theme === 'neon'
                       ? 'bg-[#FF007F] text-white border-[#00F0FF]'
                       : event.theme === 'cooking'
-                      ? 'bg-[#E63946] text-white border-white'
+                      ? 'bg-[#E63946] text-white border-white/40'
                       : event.theme === 'cinema'
-                      ? 'bg-[#D4AF37] text-black border-black'
+                      ? 'bg-[#D4AF37] text-black border-black/30'
                       : event.theme === 'bracelet'
-                      ? 'bg-[#E07A5F] text-white border-white'
-                      : 'bg-[#D4AF37] text-black border-black'
+                      ? 'bg-[#E07A5F] text-white border-white/40'
+                      : 'bg-[#D4AF37] text-black border-black/30'
                   }`}>
                     {event.priceTag}
                   </span>
@@ -245,40 +245,34 @@ export const TheHostVibeBoard: React.FC = () => {
                       </span>
                     </div>
                   ) : event.theme === 'neon' ? (
-                    <div className="inline-block p-3 border-2 border-[#FF007F] bg-black/60 shadow-[0_0_12px_rgba(255,0,127,0.5)]">
+                    <div className="inline-block p-3 border border-[#FF007F] bg-black/60 rounded-2xl shadow-[0_0_12px_rgba(255,0,127,0.5)]">
                       <h3 className="font-sans font-black text-3xl sm:text-4xl text-white tracking-wider uppercase drop-shadow-[0_0_8px_#00F0FF]">
                         QUIZ <span className="text-[#00F0FF] italic">NIGHT</span>
                       </h3>
-                    </div>
-                  ) : event.theme === 'cinema' ? (
-                    <div>
-                      <span className="text-[11px] font-serif uppercase tracking-widest text-[#D4AF37] block">
-                        WEEKLY
+                      <span className="text-xs font-mono uppercase tracking-widest text-[#00F0FF] mt-1 block font-bold">
+                        FREE BEER JUG FOR WINNERS
                       </span>
-                      <h3 className="font-serif font-black text-3xl sm:text-4xl text-white tracking-tight leading-none uppercase">
-                        MOVIE NIGHT
-                      </h3>
                     </div>
                   ) : (
                     <div>
-                      <h3 className="font-serif font-black text-2xl sm:text-3xl text-white tracking-tight leading-tight uppercase">
-                        ACOUSTIC JAM
+                      <h3 className="font-serif font-black text-3xl sm:text-4xl text-[#D4AF37] tracking-tight leading-none uppercase">
+                        Cinema Night
                       </h3>
-                      <span className="text-xs font-mono uppercase tracking-widest text-[#D4AF37] mt-1 block">
-                        Live Courtyard Music
+                      <span className="text-xs font-mono uppercase tracking-widest text-white/90 mt-1 block">
+                        GARDEN PROJECTOR SCREEN
                       </span>
                     </div>
                   )}
                 </div>
 
                 {/* Real Event Photo */}
-                <div className="relative h-48 w-full overflow-hidden border-2 border-white/20 mb-4 bg-black group-hover:border-white/50 transition-colors">
+                <div className="relative h-48 w-full overflow-hidden rounded-2xl border border-white/20 mb-4 bg-black group-hover:border-white/50 transition-colors">
                   <img
                     src={event.image}
                     alt={event.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute bottom-2 left-2 bg-black/85 text-white text-[10px] font-mono px-2 py-0.5 border border-[#D4AF37]">
+                  <div className="absolute bottom-2.5 left-3 bg-black/85 text-white text-[10px] font-mono px-3 py-1 rounded-full border border-[#D4AF37]/50">
                     {event.day} • {event.time}
                   </div>
                 </div>
@@ -289,7 +283,7 @@ export const TheHostVibeBoard: React.FC = () => {
                 </p>
 
                 {/* Poster Bullets */}
-                <div className="space-y-1.5 mb-6 bg-black/40 p-3 border border-white/10 text-[11px] font-mono text-white/90">
+                <div className="space-y-1.5 mb-6 bg-black/40 p-3.5 rounded-2xl border border-white/10 text-[11px] font-mono text-white/90">
                   {event.bullets.map((b, i) => (
                     <div key={i} className="flex items-start gap-2">
                       <span className="text-[#D4AF37] font-bold">✦</span>
@@ -310,7 +304,7 @@ export const TheHostVibeBoard: React.FC = () => {
                   </span>
                 </div>
 
-                <div className="px-2 py-1 bg-white/10 border border-white/20 text-[9px] font-mono text-[#D4AF37] uppercase font-bold">
+                <div className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-[9px] font-mono text-[#D4AF37] uppercase font-bold">
                   {event.qrLabel}
                 </div>
               </div>
@@ -320,9 +314,9 @@ export const TheHostVibeBoard: React.FC = () => {
         </div>
 
         {/* Bottom Courtyard Family Dinner Banner */}
-        <div className="mt-12 p-6 sm:p-8 bg-[#3E2723] border-2 border-[#D4AF37] shadow-[6px_6px_0px_0px_#000] flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div className="mt-12 p-6 sm:p-8 bg-[#3E2723] border border-[#D4AF37]/40 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div className="space-y-1 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#1B3320] text-[#D4AF37] text-[10px] font-mono tracking-widest uppercase border border-[#D4AF37]/60">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1B3320] text-[#D4AF37] text-[10px] font-mono tracking-widest uppercase rounded-full border border-[#D4AF37]/30">
               <Sparkles className="w-3 h-3 text-[#D4AF37]" />
               <span>EVERY SINGLE NIGHT AT 6:30 PM</span>
             </div>
@@ -337,7 +331,7 @@ export const TheHostVibeBoard: React.FC = () => {
           <div className="flex items-center gap-4 shrink-0">
             <button
               onClick={() => openBooking()}
-              className="px-8 py-3.5 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider border-2 border-[#1B3320] shadow-[3px_3px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] transition-all cursor-pointer"
+              className="px-8 py-3.5 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider rounded-full shadow-[0_4px_14px_rgba(212,175,55,0.3)] active:scale-95 transition-all cursor-pointer"
             >
               Book a Bed &amp; Join Us
             </button>
@@ -348,13 +342,13 @@ export const TheHostVibeBoard: React.FC = () => {
 
       {/* Expanded Flyer Poster Modal */}
       {selectedPoster && (
-        <div className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4 overflow-y-auto">
-          <div className={`relative w-full max-w-xl bg-gradient-to-b ${selectedPoster.bgGradient} border-2 border-[#D4AF37] shadow-[8px_8px_0px_0px_#000] p-6 sm:p-8 text-white my-8 max-h-[90vh] overflow-y-auto`}>
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className={`relative w-full max-w-xl bg-gradient-to-b ${selectedPoster.bgGradient} border border-[#D4AF37]/40 rounded-[2.5rem] shadow-[0_24px_60px_rgba(0,0,0,0.5)] p-6 sm:p-8 text-white my-8 max-h-[90vh] overflow-y-auto`}>
             
             {/* Close Button */}
             <button
               onClick={() => setSelectedPoster(null)}
-              className="absolute top-4 right-4 p-2 bg-black text-white hover:bg-[#D4AF37] hover:text-black border border-white/40 font-mono text-xs cursor-pointer transition-colors"
+              className="absolute top-5 right-5 p-2 rounded-full bg-black/60 text-white hover:bg-[#D4AF37] hover:text-black font-mono text-xs cursor-pointer transition-colors"
               aria-label="Close flyer"
             >
               ✕ Close
@@ -390,7 +384,7 @@ export const TheHostVibeBoard: React.FC = () => {
             </div>
 
             {/* Image */}
-            <div className="h-64 w-full overflow-hidden border-2 border-white/30 mb-6 bg-black">
+            <div className="h-64 w-full overflow-hidden rounded-2xl border border-white/30 mb-6 bg-black">
               <img
                 src={selectedPoster.image}
                 alt={selectedPoster.title}
@@ -404,7 +398,7 @@ export const TheHostVibeBoard: React.FC = () => {
             </p>
 
             {/* Bullets */}
-            <div className="space-y-2 bg-black/50 p-4 border border-white/20 mb-6 text-xs font-mono text-white/90">
+            <div className="space-y-2 bg-black/50 p-4 rounded-2xl border border-white/20 mb-6 text-xs font-mono text-white/90">
               <div className="text-[#D4AF37] uppercase font-bold text-[11px] mb-1">Event Highlights:</div>
               {selectedPoster.bullets.map((b, i) => (
                 <div key={i} className="flex items-center gap-2">
@@ -424,7 +418,7 @@ export const TheHostVibeBoard: React.FC = () => {
                   setSelectedPoster(null)
                   openBooking()
                 }}
-                className="w-full sm:w-auto px-6 py-3 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider border border-black shadow-[2px_2px_0px_0px_#000] cursor-pointer"
+                className="w-full sm:w-auto px-7 py-3 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider rounded-full shadow-md active:scale-95 transition-all cursor-pointer"
               >
                 Book a Bed to Attend
               </button>

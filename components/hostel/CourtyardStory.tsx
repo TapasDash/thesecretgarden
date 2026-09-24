@@ -15,14 +15,14 @@ export const CourtyardStory: React.FC = () => {
           {/* Left Column Photos */}
           <div className="lg:col-span-6">
             <div className="grid grid-cols-2 gap-4">
-              <div className="border-2 border-[#1B3320] shadow-[6px_6px_0px_0px_#1B3320] overflow-hidden bg-[#1B3320] h-64 group">
+              <div className="border border-[#1B3320]/10 rounded-[2rem] shadow-[0_16px_40px_rgba(27,51,32,0.06)] overflow-hidden bg-[#1B3320] h-64 group">
                 <img
                   src="/images/courtyard_mural.png"
                   alt="Courtyard wall and plants"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </div>
-              <div className="border-2 border-[#1B3320] shadow-[6px_6px_0px_0px_#3E2723] overflow-hidden bg-[#3E2723] h-64 mt-8 group">
+              <div className="border border-[#1B3320]/10 rounded-[2rem] shadow-[0_16px_40px_rgba(27,51,32,0.06)] overflow-hidden bg-[#3E2723] h-64 mt-8 group">
                 <img
                   src="/images/indochine_cement_tile.png"
                   alt="Courtyard cement tiles"
@@ -31,12 +31,12 @@ export const CourtyardStory: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-6 p-6 bg-[#F5F5F0] border-2 border-[#1B3320] shadow-[4px_4px_0px_0px_#1B3320]">
+            <div className="mt-6 p-6 bg-white/80 backdrop-blur-sm border border-[#1B3320]/10 rounded-2xl shadow-sm">
               <p className="font-serif italic text-base text-[#1B3320] leading-relaxed">
                 &ldquo;We started this place in 2017 because we wanted a good garden where backpackers can rest properly, eat home-cooked food together, and drink cold beer.&rdquo;
               </p>
               <div className="mt-3 text-xs font-mono text-[#3E2723] font-bold">
-                — Mama Huong & Son (Secret Garden)
+                — Mama Huong &amp; Son (Secret Garden)
               </div>
             </div>
           </div>
@@ -56,7 +56,7 @@ export const CourtyardStory: React.FC = () => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 bg-[#F5F5F0] border border-[#1B3320]">
+              <div className="p-5 bg-white/70 backdrop-blur-sm border border-[#1B3320]/10 rounded-2xl shadow-sm">
                 <h4 className="font-serif font-bold text-base text-[#1B3320] mb-1">
                   Real Drip Coffee
                 </h4>
@@ -65,7 +65,7 @@ export const CourtyardStory: React.FC = () => {
                 </p>
               </div>
 
-              <div className="p-4 bg-[#F5F5F0] border border-[#1B3320]">
+              <div className="p-5 bg-white/70 backdrop-blur-sm border border-[#1B3320]/10 rounded-2xl shadow-sm">
                 <h4 className="font-serif font-bold text-base text-[#1B3320] mb-1">
                   Family Dinners
                 </h4>
@@ -78,9 +78,9 @@ export const CourtyardStory: React.FC = () => {
             <div className="pt-4">
               <button
                 onClick={() => openBooking()}
-                className="px-8 py-4 bg-[#1B3320] hover:bg-[#3E2723] text-[#F5F5F0] font-mono font-bold text-xs uppercase tracking-wider border-2 border-[#1B3320] shadow-[4px_4px_0px_0px_#D4AF37] active:translate-x-[1px] active:translate-y-[1px] transition-all cursor-pointer"
+                className="px-8 py-4 bg-[#1B3320] hover:bg-[#284a30] text-[#FAF8F5] font-mono font-bold text-xs uppercase tracking-wider rounded-full border border-[#1B3320]/20 shadow-[0_10px_25px_rgba(27,51,32,0.2)] active:scale-95 transition-all cursor-pointer"
               >
-                Book a Bed & Come Stay With Us
+                Book a Bed &amp; Come Stay With Us
               </button>
             </div>
           </div>

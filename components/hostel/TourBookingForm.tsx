@@ -24,16 +24,20 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
   const defaultDate = new Date(Date.now() + 86400000).toISOString().split('T')[0]
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-[#F5F5F0] border border-[#D8D8CC] shadow-[4px_4px_0px_0px_#1B3320] p-6 sm:p-8 font-sans">
+    <div className="w-full max-w-2xl mx-auto bg-white/95 backdrop-blur-sm border-2 border-[#1B3320] rounded-3xl shadow-[6px_6px_0px_0px_#1B3320] p-6 sm:p-8 font-sans">
       
       {state.success ? (
-        <div className="text-center py-8 space-y-4">
-          <div className="w-12 h-12 bg-[#1B3320] text-[#D4AF37] border border-[#1B3320] flex items-center justify-center mx-auto shadow-[3px_3px_0px_0px_#3E2723]">
-            <Check className="w-6 h-6" />
+        <div className="text-center py-6 sm:py-8 space-y-4">
+          <div className="w-14 h-14 bg-[#1B3320] text-[#D4AF37] border-2 border-[#1B3320] rounded-2xl flex items-center justify-center mx-auto shadow-[3px_3px_0px_0px_#D4AF37]">
+            <Check className="w-7 h-7 stroke-[2.5]" />
+          </div>
+
+          <div className="inline-block px-3 py-0.5 bg-[#E8E8DF] border border-[#1B3320] rounded-full text-[10px] font-mono uppercase tracking-widest text-[#3E2723] font-bold shadow-[2px_2px_0px_0px_#1B3320]">
+            Confirmed
           </div>
 
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1B3320]">
-            Booking Confirmed
+            Your Tour is Booked!
           </h3>
 
           <p className="text-sm text-[#3E2723] max-w-md mx-auto leading-relaxed">
@@ -41,12 +45,26 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
           </p>
 
           {state.data && (
-            <div className="bg-[#E8E8DF] p-4 border border-[#D8D8CC] text-left text-xs font-mono space-y-1.5 max-w-sm mx-auto text-[#1B3320]">
-              <div><strong>Guest:</strong> {state.data.guestName}</div>
-              <div><strong>Tour:</strong> {state.data.tourName}</div>
-              <div><strong>Date:</strong> {state.data.date}</div>
-              <div><strong>Travelers:</strong> {state.data.guestCount}</div>
-              <div className="pt-1 text-[#3E2723]"><strong>Payment:</strong> Pay at front desk on arrival</div>
+            <div className="bg-[#FAF8F5] p-4 sm:p-5 border-2 border-[#1B3320] rounded-2xl text-left text-xs font-mono space-y-2 max-w-md mx-auto text-[#1B3320] shadow-[3px_3px_0px_0px_#1B3320]/20">
+              <div className="flex justify-between border-b border-[#D8D8CC] pb-1.5">
+                <span className="text-[#3E2723]/70 font-bold uppercase">Guest</span>
+                <span className="font-bold">{state.data.guestName}</span>
+              </div>
+              <div className="flex justify-between border-b border-[#D8D8CC] pb-1.5">
+                <span className="text-[#3E2723]/70 font-bold uppercase">Tour</span>
+                <span className="font-bold text-right">{state.data.tourName}</span>
+              </div>
+              <div className="flex justify-between border-b border-[#D8D8CC] pb-1.5">
+                <span className="text-[#3E2723]/70 font-bold uppercase">Date</span>
+                <span className="font-bold">{state.data.date}</span>
+              </div>
+              <div className="flex justify-between border-b border-[#D8D8CC] pb-1.5">
+                <span className="text-[#3E2723]/70 font-bold uppercase">Travelers</span>
+                <span className="font-bold">{state.data.guestCount} person(s)</span>
+              </div>
+              <div className="pt-1 text-[#3E2723] text-[11px]">
+                <strong>Payment:</strong> Pay at front desk on arrival (cash or card)
+              </div>
             </div>
           )}
 
@@ -57,10 +75,10 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
           <div className="pt-4">
             <Link
               href="/tour-confirmed"
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider border border-[#1B3320] shadow-[2px_2px_0px_0px_#1B3320]"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider rounded-xl border-2 border-[#1B3320] shadow-[3px_3px_0px_0px_#1B3320] hover:shadow-[1px_1px_0px_0px_#1B3320] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
             >
               <span>View Full Confirmation Receipt</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -68,8 +86,11 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
         <div>
           {/* Header */}
           <div className="border-b border-[#D8D8CC] pb-4 mb-6">
+            <div className="inline-block px-3 py-0.5 bg-[#E8E8DF] border border-[#1B3320] rounded-full text-[10px] font-mono uppercase tracking-widest text-[#3E2723] font-bold shadow-[2px_2px_0px_0px_#1B3320] mb-2">
+              Fast Reservation
+            </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1B3320]">
-              Book a Tour
+              Book an Island Tour
             </h3>
             <p className="text-xs sm:text-sm text-[#3E2723]/90 mt-1">
               Select your tour and date below. Free cancellation up to 24 hours before tour start. Pay at the front desk when you arrive.
@@ -81,7 +102,7 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
             
             {/* General Error Message */}
             {!state.success && state.message && (
-              <div className="p-3 bg-[#3E2723] text-[#F5F5F0] text-xs font-mono border border-[#1B3320]">
+              <div className="p-3 bg-[#3E2723] text-[#F5F5F0] text-xs font-mono border-2 border-[#1B3320] rounded-xl">
                 {state.message}
               </div>
             )}
@@ -96,7 +117,7 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
                 name="tourId"
                 defaultValue={initialTourId}
                 required
-                className="w-full bg-transparent border border-[#D8D8CC] text-sm text-[#1B3320] p-3 focus:border-[#1B3320] focus:shadow-[2px_2px_0px_0px_#1B3320] outline-none transition-all cursor-pointer"
+                className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all cursor-pointer font-sans"
               >
                 <option value="plankton-night-kayak">Lan Ha Bay Plankton Night Kayak ($28 / 700k VND)</option>
                 <option value="deep-water-solo">Deep Water Solo Climbing ($35 / 880k VND)</option>
@@ -120,7 +141,7 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
                   name="guestName"
                   required
                   placeholder="e.g. Alex Rivera"
-                  className="w-full bg-transparent border border-[#D8D8CC] text-sm text-[#1B3320] p-3 placeholder:text-[#3E2723]/40 focus:border-[#1B3320] focus:shadow-[2px_2px_0px_0px_#1B3320] outline-none transition-all"
+                  className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 placeholder:text-[#3E2723]/40 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all font-sans"
                 />
                 {state.errors?.guestName && (
                   <p className="text-[11px] font-mono text-[#991B1B] mt-1">{state.errors.guestName[0]}</p>
@@ -137,7 +158,7 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
                   name="email"
                   required
                   placeholder="alex@gmail.com"
-                  className="w-full bg-transparent border border-[#D8D8CC] text-sm text-[#1B3320] p-3 placeholder:text-[#3E2723]/40 focus:border-[#1B3320] focus:shadow-[2px_2px_0px_0px_#1B3320] outline-none transition-all"
+                  className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 placeholder:text-[#3E2723]/40 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all font-sans"
                 />
                 {state.errors?.email && (
                   <p className="text-[11px] font-mono text-[#991B1B] mt-1">{state.errors.email[0]}</p>
@@ -157,7 +178,7 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
                   name="whatsappNumber"
                   required
                   placeholder="+84 987 654 321"
-                  className="w-full bg-transparent border border-[#D8D8CC] text-sm text-[#1B3320] p-3 placeholder:text-[#3E2723]/40 focus:border-[#1B3320] focus:shadow-[2px_2px_0px_0px_#1B3320] outline-none transition-all"
+                  className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 placeholder:text-[#3E2723]/40 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all font-sans"
                 />
                 {state.errors?.whatsappNumber && (
                   <p className="text-[11px] font-mono text-[#991B1B] mt-1">{state.errors.whatsappNumber[0]}</p>
@@ -174,7 +195,7 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
                   name="date"
                   required
                   defaultValue={defaultDate}
-                  className="w-full bg-transparent border border-[#D8D8CC] text-sm text-[#1B3320] p-3 focus:border-[#1B3320] focus:shadow-[2px_2px_0px_0px_#1B3320] outline-none transition-all"
+                  className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all font-sans"
                 />
                 {state.errors?.date && (
                   <p className="text-[11px] font-mono text-[#991B1B] mt-1">{state.errors.date[0]}</p>
@@ -192,7 +213,7 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
                 name="guestCount"
                 defaultValue={1}
                 required
-                className="w-full bg-transparent border border-[#D8D8CC] text-sm text-[#1B3320] p-3 focus:border-[#1B3320] focus:shadow-[2px_2px_0px_0px_#1B3320] outline-none transition-all cursor-pointer"
+                className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all cursor-pointer font-sans"
               >
                 <option value={1}>1 Solo traveler</option>
                 <option value={2}>2 People</option>
@@ -210,9 +231,9 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
               <button
                 type="submit"
                 disabled={isPending}
-                className="w-full py-4 bg-[#D4AF37] hover:bg-[#c29f30] disabled:bg-[#D8D8CC] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider border-2 border-[#1B3320] shadow-[3px_3px_0px_0px_#1B3320] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_0px_#1B3320] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
+                className="w-full py-4 bg-[#D4AF37] hover:bg-[#c29f30] disabled:bg-[#D8D8CC] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider rounded-xl border-2 border-[#1B3320] shadow-[4px_4px_0px_0px_#1B3320] hover:shadow-[2px_2px_0px_0px_#1B3320] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
               >
-                <span>{isPending ? 'Booking...' : 'Lock it in'}</span>
+                <span>{isPending ? 'Locking spot in...' : 'Lock it in'}</span>
                 {!isPending && <ArrowRight className="w-4 h-4 text-[#1B3320]" />}
               </button>
             </div>

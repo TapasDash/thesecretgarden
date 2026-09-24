@@ -119,14 +119,14 @@ export const AccommodationMenu: React.FC = () => {
           </div>
 
           {/* Filter Pills */}
-          <div className="flex items-center bg-[#E8E8DF] p-1 border-2 border-[#1B3320] shadow-[3px_3px_0px_0px_#1B3320]">
+          <div className="flex items-center bg-[#E8E8DF] p-1.5 border border-[#1B3320]/10 rounded-full shadow-[0_2px_8px_rgba(27,51,32,0.04)]">
             {(['all', 'dorm', 'private'] as RoomCategory[]).map((cat) => (
               <button
                 key={cat}
                 onClick={() => setCategory(cat)}
-                className={`px-5 py-2 font-mono text-xs uppercase tracking-wider font-bold transition-all cursor-pointer ${
+                className={`px-5 py-2 font-mono text-xs uppercase tracking-wider font-bold rounded-full transition-all cursor-pointer ${
                   activeCategory === cat
-                    ? 'bg-[#1B3320] text-[#D4AF37]'
+                    ? 'bg-[#1B3320] text-[#D4AF37] shadow-sm'
                     : 'text-[#3E2723] hover:text-[#1B3320]'
                 }`}
               >
@@ -136,23 +136,23 @@ export const AccommodationMenu: React.FC = () => {
           </div>
         </div>
 
-        {/* Brutalist List Layout */}
-        <div className="border-2 border-[#1B3320] shadow-[6px_6px_0px_0px_#1B3320] bg-[#F5F5F0] divide-y-2 divide-[#1B3320]">
+        {/* Soft Rounded List Layout */}
+        <div className="border border-[#1B3320]/10 shadow-[0_20px_50px_rgba(27,51,32,0.06)] bg-white/80 backdrop-blur-md rounded-[2.5rem] divide-y divide-[#1B3320]/8 overflow-hidden">
           {filteredRooms.map((room) => (
             <div
               key={room.id}
-              className="p-6 sm:p-8 hover:bg-[#E8E8DF]/60 transition-colors flex flex-col lg:flex-row lg:items-center justify-between gap-8 group"
+              className="p-6 sm:p-8 hover:bg-[#FAF8F5] transition-colors flex flex-col lg:flex-row lg:items-center justify-between gap-8 group"
             >
               <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center flex-1">
                 
                 {/* Thumbnail */}
-                <div className="relative w-full sm:w-56 h-40 overflow-hidden border-2 border-[#1B3320] shrink-0 bg-[#1B3320]">
+                <div className="relative w-full sm:w-56 h-40 overflow-hidden rounded-2xl border border-[#1B3320]/10 shrink-0 bg-[#1B3320]">
                   <img
                     src={room.image}
                     alt={room.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute top-2 left-2 bg-[#1B3320] text-[#D4AF37] text-[10px] font-mono font-bold px-2.5 py-1 border border-[#D4AF37]">
+                  <div className="absolute top-2 left-2 bg-[#1B3320]/90 backdrop-blur-sm text-[#D4AF37] text-[10px] font-mono font-bold px-3 py-1 rounded-full border border-[#D4AF37]/30 shadow-sm">
                     {room.categoryLabel}
                   </div>
                 </div>
@@ -177,7 +177,7 @@ export const AccommodationMenu: React.FC = () => {
                     {room.amenities.map((amenity, i) => (
                       <span
                         key={i}
-                        className="text-[11px] font-mono bg-[#E8E8DF] text-[#1B3320] px-2.5 py-1 border border-[#D8D8CC]"
+                        className="text-[11px] font-mono bg-[#FAF8F5] text-[#1B3320] px-3 py-1 rounded-full border border-[#1B3320]/8"
                       >
                         {amenity}
                       </span>
@@ -188,7 +188,7 @@ export const AccommodationMenu: React.FC = () => {
               </div>
 
               {/* Price & Action */}
-              <div className="flex sm:flex-row lg:flex-col items-center sm:items-end justify-between sm:justify-end gap-5 shrink-0 pt-4 lg:pt-0 border-t lg:border-t-0 border-[#D8D8CC]">
+              <div className="flex sm:flex-row lg:flex-col items-center sm:items-end justify-between sm:justify-end gap-5 shrink-0 pt-4 lg:pt-0 border-t lg:border-t-0 border-[#1B3320]/8">
                 <div className="text-left sm:text-right">
                   <div className="flex items-baseline gap-1">
                     <span className="font-serif text-3xl font-bold text-[#1B3320]">
@@ -205,7 +205,7 @@ export const AccommodationMenu: React.FC = () => {
 
                 <button
                   onClick={() => selectRoom(room.id)}
-                  className="px-6 py-3.5 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider border-2 border-[#1B3320] shadow-[3px_3px_0px_0px_#1B3320] active:translate-x-[1px] active:translate-y-[1px] transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-3.5 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider rounded-full border border-[#1B3320]/15 shadow-[0_4px_14px_rgba(212,175,55,0.3)] active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <span>Select {room.type === 'dorm' ? 'Bed' : 'Room'}</span>
                   <ArrowRight className="w-4 h-4 text-[#1B3320]" />
@@ -217,7 +217,7 @@ export const AccommodationMenu: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 p-6 bg-[#E8E8DF] border-2 border-[#1B3320] flex flex-wrap items-center justify-around gap-6 text-xs font-mono text-[#1B3320]">
+        <div className="mt-8 p-6 bg-white/70 backdrop-blur-sm border border-[#1B3320]/10 rounded-2xl shadow-sm flex flex-wrap items-center justify-around gap-6 text-xs font-mono text-[#1B3320]">
           <div>Free big breakfast every morning (7:30 - 10:00 AM)</div>
           <div>Free bag storage before check-in &amp; after check-out</div>
           <div>Cold AC &amp; hot showers guaranteed 24/7</div>

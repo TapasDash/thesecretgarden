@@ -83,13 +83,13 @@ export const BookingDrawer: React.FC = () => {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-      <div className="w-full max-w-xl bg-[#F5F5F0] border-2 border-[#1B3320] shadow-[8px_8px_0px_0px_#1B3320] p-6 sm:p-8 text-[#1B3320] relative my-8 max-h-[92vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div className="w-full max-w-xl bg-[#FAF8F5] border border-[#1B3320]/15 rounded-[2.5rem] shadow-[0_24px_60px_rgba(0,0,0,0.25)] p-6 sm:p-8 text-[#1B3320] relative my-8 max-h-[92vh] overflow-y-auto">
         
         {/* Close Button */}
         <button
           onClick={closeBooking}
-          className="absolute top-4 right-4 p-2 bg-[#3E2723] hover:bg-[#1B3320] text-[#F5F5F0] border border-[#1B3320] transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 rounded-full bg-[#1B3320]/5 hover:bg-[#1B3320] text-[#1B3320] hover:text-white transition-all cursor-pointer"
           aria-label="Close Booking"
         >
           <X className="w-5 h-5" />
@@ -98,8 +98,8 @@ export const BookingDrawer: React.FC = () => {
         {!isSubmitted ? (
           <div>
             {/* Header */}
-            <div className="border-b border-[#D8D8CC] pb-4 mb-5">
-              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#1B3320] text-[#D4AF37] text-[10px] font-mono tracking-widest uppercase border border-[#1B3320] mb-2">
+            <div className="border-b border-[#1B3320]/10 pb-4 mb-5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#1B3320] text-[#D4AF37] text-[10px] font-mono tracking-widest uppercase rounded-full mb-2">
                 <Sparkles className="w-3 h-3 text-[#D4AF37]" />
                 <span>DIRECT BOOKING • PAY ON ARRIVAL • ZERO FEES</span>
               </div>
@@ -125,7 +125,7 @@ export const BookingDrawer: React.FC = () => {
                     setRoomId(e.target.value)
                     selectRoom(e.target.value)
                   }}
-                  className="w-full bg-[#E8E8DF] border-2 border-[#1B3320] p-2.5 text-xs font-bold text-[#1B3320] focus:outline-none cursor-pointer"
+                  className="w-full bg-white border border-[#1B3320]/15 rounded-xl p-3 text-xs font-bold text-[#1B3320] focus:outline-none cursor-pointer shadow-sm"
                 >
                   {AVAILABLE_ROOMS.map((r) => (
                     <option key={r.id} value={r.id}>
@@ -136,7 +136,7 @@ export const BookingDrawer: React.FC = () => {
               </div>
 
               {/* Dates & Guests */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-[#E8E8DF] p-3 border border-[#1B3320]">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-white/70 p-3.5 border border-[#1B3320]/10 rounded-2xl shadow-sm">
                 <div>
                   <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
                     Check-in Date
@@ -146,7 +146,7 @@ export const BookingDrawer: React.FC = () => {
                     required
                     value={checkInDate}
                     onChange={(e) => setDates(e.target.value, checkOutDate)}
-                    className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2 text-xs font-semibold text-[#1B3320] focus:outline-none"
+                    className="w-full bg-[#FAF8F5] border border-[#1B3320]/10 rounded-xl p-2 text-xs font-semibold text-[#1B3320] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -158,7 +158,7 @@ export const BookingDrawer: React.FC = () => {
                     required
                     value={checkOutDate}
                     onChange={(e) => setDates(checkInDate, e.target.value)}
-                    className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2 text-xs font-semibold text-[#1B3320] focus:outline-none"
+                    className="w-full bg-[#FAF8F5] border border-[#1B3320]/10 rounded-xl p-2 text-xs font-semibold text-[#1B3320] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -168,7 +168,7 @@ export const BookingDrawer: React.FC = () => {
                   <select
                     value={formData.guestsCount}
                     onChange={(e) => setFormData({ ...formData, guestsCount: Number(e.target.value) })}
-                    className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2 text-xs font-semibold text-[#1B3320] focus:outline-none"
+                    className="w-full bg-[#FAF8F5] border border-[#1B3320]/10 rounded-xl p-2 text-xs font-semibold text-[#1B3320] focus:outline-none cursor-pointer"
                   >
                     <option value={1}>1 Guest</option>
                     <option value={2}>2 Guests</option>
@@ -179,12 +179,12 @@ export const BookingDrawer: React.FC = () => {
               </div>
 
               {/* Live Price Calculation Summary Box */}
-              <div className="p-3 bg-[#1B3320] text-[#F5F5F0] border border-[#D4AF37] flex items-center justify-between">
+              <div className="p-4 bg-[#1B3320] text-[#F5F5F0] rounded-2xl border border-[#D4AF37]/30 shadow-md flex items-center justify-between">
                 <div>
                   <div className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider">
                     Total for {nightsCount} Night{nightsCount > 1 ? 's' : ''} ({formData.guestsCount} guest{formData.guestsCount > 1 ? 's' : ''})
                   </div>
-                  <div className="text-sm font-sans text-white/80">
+                  <div className="text-sm font-sans text-white/90 font-semibold mt-0.5">
                     {selectedRoom.name}
                   </div>
                 </div>
@@ -210,7 +210,7 @@ export const BookingDrawer: React.FC = () => {
                     placeholder="e.g. Alex Morgan"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2.5 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none"
+                    className="w-full bg-white border border-[#1B3320]/15 rounded-xl p-3 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none shadow-sm"
                   />
                 </div>
 
@@ -225,7 +225,7 @@ export const BookingDrawer: React.FC = () => {
                       placeholder="+44 7123 456789"
                       value={formData.whatsapp}
                       onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                      className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2.5 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none"
+                      className="w-full bg-white border border-[#1B3320]/15 rounded-xl p-3 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none shadow-sm"
                     />
                   </div>
 
@@ -238,14 +238,14 @@ export const BookingDrawer: React.FC = () => {
                       placeholder="alex@gmail.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2.5 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none"
+                      className="w-full bg-white border border-[#1B3320]/15 rounded-xl p-3 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none shadow-sm"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Addons */}
-              <div className="bg-[#E8E8DF] p-3 border border-[#D8D8CC] space-y-2">
+              <div className="bg-white/70 p-3.5 border border-[#1B3320]/10 rounded-2xl space-y-2 shadow-sm">
                 <div className="text-[10px] font-mono uppercase font-bold text-[#3E2723]">
                   Hostel Perks &amp; Extras
                 </div>
@@ -254,7 +254,7 @@ export const BookingDrawer: React.FC = () => {
                     type="checkbox"
                     checked={formData.includeBreakfast}
                     onChange={(e) => setFormData({ ...formData, includeBreakfast: e.target.checked })}
-                    className="accent-[#1B3320] w-4 h-4"
+                    className="accent-[#1B3320] w-4 h-4 rounded"
                   />
                   <span>Free Big Breakfast (Eggs, pancakes, bread &amp; fruit)</span>
                 </label>
@@ -263,7 +263,7 @@ export const BookingDrawer: React.FC = () => {
                     type="checkbox"
                     checked={formData.motorbikeRental}
                     onChange={(e) => setFormData({ ...formData, motorbikeRental: e.target.checked })}
-                    className="accent-[#1B3320] w-4 h-4"
+                    className="accent-[#1B3320] w-4 h-4 rounded"
                   />
                   <span>Reserve a Semi-Automatic Motorbike (+120,000 VND / day)</span>
                 </label>
@@ -279,14 +279,14 @@ export const BookingDrawer: React.FC = () => {
                   placeholder="e.g. Taking 12:30 PM speedboat from Hai Phong, arriving around 3 PM..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full bg-[#F5F5F0] border border-[#1B3320] p-2 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none"
+                  className="w-full bg-white border border-[#1B3320]/15 rounded-xl p-3 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none shadow-sm"
                 />
               </div>
 
               {/* Submit CTA */}
               <button
                 type="submit"
-                className="w-full py-4 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold text-sm uppercase tracking-wider border-2 border-[#1B3320] shadow-[4px_4px_0px_0px_#1B3320] active:translate-x-[2px] active:translate-y-[2px] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
+                className="w-full py-4 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold text-sm uppercase tracking-wider rounded-full border border-[#1B3320]/15 shadow-[0_4px_14px_rgba(212,175,55,0.3)] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
               >
                 <MessageSquare className="w-4 h-4 text-[#1B3320]" />
                 <span>Confirm &amp; Message on WhatsApp</span>
@@ -303,8 +303,8 @@ export const BookingDrawer: React.FC = () => {
         ) : (
           /* Confirmation State */
           <div className="text-center py-6 space-y-4">
-            <div className="w-14 h-14 bg-[#1B3320] text-[#D4AF37] border-2 border-[#D4AF37] flex items-center justify-center mx-auto shadow-[4px_4px_0px_0px_#3E2723]">
-              <Check className="w-8 h-8" />
+            <div className="w-14 h-14 bg-[#1B3320] text-[#D4AF37] rounded-2xl flex items-center justify-center mx-auto shadow-md">
+              <Check className="w-8 h-8 stroke-[2.5]" />
             </div>
 
             <h3 className="font-serif text-3xl font-bold text-[#1B3320]">
@@ -315,7 +315,7 @@ export const BookingDrawer: React.FC = () => {
               Your booking details have been generated and dispatched to the front desk. We will confirm your bed immediately on WhatsApp.
             </p>
 
-            <div className="bg-[#E8E8DF] p-4 border border-[#1B3320] text-left text-xs font-mono space-y-1 max-w-sm mx-auto">
+            <div className="bg-white/80 p-5 border border-[#1B3320]/10 rounded-2xl text-left text-xs font-mono space-y-1.5 max-w-sm mx-auto shadow-sm">
               <div><strong>Name:</strong> {formData.fullName}</div>
               <div><strong>Room:</strong> {selectedRoom.name}</div>
               <div><strong>Dates:</strong> {checkInDate} &rarr; {checkOutDate} ({nightsCount} nights)</div>
@@ -326,7 +326,7 @@ export const BookingDrawer: React.FC = () => {
             <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
               <button
                 onClick={handleReset}
-                className="px-6 py-3 bg-[#1B3320] text-[#F5F5F0] hover:bg-[#3E2723] font-bold text-xs uppercase tracking-wider border border-[#1B3320] shadow-[3px_3px_0px_0px_#D4AF37] cursor-pointer"
+                className="px-8 py-3 bg-[#1B3320] text-[#FAF8F5] hover:bg-[#284a30] font-bold text-xs uppercase tracking-wider rounded-full shadow-md active:scale-95 transition-all cursor-pointer"
               >
                 Done
               </button>

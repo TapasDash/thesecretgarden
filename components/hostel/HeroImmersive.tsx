@@ -36,11 +36,11 @@ export const HeroImmersive: React.FC = () => {
           </p>
         </div>
 
-        {/* Clean Direct Booking Bar (Zero Icon Clutter, High Contrast) */}
-        <div className="mb-16 p-4 sm:p-6 bg-[#E8E8DF] border-2 border-[#1B3320] shadow-[6px_6px_0px_0px_#1B3320] max-w-4xl">
+        {/* Clean Direct Booking Bar */}
+        <div className="mb-16 p-4 sm:p-6 bg-white/80 backdrop-blur-md border border-[#1B3320]/10 rounded-[2rem] shadow-[0_20px_50px_rgba(27,51,32,0.06)] max-w-4xl">
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-end">
             
-            <div className="sm:col-span-4 bg-[#F5F5F0] p-3 border border-[#1B3320]/40">
+            <div className="sm:col-span-4 bg-[#FAF8F5] p-3.5 border border-[#1B3320]/10 rounded-2xl">
               <label className="block text-[10px] font-mono uppercase tracking-wider text-[#3E2723] font-bold mb-1">
                 Check-in Date
               </label>
@@ -48,11 +48,11 @@ export const HeroImmersive: React.FC = () => {
                 type="date"
                 value={checkInDate}
                 onChange={(e) => setDates(e.target.value, checkOutDate)}
-                className="bg-transparent border-none p-0 text-sm font-semibold text-[#1B3320] focus:outline-none w-full cursor-pointer"
+                className="bg-transparent border-none p-0 text-sm font-semibold text-[#1B3320] focus:outline-none w-full cursor-pointer font-sans"
               />
             </div>
 
-            <div className="sm:col-span-4 bg-[#F5F5F0] p-3 border border-[#1B3320]/40">
+            <div className="sm:col-span-4 bg-[#FAF8F5] p-3.5 border border-[#1B3320]/10 rounded-2xl">
               <label className="block text-[10px] font-mono uppercase tracking-wider text-[#3E2723] font-bold mb-1">
                 Check-out Date
               </label>
@@ -60,14 +60,14 @@ export const HeroImmersive: React.FC = () => {
                 type="date"
                 value={checkOutDate}
                 onChange={(e) => setDates(checkInDate, e.target.value)}
-                className="bg-transparent border-none p-0 text-sm font-semibold text-[#1B3320] focus:outline-none w-full cursor-pointer"
+                className="bg-transparent border-none p-0 text-sm font-semibold text-[#1B3320] focus:outline-none w-full cursor-pointer font-sans"
               />
             </div>
 
             <div className="sm:col-span-4">
               <button
                 onClick={() => openBooking()}
-                className="w-full h-[52px] bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider border-2 border-[#1B3320] shadow-[3px_3px_0px_0px_#1B3320] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_0px_#1B3320] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full h-[52px] bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider rounded-2xl border border-[#1B3320]/15 shadow-[0_4px_14px_rgba(212,175,55,0.3)] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Check Availability</span>
                 <ArrowRight className="w-4 h-4 text-[#1B3320]" />
@@ -76,7 +76,7 @@ export const HeroImmersive: React.FC = () => {
 
           </div>
 
-          <div className="mt-3 flex flex-wrap items-center justify-between text-xs font-mono text-[#3E2723]/80 pt-2 border-t border-[#D8D8CC]">
+          <div className="mt-3 flex flex-wrap items-center justify-between text-xs font-mono text-[#3E2723]/80 pt-2 border-t border-[#1B3320]/8">
             <span>Free breakfast included (7:30 - 10:00 AM)</span>
             <span>Pay on arrival • No online booking deposit</span>
             <span>Direct booking best rate</span>
@@ -87,13 +87,13 @@ export const HeroImmersive: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           
           {/* Main Atmosphere Shot */}
-          <div className="md:col-span-8 border-2 border-[#1B3320] shadow-[6px_6px_0px_0px_#1B3320] overflow-hidden bg-[#1B3320] relative min-h-[360px] md:min-h-[460px] group">
+          <div className="md:col-span-8 border border-[#1B3320]/10 rounded-[2rem] shadow-[0_16px_40px_rgba(27,51,32,0.06)] overflow-hidden bg-[#1B3320] relative min-h-[360px] md:min-h-[460px] group">
             <img
               src="/images/secret_garden_social_night.jpg"
               alt="Courtyard evening gathering at Secret Garden"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             />
-            <div className="absolute top-4 left-4 bg-[#1B3320]/95 text-[#D4AF37] px-3 py-1 text-[11px] font-mono font-bold uppercase tracking-wider border border-[#D4AF37]">
+            <div className="absolute top-4 left-4 bg-[#1B3320]/90 backdrop-blur-sm text-[#D4AF37] px-3.5 py-1.5 text-[11px] font-mono font-bold uppercase tracking-wider rounded-full border border-[#D4AF37]/30 shadow-sm">
               Courtyard Social Canopy
             </div>
             <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#1B3320]/95 via-[#1B3320]/40 to-transparent p-6 text-[#F5F5F0]">
@@ -109,24 +109,24 @@ export const HeroImmersive: React.FC = () => {
           {/* Supporting Photo Stack */}
           <div className="md:col-span-4 flex flex-col gap-6">
             
-            <div className="border-2 border-[#1B3320] shadow-[4px_4px_0px_0px_#1B3320] overflow-hidden bg-[#1B3320] h-52 relative group">
+            <div className="border border-[#1B3320]/10 rounded-[2rem] shadow-[0_12px_30px_rgba(27,51,32,0.05)] overflow-hidden bg-[#1B3320] h-52 relative group">
               <img
                 src="/images/secret_garden_reception_bar.jpg"
                 alt="Garden cafe and bar"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute bottom-2 left-2 bg-[#1B3320] text-[#F5F5F0] px-2.5 py-1 text-[11px] font-mono border border-[#D4AF37]">
+              <div className="absolute bottom-3 left-3 bg-[#1B3320]/90 backdrop-blur-sm text-[#F5F5F0] px-3 py-1 text-[11px] font-mono rounded-full border border-white/20">
                 Garden Drip Coffee &amp; Beer Bar
               </div>
             </div>
 
-            <div className="border-2 border-[#1B3320] shadow-[4px_4px_0px_0px_#1B3320] overflow-hidden bg-[#1B3320] h-52 relative group">
+            <div className="border border-[#1B3320]/10 rounded-[2rem] shadow-[0_12px_30px_rgba(27,51,32,0.05)] overflow-hidden bg-[#1B3320] h-52 relative group">
               <img
                 src="/images/secret_garden_entrance_arch.jpg"
                 alt="Garden entrance"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute bottom-2 left-2 bg-[#1B3320] text-[#F5F5F0] px-2.5 py-1 text-[11px] font-mono border border-[#D4AF37]">
+              <div className="absolute bottom-3 left-3 bg-[#1B3320]/90 backdrop-blur-sm text-[#F5F5F0] px-3 py-1 text-[11px] font-mono rounded-full border border-white/20">
                 Garden Gate &amp; Reception Arch
               </div>
             </div>

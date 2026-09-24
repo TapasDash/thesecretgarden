@@ -45,7 +45,7 @@ export default function Page() {
             {/* Column 1: Brand */}
             <div className="md:col-span-5 space-y-4">
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 border-2 border-[#D4AF37] bg-white overflow-hidden shadow-[2px_2px_0px_0px_#000] shrink-0">
+                <div className="w-12 h-12 rounded-2xl border border-[#D4AF37]/30 bg-white overflow-hidden shadow-sm shrink-0">
                   <img
                     src="/images/secret_garden_logo.jpg"
                     alt="Secret Garden Hostel Logo"
@@ -138,7 +138,7 @@ export default function Page() {
               <div className="pt-3">
                 <button
                   onClick={() => openBooking()}
-                  className="px-6 py-3 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider border border-[#1B3320] shadow-[2px_2px_0px_0px_#000] cursor-pointer"
+                  className="px-7 py-3.5 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider rounded-full shadow-[0_4px_14px_rgba(212,175,55,0.3)] active:scale-95 transition-all cursor-pointer"
                 >
                   Direct Booking Desk
                 </button>

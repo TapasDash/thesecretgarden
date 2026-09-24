@@ -17,7 +17,7 @@ export const HeaderNavBar: React.FC = () => {
         
         {/* Brand */}
         <a href="#" className="flex items-center gap-3.5 group">
-          <div className="w-11 h-11 border-2 border-[#1B3320] bg-white overflow-hidden shadow-[2px_2px_0px_0px_#1B3320] shrink-0">
+          <div className="w-11 h-11 rounded-2xl border border-[#1B3320]/15 bg-white overflow-hidden shadow-[0_2px_8px_rgba(27,51,32,0.06)] shrink-0">
             <img
               src="/images/secret_garden_logo.jpg"
               alt="Secret Garden Hostel Logo"
@@ -66,7 +66,7 @@ export const HeaderNavBar: React.FC = () => {
         <div className="flex items-center gap-4">
           <button
             onClick={() => openBooking()}
-            className="px-6 py-2.5 bg-[#1B3320] hover:bg-[#3E2723] text-[#F5F5F0] font-mono text-xs font-bold uppercase tracking-wider border border-[#1B3320] shadow-[3px_3px_0px_0px_#D4AF37] active:translate-x-[1px] active:translate-y-[1px] transition-all cursor-pointer"
+            className="px-6 py-2.5 bg-[#1B3320] hover:bg-[#284a30] text-[#FAF8F5] font-mono text-xs font-bold uppercase tracking-wider rounded-full border border-[#1B3320]/20 shadow-[0_4px_14px_rgba(27,51,32,0.18)] active:scale-95 transition-all cursor-pointer"
           >
             Book a Bed
           </button>

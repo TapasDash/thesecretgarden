@@ -73,19 +73,19 @@ export const BottomNav: React.FC = () => {
 
       {/* Pop-up Modal for Courtyard Cafe Menu */}
       {showCafeModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-          <div className="w-full max-w-md bg-[#F5F5F0] border-2 border-[#1B3320] shadow-[8px_8px_0px_0px_#1B3320] p-6 text-[#1B3320] relative max-h-[85vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="w-full max-w-md bg-[#FAF8F5] border border-[#1B3320]/15 rounded-[2.5rem] shadow-[0_24px_60px_rgba(0,0,0,0.3)] p-6 sm:p-8 text-[#1B3320] relative max-h-[85vh] overflow-y-auto">
             
-            <div className="flex items-center justify-between border-b border-[#D8D8CC] pb-3 mb-4">
+            <div className="flex items-center justify-between border-b border-[#1B3320]/10 pb-3 mb-4">
               <div className="flex items-center gap-2">
                 <Coffee className="w-5 h-5 text-[#3E2723]" />
                 <h3 className="font-serif text-xl font-bold text-[#1B3320]">
-                  Garden Cafe & Bar Menu
+                  Garden Cafe &amp; Bar Menu
                 </h3>
               </div>
               <button
                 onClick={() => setShowCafeModal(false)}
-                className="p-1 bg-[#3E2723] text-white hover:bg-[#1B3320] border border-[#1B3320] cursor-pointer"
+                className="p-1.5 rounded-full bg-[#1B3320]/5 hover:bg-[#1B3320] text-[#1B3320] hover:text-white transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -94,7 +94,7 @@ export const BottomNav: React.FC = () => {
             <div className="space-y-4 text-xs">
               
               {/* Coffee Section */}
-              <div className="bg-[#E8E8DF] p-3 border border-[#D8D8CC]">
+              <div className="bg-white/80 p-4 rounded-2xl border border-[#1B3320]/10 shadow-sm">
                 <div className="text-[11px] font-mono text-[#3E2723] font-bold uppercase mb-2">
                   ☕ Vietnamese Drip Coffee
                 </div>
@@ -115,9 +115,9 @@ export const BottomNav: React.FC = () => {
               </div>
 
               {/* Garden Bar Section */}
-              <div className="bg-[#1B3320] text-[#F5F5F0] p-3 border border-[#D4AF37]">
+              <div className="bg-[#1B3320] text-[#F5F5F0] p-4 rounded-2xl border border-[#D4AF37]/30 shadow-sm">
                 <div className="text-[11px] font-mono text-[#D4AF37] font-bold uppercase mb-2">
-                  🍹 Beer & Rum Punch
+                  🍹 Beer &amp; Rum Punch
                 </div>
                 <div className="space-y-1.5 font-sans">
                   <div className="flex justify-between">
@@ -125,7 +125,7 @@ export const BottomNav: React.FC = () => {
                     <span className="text-[#D4AF37] font-bold">25,000 VND</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Fresh Lime & Passionfruit Rum Punch</span>
+                    <span>Fresh Lime &amp; Passionfruit Rum Punch</span>
                     <span className="text-[#D4AF37] font-bold">55,000 VND</span>
                   </div>
                   <div className="flex justify-between">
@@ -136,7 +136,7 @@ export const BottomNav: React.FC = () => {
               </div>
 
               {/* Kitchen Bites */}
-              <div className="bg-[#E8E8DF] p-3 border border-[#D8D8CC]">
+              <div className="bg-white/80 p-4 rounded-2xl border border-[#1B3320]/10 shadow-sm">
                 <div className="text-[11px] font-mono text-[#3E2723] font-bold uppercase mb-2">
                   🥖 Kitchen Snacks
                 </div>
@@ -158,13 +158,13 @@ export const BottomNav: React.FC = () => {
 
             </div>
 
-            <div className="mt-5 pt-3 border-t border-[#D8D8CC] text-center">
+            <div className="mt-5 pt-3 border-t border-[#1B3320]/10 text-center">
               <button
                 onClick={() => {
                   setShowCafeModal(false)
                   openBooking()
                 }}
-                className="w-full py-2.5 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold uppercase text-xs tracking-wider border border-[#1B3320] shadow-[2px_2px_0px_0px_#1B3320] cursor-pointer"
+                className="w-full py-3 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold uppercase text-xs tracking-wider rounded-full shadow-md active:scale-95 transition-all cursor-pointer"
               >
                 Book a Bed Directly
               </button>
