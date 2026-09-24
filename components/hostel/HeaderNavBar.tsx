@@ -17,18 +17,18 @@ export const HeaderNavBar: React.FC = () => {
         
         {/* Brand */}
         <a href="#" className="flex items-center gap-3.5 group">
-          <div className="w-11 h-11 rounded-2xl border border-[#1B3320]/15 bg-white overflow-hidden shadow-[0_2px_8px_rgba(27,51,32,0.06)] shrink-0">
+          <div className="w-11 h-11 rounded-2xl border border-[#1B3320]/20 bg-[#1B3320] overflow-hidden shadow-[0_2px_8px_rgba(27,51,32,0.15)] shrink-0 group-hover:scale-105 transition-transform">
             <img
-              src="/images/secret_garden_logo.jpg"
+              src="/images/secret_garden_logo.svg"
               alt="Secret Garden Hostel Logo"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+              className="w-full h-full object-cover"
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif font-bold text-xl text-[#1B3320] tracking-tight leading-none">
+            <span className="font-serif font-bold text-xl text-[#1B3320] tracking-tight leading-none group-hover:text-emerald-950 transition-colors">
               Secret Garden
             </span>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-[#3E2723]/80 mt-1">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-[#1B3320]/75 font-semibold mt-1">
               Cat Ba Island
             </span>
           </div>

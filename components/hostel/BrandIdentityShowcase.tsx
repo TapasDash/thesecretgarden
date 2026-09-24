@@ -99,11 +99,11 @@ export const BrandIdentityShowcase: React.FC = () => {
                 </div>
 
                 <div className="bg-[#1B3320] p-6 border-2 border-[#1B3320] text-center mb-4 relative overflow-hidden">
-                  <div className="w-20 h-20 mx-auto rounded-full border-2 border-[#D4AF37] bg-black p-1 shadow-md mb-3">
+                  <div className="w-20 h-20 mx-auto rounded-2xl border-2 border-[#D4AF37] bg-[#1B3320] p-1 shadow-md mb-3">
                     <img
-                      src="/images/secret_garden_logo.jpg"
+                      src="/images/secret_garden_logo.svg"
                       alt="Secret Garden Botanical Seal"
-                      className="w-full h-full object-cover rounded-full"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <h4 className="font-serif font-bold text-xl text-[#F5F5F0] tracking-tight">

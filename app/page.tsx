@@ -45,11 +45,11 @@ export default function Page() {
             {/* Column 1: Brand */}
             <div className="md:col-span-5 space-y-4">
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl border border-[#D4AF37]/30 bg-white overflow-hidden shadow-sm shrink-0">
+                <div className="w-12 h-12 rounded-2xl border border-[#D4AF37]/40 bg-[#1B3320] overflow-hidden shadow-sm shrink-0">
                   <img
-                    src="/images/secret_garden_logo.jpg"
+                    src="/images/secret_garden_logo.svg"
                     alt="Secret Garden Hostel Logo"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <div>
