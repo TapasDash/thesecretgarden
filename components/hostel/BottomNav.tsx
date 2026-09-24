@@ -73,100 +73,98 @@ export const BottomNav: React.FC = () => {
 
       {/* Pop-up Modal for Courtyard Cafe Menu */}
       {showCafeModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="w-full max-w-md bg-[#FAF8F5] border border-[#1B3320]/15 rounded-[2.5rem] shadow-[0_24px_60px_rgba(0,0,0,0.3)] p-6 sm:p-8 text-[#1B3320] relative max-h-[85vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200">
+          <div className="w-full max-w-sm bg-[#FAF8F5] border border-[#1B3320]/10 rounded-[2.5rem] shadow-[0_24px_64px_rgba(27,51,32,0.2)] p-6 text-[#1B3320] relative max-h-[85vh] overflow-y-auto">
             
             <div className="flex items-center justify-between border-b border-[#1B3320]/10 pb-3 mb-4">
-              <div className="flex items-center gap-2">
-                <Coffee className="w-5 h-5 text-[#3E2723]" />
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#1B3320]/60 block mb-0.5">
+                  Courtyard Bar &amp; Cafe
+                </span>
                 <h3 className="font-serif text-xl font-bold text-[#1B3320]">
-                  Garden Cafe &amp; Bar Menu
+                  Drinks &amp; Bites
                 </h3>
               </div>
               <button
                 onClick={() => setShowCafeModal(false)}
-                className="p-1.5 rounded-full bg-[#1B3320]/5 hover:bg-[#1B3320] text-[#1B3320] hover:text-white transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full bg-white hover:bg-[#1B3320] text-[#1B3320] hover:text-white border border-[#1B3320]/10 flex items-center justify-center transition-colors cursor-pointer shadow-sm"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
             <div className="space-y-4 text-xs">
               
-              {/* Coffee Section */}
-              <div className="bg-white/80 p-4 rounded-2xl border border-[#1B3320]/10 shadow-sm">
-                <div className="text-[11px] font-mono text-[#3E2723] font-bold uppercase mb-2">
-                  ☕ Vietnamese Drip Coffee
+              {/* Coffee */}
+              <div className="bg-white p-3.5 rounded-2xl border border-[#1B3320]/8 shadow-sm">
+                <div className="text-[11px] font-mono text-[#1B3320] font-semibold uppercase tracking-wider mb-2">
+                  Vietnamese Drip Coffee
                 </div>
-                <div className="space-y-1.5 font-sans">
-                  <div className="flex justify-between font-semibold">
-                    <span>Iced Coffee with Condensed Milk (Cà Phê Sữa Đá)</span>
-                    <span>35,000 VND</span>
+                <div className="space-y-2 text-[#1B3320]/85">
+                  <div className="flex justify-between">
+                    <span>Iced Milk Coffee (Cà Phê Sữa Đá)</span>
+                    <span className="font-semibold font-mono">35k</span>
                   </div>
-                  <div className="flex justify-between font-semibold">
-                    <span>Hanoi Egg Coffee (Whipped yolk cream)</span>
-                    <span>50,000 VND</span>
+                  <div className="flex justify-between">
+                    <span>Hanoi Egg Coffee</span>
+                    <span className="font-semibold font-mono">50k</span>
                   </div>
-                  <div className="flex justify-between font-semibold">
+                  <div className="flex justify-between">
                     <span>Iced Coconut Milk Coffee</span>
-                    <span>45,000 VND</span>
+                    <span className="font-semibold font-mono">45k</span>
                   </div>
                 </div>
               </div>
 
-              {/* Garden Bar Section */}
-              <div className="bg-[#1B3320] text-[#F5F5F0] p-4 rounded-2xl border border-[#D4AF37]/30 shadow-sm">
-                <div className="text-[11px] font-mono text-[#D4AF37] font-bold uppercase mb-2">
-                  🍹 Beer &amp; Rum Punch
+              {/* Garden Bar */}
+              <div className="bg-white p-3.5 rounded-2xl border border-[#1B3320]/8 shadow-sm">
+                <div className="text-[11px] font-mono text-[#1B3320] font-semibold uppercase tracking-wider mb-2">
+                  Beer &amp; Refreshments
                 </div>
-                <div className="space-y-1.5 font-sans">
+                <div className="space-y-2 text-[#1B3320]/85">
                   <div className="flex justify-between">
                     <span>Cold Hanoi Beer / Saigon Special</span>
-                    <span className="text-[#D4AF37] font-bold">25,000 VND</span>
+                    <span className="font-semibold font-mono text-[#1B3320]">25k</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Fresh Lime &amp; Passionfruit Rum Punch</span>
-                    <span className="text-[#D4AF37] font-bold">55,000 VND</span>
+                    <span>Passionfruit Rum Punch</span>
+                    <span className="font-semibold font-mono text-[#1B3320]">55k</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Fresh Whole Coconut</span>
-                    <span className="text-[#D4AF37] font-bold">35,000 VND</span>
+                    <span className="font-semibold font-mono text-[#1B3320]">35k</span>
                   </div>
                 </div>
               </div>
 
               {/* Kitchen Bites */}
-              <div className="bg-white/80 p-4 rounded-2xl border border-[#1B3320]/10 shadow-sm">
-                <div className="text-[11px] font-mono text-[#3E2723] font-bold uppercase mb-2">
-                  🥖 Kitchen Snacks
+              <div className="bg-white p-3.5 rounded-2xl border border-[#1B3320]/8 shadow-sm">
+                <div className="text-[11px] font-mono text-[#1B3320] font-semibold uppercase tracking-wider mb-2">
+                  Kitchen Bites
                 </div>
-                <div className="space-y-1.5 font-sans">
-                  <div className="flex justify-between font-semibold">
-                    <span>Crispy Pork or Fried Tofu Bánh Mì</span>
-                    <span>40,000 VND</span>
+                <div className="space-y-2 text-[#1B3320]/85">
+                  <div className="flex justify-between">
+                    <span>Crispy Pork / Tofu Bánh Mì</span>
+                    <span className="font-semibold font-mono">40k</span>
                   </div>
-                  <div className="flex justify-between font-semibold">
-                    <span>Crispy Spring Rolls (3 pieces)</span>
-                    <span>50,000 VND</span>
-                  </div>
-                  <div className="flex justify-between font-semibold">
-                    <span>Tropical Fruit Smoothie Bowl</span>
-                    <span>65,000 VND</span>
+                  <div className="flex justify-between">
+                    <span>Crispy Spring Rolls (3 pcs)</span>
+                    <span className="font-semibold font-mono">50k</span>
                   </div>
                 </div>
               </div>
 
             </div>
 
-            <div className="mt-5 pt-3 border-t border-[#1B3320]/10 text-center">
+            <div className="mt-4 pt-2">
               <button
                 onClick={() => {
                   setShowCafeModal(false)
                   openBooking()
                 }}
-                className="w-full py-3 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold uppercase text-xs tracking-wider rounded-full shadow-md active:scale-95 transition-all cursor-pointer"
+                className="w-full py-3 bg-[#1B3320] hover:bg-[#284a30] text-[#FAF8F5] font-semibold uppercase text-xs tracking-wider rounded-full shadow-md active:scale-95 transition-all cursor-pointer"
               >
-                Book a Bed Directly
+                Reserve a Bed
               </button>
             </div>
 

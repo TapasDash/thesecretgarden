@@ -342,49 +342,49 @@ export const TheHostVibeBoard: React.FC = () => {
 
       {/* Expanded Flyer Poster Modal */}
       {selectedPoster && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className={`relative w-full max-w-xl bg-gradient-to-b ${selectedPoster.bgGradient} border border-[#D4AF37]/40 rounded-[2.5rem] shadow-[0_24px_60px_rgba(0,0,0,0.5)] p-6 sm:p-8 text-white my-8 max-h-[90vh] overflow-y-auto`}>
+        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-200">
+          <div className={`relative w-full max-w-lg bg-gradient-to-b ${selectedPoster.bgGradient} border border-[#D4AF37]/30 rounded-[2.5rem] shadow-[0_24px_64px_rgba(0,0,0,0.5)] p-6 sm:p-8 text-white my-auto max-h-[90vh] overflow-y-auto`}>
             
             {/* Close Button */}
             <button
               onClick={() => setSelectedPoster(null)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-black/60 text-white hover:bg-[#D4AF37] hover:text-black font-mono text-xs cursor-pointer transition-colors"
+              className="absolute top-6 right-6 w-9 h-9 rounded-full bg-black/40 hover:bg-white hover:text-black text-white/90 border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-sm"
               aria-label="Close flyer"
             >
-              ✕ Close
+              <X className="w-4 h-4" />
             </button>
 
             {/* Poster Header */}
-            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/20">
-              <div className="w-12 h-12 rounded-full border-2 border-[#D4AF37] bg-[#1B3320] overflow-hidden shrink-0 p-0.5 shadow-md">
+            <div className="flex items-center gap-3 mb-5 pb-4 border-b border-white/10 pr-10">
+              <div className="w-10 h-10 rounded-2xl border border-[#D4AF37]/40 bg-[#1B3320] overflow-hidden shrink-0 p-0.5 shadow-md">
                 <img
                   src="/images/secret_garden_logo.svg"
                   alt="Secret Garden Logo"
-                  className="w-full h-full object-cover rounded-full"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div>
-                <h4 className="font-serif font-bold text-lg text-white">
-                  Secret Garden Hostel • Cat Ba
+                <h4 className="font-serif font-bold text-base text-white">
+                  Secret Garden Hostel
                 </h4>
-                <p className="text-xs font-mono text-[#D4AF37] uppercase tracking-wider">
+                <p className="text-[11px] font-mono text-[#D4AF37] uppercase tracking-wider">
                   {selectedPoster.day} • {selectedPoster.time}
                 </p>
               </div>
             </div>
 
             {/* Title & Tagline */}
-            <div className="text-center mb-6">
-              <span className="text-xs font-mono text-[#D4AF37] uppercase tracking-widest font-bold block mb-1">
+            <div className="mb-5">
+              <span className="text-[11px] font-mono text-[#D4AF37] uppercase tracking-widest font-semibold block mb-1">
                 {selectedPoster.tagline}
               </span>
-              <h3 className="font-serif text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
                 {selectedPoster.title}
               </h3>
             </div>
 
             {/* Image */}
-            <div className="h-64 w-full overflow-hidden rounded-2xl border border-white/30 mb-6 bg-black">
+            <div className="h-56 w-full overflow-hidden rounded-2xl border border-white/15 mb-5 bg-black/50">
               <img
                 src={selectedPoster.image}
                 alt={selectedPoster.title}
@@ -393,13 +393,12 @@ export const TheHostVibeBoard: React.FC = () => {
             </div>
 
             {/* Description */}
-            <p className="text-sm text-white/90 font-sans leading-relaxed mb-6">
+            <p className="text-xs sm:text-sm text-white/80 font-sans leading-relaxed mb-5">
               {selectedPoster.description}
             </p>
 
             {/* Bullets */}
-            <div className="space-y-2 bg-black/50 p-4 rounded-2xl border border-white/20 mb-6 text-xs font-mono text-white/90">
-              <div className="text-[#D4AF37] uppercase font-bold text-[11px] mb-1">Event Highlights:</div>
+            <div className="space-y-2 py-3 border-y border-white/10 mb-6 text-xs text-white/90">
               {selectedPoster.bullets.map((b, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
@@ -409,16 +408,16 @@ export const TheHostVibeBoard: React.FC = () => {
             </div>
 
             {/* Actions */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/20">
-              <span className="text-xs font-mono text-[#D4AF37] font-bold">
-                {selectedPoster.priceTag} • 123 Nui Ngoc Courtyard
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-xs font-mono text-[#D4AF37] font-semibold">
+                {selectedPoster.priceTag}
               </span>
               <button
                 onClick={() => {
                   setSelectedPoster(null)
                   openBooking()
                 }}
-                className="w-full sm:w-auto px-7 py-3 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider rounded-full shadow-md active:scale-95 transition-all cursor-pointer"
+                className="px-6 py-3 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-semibold text-xs uppercase tracking-wider rounded-full shadow-md active:scale-95 transition-all cursor-pointer"
               >
                 Book a Bed to Attend
               </button>

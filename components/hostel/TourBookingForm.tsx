@@ -24,170 +24,114 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
   const defaultDate = new Date(Date.now() + 86400000).toISOString().split('T')[0]
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-white/95 backdrop-blur-sm border-2 border-[#1B3320] rounded-3xl shadow-[6px_6px_0px_0px_#1B3320] p-6 sm:p-8 font-sans">
+    <div className="w-full max-w-xl mx-auto bg-white border border-[#1B3320]/10 rounded-[2.5rem] shadow-[0_12px_48px_rgba(27,51,32,0.06)] p-6 sm:p-9 font-sans text-[#1B3320]">
       
       {state.success ? (
-        <div className="text-center py-6 sm:py-8 space-y-4">
-          <div className="w-14 h-14 bg-[#1B3320] text-[#D4AF37] border-2 border-[#1B3320] rounded-2xl flex items-center justify-center mx-auto shadow-[3px_3px_0px_0px_#D4AF37]">
-            <Check className="w-7 h-7 stroke-[2.5]" />
+        <div className="text-center py-6 space-y-4 animate-in fade-in">
+          <div className="w-12 h-12 bg-[#1B3320] text-[#D4AF37] rounded-full flex items-center justify-center mx-auto shadow-md">
+            <Check className="w-6 h-6 stroke-[2.5]" />
           </div>
 
-          <div className="inline-block px-3 py-0.5 bg-[#E8E8DF] border border-[#1B3320] rounded-full text-[10px] font-mono uppercase tracking-widest text-[#3E2723] font-bold shadow-[2px_2px_0px_0px_#1B3320]">
-            Confirmed
-          </div>
+          <span className="inline-block px-3 py-1 bg-[#1B3320]/5 rounded-full text-[10px] font-mono uppercase tracking-widest text-[#1B3320]/75 font-semibold">
+            Booking Confirmed
+          </span>
 
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1B3320]">
-            Your Tour is Booked!
+            You&apos;re all set!
           </h3>
 
-          <p className="text-sm text-[#3E2723] max-w-md mx-auto leading-relaxed">
+          <p className="text-xs text-[#1B3320]/75 max-w-sm mx-auto leading-relaxed">
             {state.message}
           </p>
 
           {state.data && (
-            <div className="bg-[#FAF8F5] p-4 sm:p-5 border-2 border-[#1B3320] rounded-2xl text-left text-xs font-mono space-y-2 max-w-md mx-auto text-[#1B3320] shadow-[3px_3px_0px_0px_#1B3320]/20">
-              <div className="flex justify-between border-b border-[#D8D8CC] pb-1.5">
-                <span className="text-[#3E2723]/70 font-bold uppercase">Guest</span>
-                <span className="font-bold">{state.data.guestName}</span>
+            <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#1B3320]/10 text-left text-xs font-mono space-y-2 max-w-sm mx-auto shadow-sm">
+              <div className="flex justify-between border-b border-[#1B3320]/8 pb-2">
+                <span className="text-[#1B3320]/60">Guest</span>
+                <span className="font-semibold">{state.data.guestName}</span>
               </div>
-              <div className="flex justify-between border-b border-[#D8D8CC] pb-1.5">
-                <span className="text-[#3E2723]/70 font-bold uppercase">Tour</span>
-                <span className="font-bold text-right">{state.data.tourName}</span>
+              <div className="flex justify-between border-b border-[#1B3320]/8 pb-2">
+                <span className="text-[#1B3320]/60">Tour</span>
+                <span className="font-semibold text-right">{state.data.tourName}</span>
               </div>
-              <div className="flex justify-between border-b border-[#D8D8CC] pb-1.5">
-                <span className="text-[#3E2723]/70 font-bold uppercase">Date</span>
-                <span className="font-bold">{state.data.date}</span>
+              <div className="flex justify-between border-b border-[#1B3320]/8 pb-2">
+                <span className="text-[#1B3320]/60">Date</span>
+                <span className="font-semibold">{state.data.date}</span>
               </div>
-              <div className="flex justify-between border-b border-[#D8D8CC] pb-1.5">
-                <span className="text-[#3E2723]/70 font-bold uppercase">Travelers</span>
-                <span className="font-bold">{state.data.guestCount} person(s)</span>
-              </div>
-              <div className="pt-1 text-[#3E2723] text-[11px]">
-                <strong>Payment:</strong> Pay at front desk on arrival (cash or card)
+              <div className="flex justify-between">
+                <span className="text-[#1B3320]/60">Travelers</span>
+                <span className="font-semibold">{state.data.guestCount} guest(s)</span>
               </div>
             </div>
           )}
 
-          <div className="pt-2 text-xs font-mono text-[#3E2723]/80">
-            Meet at Secret Garden reception at 123 Nui Ngoc, Cat Ba Town.
-          </div>
-
-          <div className="pt-4">
+          <div className="pt-2">
             <Link
               href="/tour-confirmed"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider rounded-xl border-2 border-[#1B3320] shadow-[3px_3px_0px_0px_#1B3320] hover:shadow-[1px_1px_0px_0px_#1B3320] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#1B3320] hover:bg-[#284a30] text-[#FAF8F5] font-semibold text-xs uppercase tracking-wider rounded-full shadow-md active:scale-95 transition-all"
             >
-              <span>View Full Confirmation Receipt</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>View Full Confirmation</span>
+              <ArrowRight className="w-4 h-4 text-[#FAF8F5]/80" />
             </Link>
           </div>
         </div>
       ) : (
         <div>
           {/* Header */}
-          <div className="border-b border-[#D8D8CC] pb-4 mb-6">
-            <div className="inline-block px-3 py-0.5 bg-[#E8E8DF] border border-[#1B3320] rounded-full text-[10px] font-mono uppercase tracking-widest text-[#3E2723] font-bold shadow-[2px_2px_0px_0px_#1B3320] mb-2">
-              Fast Reservation
-            </div>
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1B3320]">
-              Book an Island Tour
+          <div className="mb-6">
+            <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-[#1B3320]/70 block mb-1">
+              Cat Ba Expeditions • Zero Pre-Payment
+            </span>
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1B3320] tracking-tight">
+              Reserve a Tour Spot
             </h3>
-            <p className="text-xs sm:text-sm text-[#3E2723]/90 mt-1">
-              Select your tour and date below. Free cancellation up to 24 hours before tour start. Pay at the front desk when you arrive.
+            <p className="text-xs text-[#1B3320]/70 mt-1">
+              Free cancellation up to 24h prior. Pay at front desk upon arrival.
             </p>
           </div>
 
           {/* Form Action */}
-          <form action={formAction} className="space-y-5">
+          <form action={formAction} className="space-y-4">
             
             {/* General Error Message */}
             {!state.success && state.message && (
-              <div className="p-3 bg-[#3E2723] text-[#F5F5F0] text-xs font-mono border-2 border-[#1B3320] rounded-xl">
+              <div className="p-3 bg-red-50 text-red-800 text-xs font-mono border border-red-200 rounded-2xl">
                 {state.message}
               </div>
             )}
 
             {/* Tour Selection */}
             <div>
-              <label htmlFor="tourId" className="block text-xs font-mono uppercase font-bold text-[#3E2723] mb-1.5">
-                Which Tour?
+              <label htmlFor="tourId" className="block text-[11px] font-medium text-[#1B3320]/75 mb-1">
+                Select Expedition
               </label>
-              <select
-                id="tourId"
-                name="tourId"
-                defaultValue={initialTourId}
-                required
-                className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all cursor-pointer font-sans"
-              >
-                <option value="plankton-night-kayak">Lan Ha Bay Plankton Night Kayak ($28 / 700k VND)</option>
-                <option value="deep-water-solo">Deep Water Solo Climbing ($35 / 880k VND)</option>
-                <option value="ha-giang-loop">Ha Giang Loop Road Trip 4D/3N ($145 / 3.65M VND)</option>
-                <option value="jungle-trek">National Park Jungle Trek ($22 / 550k VND)</option>
-              </select>
+              <div className="relative">
+                <select
+                  id="tourId"
+                  name="tourId"
+                  defaultValue={initialTourId}
+                  required
+                  className="w-full bg-[#FAF8F5] border border-[#1B3320]/12 rounded-2xl text-xs font-semibold text-[#1B3320] p-3.5 focus:outline-none focus:border-[#1B3320] shadow-[0_2px_8px_rgba(27,51,32,0.03)] cursor-pointer appearance-none transition-all"
+                >
+                  <option value="plankton-night-kayak">Lan Ha Bay Plankton Night Kayak ($28 / 700k VND)</option>
+                  <option value="deep-water-solo">Deep Water Solo Climbing ($35 / 880k VND)</option>
+                  <option value="ha-giang-loop">Ha Giang Loop Road Trip 4D/3N ($145 / 3.65M VND)</option>
+                  <option value="jungle-trek">National Park Jungle Trek ($22 / 550k VND)</option>
+                </select>
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#1B3320]/50 text-xs">
+                  ▼
+                </div>
+              </div>
               {state.errors?.tourId && (
-                <p className="text-[11px] font-mono text-[#991B1B] mt-1">{state.errors.tourId[0]}</p>
+                <p className="text-[11px] font-mono text-red-600 mt-1">{state.errors.tourId[0]}</p>
               )}
             </div>
 
-            {/* Name & Email Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Date & Travelers Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label htmlFor="guestName" className="block text-xs font-mono uppercase font-bold text-[#3E2723] mb-1.5">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="guestName"
-                  name="guestName"
-                  required
-                  placeholder="e.g. Alex Rivera"
-                  className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 placeholder:text-[#3E2723]/40 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all font-sans"
-                />
-                {state.errors?.guestName && (
-                  <p className="text-[11px] font-mono text-[#991B1B] mt-1">{state.errors.guestName[0]}</p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-xs font-mono uppercase font-bold text-[#3E2723] mb-1.5">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="alex@gmail.com"
-                  className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 placeholder:text-[#3E2723]/40 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all font-sans"
-                />
-                {state.errors?.email && (
-                  <p className="text-[11px] font-mono text-[#991B1B] mt-1">{state.errors.email[0]}</p>
-                )}
-              </div>
-            </div>
-
-            {/* WhatsApp & Date Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="whatsappNumber" className="block text-xs font-mono uppercase font-bold text-[#3E2723] mb-1.5">
-                  WhatsApp Number
-                </label>
-                <input
-                  type="tel"
-                  id="whatsappNumber"
-                  name="whatsappNumber"
-                  required
-                  placeholder="+84 987 654 321"
-                  className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 placeholder:text-[#3E2723]/40 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all font-sans"
-                />
-                {state.errors?.whatsappNumber && (
-                  <p className="text-[11px] font-mono text-[#991B1B] mt-1">{state.errors.whatsappNumber[0]}</p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="date" className="block text-xs font-mono uppercase font-bold text-[#3E2723] mb-1.5">
-                  Select Date
+                <label htmlFor="date" className="block text-[11px] font-medium text-[#1B3320]/75 mb-1">
+                  Tour Date
                 </label>
                 <input
                   type="date"
@@ -195,35 +139,76 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
                   name="date"
                   required
                   defaultValue={defaultDate}
-                  className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all font-sans"
+                  className="w-full bg-[#FAF8F5] border border-[#1B3320]/12 rounded-2xl text-xs font-medium text-[#1B3320] p-3 focus:outline-none focus:border-[#1B3320] shadow-[0_2px_8px_rgba(27,51,32,0.03)] transition-all"
                 />
                 {state.errors?.date && (
-                  <p className="text-[11px] font-mono text-[#991B1B] mt-1">{state.errors.date[0]}</p>
+                  <p className="text-[11px] font-mono text-red-600 mt-1">{state.errors.date[0]}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="guestCount" className="block text-[11px] font-medium text-[#1B3320]/75 mb-1">
+                  Travelers
+                </label>
+                <div className="relative">
+                  <select
+                    id="guestCount"
+                    name="guestCount"
+                    defaultValue={1}
+                    required
+                    className="w-full bg-[#FAF8F5] border border-[#1B3320]/12 rounded-2xl text-xs font-medium text-[#1B3320] p-3 focus:outline-none focus:border-[#1B3320] shadow-[0_2px_8px_rgba(27,51,32,0.03)] cursor-pointer appearance-none transition-all"
+                  >
+                    <option value={1}>1 Solo traveler</option>
+                    <option value={2}>2 People</option>
+                    <option value={3}>3 Friends</option>
+                    <option value={4}>4 People</option>
+                    <option value={5}>5+ Group</option>
+                  </select>
+                  <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#1B3320]/50 text-xs">
+                    ▼
+                  </div>
+                </div>
+                {state.errors?.guestCount && (
+                  <p className="text-[11px] font-mono text-red-600 mt-1">{state.errors.guestCount[0]}</p>
                 )}
               </div>
             </div>
 
-            {/* Guest Count */}
-            <div>
-              <label htmlFor="guestCount" className="block text-xs font-mono uppercase font-bold text-[#3E2723] mb-1.5">
-                Number of Travelers
-              </label>
-              <select
-                id="guestCount"
-                name="guestCount"
-                defaultValue={1}
-                required
-                className="w-full bg-[#FAF8F5] border-2 border-[#1B3320] rounded-xl text-sm text-[#1B3320] p-3 focus:shadow-[3px_3px_0px_0px_#1B3320] outline-none transition-all cursor-pointer font-sans"
-              >
-                <option value={1}>1 Solo traveler</option>
-                <option value={2}>2 People</option>
-                <option value={3}>3 Friends</option>
-                <option value={4}>4 People</option>
-                <option value={5}>5+ Group</option>
-              </select>
-              {state.errors?.guestCount && (
-                <p className="text-[11px] font-mono text-[#991B1B] mt-1">{state.errors.guestCount[0]}</p>
-              )}
+            {/* Name & Contact Row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label htmlFor="guestName" className="block text-[11px] font-medium text-[#1B3320]/75 mb-1">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="guestName"
+                  name="guestName"
+                  required
+                  placeholder="Alex Rivera"
+                  className="w-full bg-[#FAF8F5] border border-[#1B3320]/12 rounded-2xl text-xs text-[#1B3320] p-3 placeholder:text-[#1B3320]/35 focus:outline-none focus:border-[#1B3320] shadow-[0_2px_8px_rgba(27,51,32,0.03)] transition-all"
+                />
+                {state.errors?.guestName && (
+                  <p className="text-[11px] font-mono text-red-600 mt-1">{state.errors.guestName[0]}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="whatsappNumber" className="block text-[11px] font-medium text-[#1B3320]/75 mb-1">
+                  WhatsApp Number
+                </label>
+                <input
+                  type="tel"
+                  id="whatsappNumber"
+                  name="whatsappNumber"
+                  required
+                  placeholder="+44 7123 456789"
+                  className="w-full bg-[#FAF8F5] border border-[#1B3320]/12 rounded-2xl text-xs text-[#1B3320] p-3 placeholder:text-[#1B3320]/35 focus:outline-none focus:border-[#1B3320] shadow-[0_2px_8px_rgba(27,51,32,0.03)] transition-all"
+                />
+                {state.errors?.whatsappNumber && (
+                  <p className="text-[11px] font-mono text-red-600 mt-1">{state.errors.whatsappNumber[0]}</p>
+                )}
+              </div>
             </div>
 
             {/* Submit Button */}
@@ -231,16 +216,15 @@ export const TourBookingForm: React.FC<TourBookingFormProps> = ({
               <button
                 type="submit"
                 disabled={isPending}
-                className="w-full py-4 bg-[#D4AF37] hover:bg-[#c29f30] disabled:bg-[#D8D8CC] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider rounded-xl border-2 border-[#1B3320] shadow-[4px_4px_0px_0px_#1B3320] hover:shadow-[2px_2px_0px_0px_#1B3320] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
+                className="w-full py-4 bg-[#1B3320] hover:bg-[#284a30] disabled:bg-[#1B3320]/40 text-[#FAF8F5] font-semibold text-xs uppercase tracking-widest rounded-full shadow-[0_4px_18px_rgba(27,51,32,0.2)] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
               >
-                <span>{isPending ? 'Locking spot in...' : 'Lock it in'}</span>
-                {!isPending && <ArrowRight className="w-4 h-4 text-[#1B3320]" />}
+                <span>{isPending ? 'Reserving...' : 'Confirm Spot'}</span>
+                {!isPending && <ArrowRight className="w-4 h-4 text-[#FAF8F5]/80" />}
               </button>
             </div>
 
-            <div className="flex flex-wrap items-center justify-between text-[11px] font-mono text-[#3E2723]/70 pt-2 border-t border-[#D8D8CC]">
-              <span>WhatsApp confirmation sent immediately</span>
-              <span>Pay on arrival in Cat Ba</span>
+            <div className="text-center text-[10px] font-mono text-[#1B3320]/60 pt-1">
+              WhatsApp confirmation sent instantly • Pay at reception
             </div>
 
           </form>

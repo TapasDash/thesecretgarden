@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useMemo } from 'react'
-import { X, Check, Sparkles, ShieldCheck, ArrowRight, MessageSquare, Phone } from 'lucide-react'
+import { X, Check, ArrowRight, MessageSquare, ShieldCheck } from 'lucide-react'
 import { useHostelStore } from '@/lib/store'
 import { HOSTEL_CONFIG } from '@/lib/config'
 
@@ -28,14 +28,12 @@ export const BookingDrawer: React.FC = () => {
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  // Synchronize with external room selection
   React.useEffect(() => {
     if (selectedRoomId) {
       setRoomId(selectedRoomId)
     }
   }, [selectedRoomId])
 
-  // Calculate nights
   const nightsCount = useMemo(() => {
     try {
       const inDate = new Date(checkInDate)
@@ -71,9 +69,7 @@ export const BookingDrawer: React.FC = () => {
       `📱 *Contact:* ${formData.whatsapp || formData.email}\n\n` +
       `_Sent via Secret Garden Direct Web Engine_`
 
-    // Open WhatsApp in new tab / app with configured number
     window.open(HOSTEL_CONFIG.getWhatsAppLink(rawMessage), '_blank')
-
     setIsSubmitted(true)
   }
 
@@ -83,250 +79,224 @@ export const BookingDrawer: React.FC = () => {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-      <div className="w-full max-w-xl bg-[#FAF8F5] border border-[#1B3320]/15 rounded-[2.5rem] shadow-[0_24px_60px_rgba(0,0,0,0.25)] p-6 sm:p-8 text-[#1B3320] relative my-8 max-h-[92vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-in fade-in duration-200">
+      <div className="w-full max-w-lg bg-[#FAF8F5] border border-[#1B3320]/10 rounded-[2.5rem] shadow-[0_24px_64px_rgba(27,51,32,0.18)] p-6 sm:p-9 text-[#1B3320] relative my-auto max-h-[90vh] overflow-y-auto">
         
-        {/* Close Button */}
+        {/* Minimalist Close Button */}
         <button
           onClick={closeBooking}
-          className="absolute top-5 right-5 p-2 rounded-full bg-[#1B3320]/5 hover:bg-[#1B3320] text-[#1B3320] hover:text-white transition-all cursor-pointer"
-          aria-label="Close Booking"
+          className="absolute top-6 right-6 w-9 h-9 rounded-full bg-white/80 hover:bg-[#1B3320] text-[#1B3320] hover:text-white border border-[#1B3320]/10 flex items-center justify-center transition-all cursor-pointer shadow-sm"
+          aria-label="Close"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
         {!isSubmitted ? (
           <div>
-            {/* Header */}
-            <div className="border-b border-[#1B3320]/10 pb-4 mb-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#1B3320] text-[#D4AF37] text-[10px] font-mono tracking-widest uppercase rounded-full mb-2">
-                <Sparkles className="w-3 h-3 text-[#D4AF37]" />
-                <span>DIRECT BOOKING • PAY ON ARRIVAL • ZERO FEES</span>
-              </div>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1B3320]">
-                Reserve Your Bed / Room
+            {/* Header: Clean & Breathable */}
+            <div className="mb-6 pr-8">
+              <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-[#1B3320]/70 block mb-1">
+                Direct Reservation • Zero Deposit
+              </span>
+              <h2 className="font-serif text-3xl font-bold text-[#1B3320] tracking-tight">
+                Reserve your stay
               </h2>
-              <p className="text-xs text-[#3E2723]/90 font-sans mt-1">
-                No deposit needed. Instant confirmation via WhatsApp &amp; Email. Pay cash or card at front desk.
+              <p className="text-xs text-[#1B3320]/70 font-sans mt-1">
+                Instant confirmation on WhatsApp. Pay when you arrive.
               </p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleFormSubmit} className="space-y-4 text-xs">
+            <form onSubmit={handleFormSubmit} className="space-y-4">
               
-              {/* Room Selection Dropdown */}
+              {/* Room Selection */}
               <div>
-                <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
-                  Select Room / Bed Type
+                <label className="block text-xs font-medium text-[#1B3320]/80 mb-1.5">
+                  Room or Dorm Type
                 </label>
-                <select
-                  value={roomId}
-                  onChange={(e) => {
-                    setRoomId(e.target.value)
-                    selectRoom(e.target.value)
-                  }}
-                  className="w-full bg-white border border-[#1B3320]/15 rounded-xl p-3 text-xs font-bold text-[#1B3320] focus:outline-none cursor-pointer shadow-sm"
-                >
-                  {AVAILABLE_ROOMS.map((r) => (
-                    <option key={r.id} value={r.id}>
-                      {r.name} — ${r.priceUSD} / {r.priceVND.toLocaleString()} VND per night
-                    </option>
-                  ))}
-                </select>
+                <div className="relative">
+                  <select
+                    value={roomId}
+                    onChange={(e) => {
+                      setRoomId(e.target.value)
+                      selectRoom(e.target.value)
+                    }}
+                    className="w-full bg-white border border-[#1B3320]/12 rounded-2xl p-3.5 text-xs font-semibold text-[#1B3320] focus:outline-none focus:border-[#1B3320] focus:ring-1 focus:ring-[#1B3320] shadow-[0_2px_8px_rgba(27,51,32,0.03)] cursor-pointer appearance-none transition-all"
+                  >
+                    {AVAILABLE_ROOMS.map((r) => (
+                      <option key={r.id} value={r.id}>
+                        {r.name} — ${r.priceUSD} / {r.priceVND.toLocaleString()} VND per night
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#1B3320]/50 text-xs">
+                    ▼
+                  </div>
+                </div>
               </div>
 
-              {/* Dates & Guests */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 bg-white/70 p-3.5 border border-[#1B3320]/10 rounded-2xl shadow-sm">
+              {/* Dates & Guests in Sleek Clean Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
-                    Check-in Date
+                  <label className="block text-[11px] font-medium text-[#1B3320]/75 mb-1">
+                    Check-in
                   </label>
                   <input
                     type="date"
                     required
                     value={checkInDate}
                     onChange={(e) => setDates(e.target.value, checkOutDate)}
-                    className="w-full bg-[#FAF8F5] border border-[#1B3320]/10 rounded-xl p-2 text-xs font-semibold text-[#1B3320] focus:outline-none"
+                    className="w-full bg-white border border-[#1B3320]/12 rounded-2xl p-3 text-xs font-medium text-[#1B3320] focus:outline-none focus:border-[#1B3320] shadow-[0_2px_8px_rgba(27,51,32,0.03)] transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
-                    Check-out Date
+                  <label className="block text-[11px] font-medium text-[#1B3320]/75 mb-1">
+                    Check-out
                   </label>
                   <input
                     type="date"
                     required
                     value={checkOutDate}
                     onChange={(e) => setDates(checkInDate, e.target.value)}
-                    className="w-full bg-[#FAF8F5] border border-[#1B3320]/10 rounded-xl p-2 text-xs font-semibold text-[#1B3320] focus:outline-none"
+                    className="w-full bg-white border border-[#1B3320]/12 rounded-2xl p-3 text-xs font-medium text-[#1B3320] focus:outline-none focus:border-[#1B3320] shadow-[0_2px_8px_rgba(27,51,32,0.03)] transition-all"
                   />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
+                  <label className="block text-[11px] font-medium text-[#1B3320]/75 mb-1">
                     Guests
                   </label>
-                  <select
-                    value={formData.guestsCount}
-                    onChange={(e) => setFormData({ ...formData, guestsCount: Number(e.target.value) })}
-                    className="w-full bg-[#FAF8F5] border border-[#1B3320]/10 rounded-xl p-2 text-xs font-semibold text-[#1B3320] focus:outline-none cursor-pointer"
-                  >
-                    <option value={1}>1 Guest</option>
-                    <option value={2}>2 Guests</option>
-                    <option value={3}>3 Guests</option>
-                    <option value={4}>4+ (Group)</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Live Price Calculation Summary Box */}
-              <div className="p-4 bg-[#1B3320] text-[#F5F5F0] rounded-2xl border border-[#D4AF37]/30 shadow-md flex items-center justify-between">
-                <div>
-                  <div className="text-[10px] font-mono text-[#D4AF37] uppercase tracking-wider">
-                    Total for {nightsCount} Night{nightsCount > 1 ? 's' : ''} ({formData.guestsCount} guest{formData.guestsCount > 1 ? 's' : ''})
-                  </div>
-                  <div className="text-sm font-sans text-white/90 font-semibold mt-0.5">
-                    {selectedRoom.name}
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="font-serif text-xl font-bold text-[#D4AF37]">
-                    ${totalPriceUSD} USD
-                  </div>
-                  <div className="text-[11px] font-mono text-white/70">
-                    ≈ {totalPriceVND.toLocaleString()} VND
+                  <div className="relative">
+                    <select
+                      value={formData.guestsCount}
+                      onChange={(e) => setFormData({ ...formData, guestsCount: Number(e.target.value) })}
+                      className="w-full bg-white border border-[#1B3320]/12 rounded-2xl p-3 text-xs font-medium text-[#1B3320] focus:outline-none focus:border-[#1B3320] shadow-[0_2px_8px_rgba(27,51,32,0.03)] cursor-pointer appearance-none transition-all"
+                    >
+                      <option value={1}>1 Guest</option>
+                      <option value={2}>2 Guests</option>
+                      <option value={3}>3 Guests</option>
+                      <option value={4}>4+ Group</option>
+                    </select>
+                    <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#1B3320]/50 text-xs">
+                      ▼
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Guest Contact Details */}
-              <div className="space-y-3">
+              {/* Guest Details */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                 <div>
-                  <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
-                    Your Full Name
+                  <label className="block text-[11px] font-medium text-[#1B3320]/75 mb-1">
+                    Full Name
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Alex Morgan"
+                    placeholder="Alex Morgan"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="w-full bg-white border border-[#1B3320]/15 rounded-xl p-3 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none shadow-sm"
+                    className="w-full bg-white border border-[#1B3320]/12 rounded-2xl p-3 text-xs text-[#1B3320] placeholder:text-[#1B3320]/35 focus:outline-none focus:border-[#1B3320] shadow-[0_2px_8px_rgba(27,51,32,0.03)] transition-all"
                   />
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
-                      WhatsApp or Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="+44 7123 456789"
-                      value={formData.whatsapp}
-                      onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                      className="w-full bg-white border border-[#1B3320]/15 rounded-xl p-3 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none shadow-sm"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
-                      Email Address (Optional)
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="alex@gmail.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-white border border-[#1B3320]/15 rounded-xl p-3 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none shadow-sm"
-                    />
-                  </div>
+                <div>
+                  <label className="block text-[11px] font-medium text-[#1B3320]/75 mb-1">
+                    WhatsApp Number
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    placeholder="+44 7123 456789"
+                    value={formData.whatsapp}
+                    onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                    className="w-full bg-white border border-[#1B3320]/12 rounded-2xl p-3 text-xs text-[#1B3320] placeholder:text-[#1B3320]/35 focus:outline-none focus:border-[#1B3320] shadow-[0_2px_8px_rgba(27,51,32,0.03)] transition-all"
+                  />
                 </div>
               </div>
 
-              {/* Addons */}
-              <div className="bg-white/70 p-3.5 border border-[#1B3320]/10 rounded-2xl space-y-2 shadow-sm">
-                <div className="text-[10px] font-mono uppercase font-bold text-[#3E2723]">
-                  Hostel Perks &amp; Extras
-                </div>
-                <label className="flex items-center gap-2 cursor-pointer font-medium text-[#1B3320]">
+              {/* Minimal Perks Checks */}
+              <div className="pt-2 pb-1 space-y-2">
+                <label className="flex items-center gap-3 cursor-pointer text-xs text-[#1B3320] select-none">
                   <input
                     type="checkbox"
                     checked={formData.includeBreakfast}
                     onChange={(e) => setFormData({ ...formData, includeBreakfast: e.target.checked })}
                     className="accent-[#1B3320] w-4 h-4 rounded"
                   />
-                  <span>Free Big Breakfast (Eggs, pancakes, bread &amp; fruit)</span>
+                  <span>Free daily homemade breakfast included</span>
                 </label>
-                <label className="flex items-center gap-2 cursor-pointer font-medium text-[#1B3320]">
+                <label className="flex items-center gap-3 cursor-pointer text-xs text-[#1B3320] select-none">
                   <input
                     type="checkbox"
                     checked={formData.motorbikeRental}
                     onChange={(e) => setFormData({ ...formData, motorbikeRental: e.target.checked })}
                     className="accent-[#1B3320] w-4 h-4 rounded"
                   />
-                  <span>Reserve a Semi-Automatic Motorbike (+120,000 VND / day)</span>
+                  <span>Hold a semi-auto motorbike (+120k VND / day)</span>
                 </label>
               </div>
 
-              {/* Special Requests */}
-              <div>
-                <label className="block text-[10px] font-mono uppercase text-[#3E2723] font-bold mb-1">
-                  Estimated arrival time or ferry info (Optional)
-                </label>
-                <textarea
-                  rows={2}
-                  placeholder="e.g. Taking 12:30 PM speedboat from Hai Phong, arriving around 3 PM..."
-                  value={formData.notes}
-                  onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full bg-white border border-[#1B3320]/15 rounded-xl p-3 text-xs text-[#1B3320] placeholder:text-[#3E2723]/40 focus:outline-none shadow-sm"
-                />
+              {/* Refined Minimalist Price Bar */}
+              <div className="p-4 bg-white rounded-2xl border border-[#1B3320]/10 flex items-center justify-between shadow-[0_4px_16px_rgba(27,51,32,0.03)]">
+                <div>
+                  <div className="text-[11px] font-mono text-[#1B3320]/60 uppercase tracking-wide">
+                    {nightsCount} night{nightsCount > 1 ? 's' : ''} • {formData.guestsCount} guest{formData.guestsCount > 1 ? 's' : ''}
+                  </div>
+                  <div className="text-xs font-semibold text-[#1B3320] truncate max-w-[200px]">
+                    {selectedRoom.name}
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="font-serif text-2xl font-bold text-[#1B3320] leading-none">
+                    ${totalPriceUSD}
+                  </div>
+                  <div className="text-[10px] font-mono text-[#1B3320]/60 mt-0.5">
+                    ≈ {totalPriceVND.toLocaleString()} VND
+                  </div>
+                </div>
               </div>
 
-              {/* Submit CTA */}
+              {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-4 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-bold text-sm uppercase tracking-wider rounded-full border border-[#1B3320]/15 shadow-[0_4px_14px_rgba(212,175,55,0.3)] active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer mt-4"
+                className="w-full py-4 bg-[#1B3320] hover:bg-[#284a30] text-[#FAF8F5] font-semibold text-xs uppercase tracking-widest rounded-full shadow-[0_4px_18px_rgba(27,51,32,0.2)] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-3"
               >
-                <MessageSquare className="w-4 h-4 text-[#1B3320]" />
-                <span>Confirm &amp; Message on WhatsApp</span>
-                <ArrowRight className="w-4 h-4 text-[#1B3320]" />
+                <MessageSquare className="w-4 h-4 text-[#D4AF37]" />
+                <span>Reserve on WhatsApp</span>
+                <ArrowRight className="w-4 h-4 text-[#FAF8F5]/80" />
               </button>
 
-              <div className="flex items-center justify-center gap-2 text-[10px] font-mono text-[#3E2723]/70 pt-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#1B3320]" />
-                <span>Instantly connects with reception WhatsApp • Pay at front desk on arrival</span>
+              <div className="text-center text-[10px] font-mono text-[#1B3320]/60 pt-1">
+                Pay cash or card on arrival • Free cancellation
               </div>
 
             </form>
           </div>
         ) : (
-          /* Confirmation State */
-          <div className="text-center py-6 space-y-4">
-            <div className="w-14 h-14 bg-[#1B3320] text-[#D4AF37] rounded-2xl flex items-center justify-center mx-auto shadow-md">
-              <Check className="w-8 h-8 stroke-[2.5]" />
+          /* Clean Confirmation State */
+          <div className="text-center py-6 space-y-4 animate-in fade-in">
+            <div className="w-12 h-12 bg-[#1B3320] text-[#D4AF37] rounded-full flex items-center justify-center mx-auto shadow-md">
+              <Check className="w-6 h-6 stroke-[2.5]" />
             </div>
 
-            <h3 className="font-serif text-3xl font-bold text-[#1B3320]">
-              Reservation Sent!
+            <h3 className="font-serif text-2xl font-bold text-[#1B3320]">
+              Reservation Sent
             </h3>
 
-            <p className="text-xs sm:text-sm text-[#3E2723] max-w-[42ch] mx-auto leading-relaxed">
-              Your booking details have been generated and dispatched to the front desk. We will confirm your bed immediately on WhatsApp.
+            <p className="text-xs text-[#1B3320]/75 max-w-[36ch] mx-auto leading-relaxed">
+              We opened WhatsApp to connect you with reception. We look forward to welcoming you!
             </p>
 
-            <div className="bg-white/80 p-5 border border-[#1B3320]/10 rounded-2xl text-left text-xs font-mono space-y-1.5 max-w-sm mx-auto shadow-sm">
-              <div><strong>Name:</strong> {formData.fullName}</div>
-              <div><strong>Room:</strong> {selectedRoom.name}</div>
-              <div><strong>Dates:</strong> {checkInDate} &rarr; {checkOutDate} ({nightsCount} nights)</div>
-              <div><strong>Total:</strong> ${totalPriceUSD} (~{totalPriceVND.toLocaleString()} VND)</div>
-              <div><strong>Payment:</strong> <span className="text-[#1B3320] font-bold">Pay cash or card at front desk</span></div>
+            <div className="bg-white p-4 rounded-2xl border border-[#1B3320]/10 text-left text-xs font-mono space-y-1.5 max-w-xs mx-auto shadow-sm">
+              <div className="flex justify-between"><span className="text-[#1B3320]/60">Guest:</span> <span className="font-semibold">{formData.fullName}</span></div>
+              <div className="flex justify-between"><span className="text-[#1B3320]/60">Room:</span> <span className="font-semibold truncate max-w-[150px]">{selectedRoom.name}</span></div>
+              <div className="flex justify-between"><span className="text-[#1B3320]/60">Nights:</span> <span className="font-semibold">{nightsCount} night(s)</span></div>
+              <div className="flex justify-between border-t border-[#1B3320]/10 pt-1.5"><span className="text-[#1B3320]/60">Total:</span> <span className="font-bold text-[#1B3320]">${totalPriceUSD}</span></div>
             </div>
 
-            <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="pt-2">
               <button
                 onClick={handleReset}
-                className="px-8 py-3 bg-[#1B3320] text-[#FAF8F5] hover:bg-[#284a30] font-bold text-xs uppercase tracking-wider rounded-full shadow-md active:scale-95 transition-all cursor-pointer"
+                className="px-8 py-3 bg-[#1B3320] text-[#FAF8F5] hover:bg-[#284a30] font-semibold text-xs uppercase tracking-wider rounded-full shadow-md active:scale-95 transition-all cursor-pointer"
               >
                 Done
               </button>
