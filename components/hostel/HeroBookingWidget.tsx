@@ -96,11 +96,11 @@ export function HeroBookingWidget() {
         {/* Hero Header */}
         <div className="mb-12 text-center max-w-3xl mx-auto flex flex-col items-center">
           {/* Official Emblem Logo */}
-          <div className="w-24 h-24 rounded-3xl overflow-hidden border-2 border-[#D4AF37] p-1 bg-[#1B3320] shadow-lg mb-6 hover:scale-105 transition-transform">
+          <div className="w-24 h-24 rounded-3xl overflow-hidden border-2 border-[#D4AF37] p-1 bg-black shadow-lg mb-6 hover:scale-105 transition-transform">
             <img
-              src="/images/secret_garden_logo.svg"
+              src="/images/secret_garden_logo.jpg"
               alt="Secret Garden Hostel Official Emblem Logo"
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover rounded-2xl"
             />
           </div>
 

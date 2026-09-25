@@ -186,9 +186,9 @@ export const TheHostVibeBoard: React.FC = () => {
               <div>
                 <div className="flex items-start justify-between gap-3 mb-4 pb-3 border-b border-white/15">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-11 h-11 rounded-full border-2 border-[#D4AF37] bg-[#1B3320] overflow-hidden shrink-0 p-0.5 shadow-md">
+                    <div className="w-11 h-11 rounded-full border-2 border-[#D4AF37] bg-black overflow-hidden shrink-0 p-0.5 shadow-md">
                       <img
-                        src="/images/secret_garden_logo.svg"
+                        src="/images/secret_garden_logo.jpg"
                         alt="Secret Garden Logo"
                         className="w-full h-full object-cover rounded-full"
                       />
@@ -356,11 +356,11 @@ export const TheHostVibeBoard: React.FC = () => {
 
             {/* Poster Header */}
             <div className="flex items-center gap-3 mb-5 pb-4 border-b border-white/10 pr-10">
-              <div className="w-10 h-10 rounded-2xl border border-[#D4AF37]/40 bg-[#1B3320] overflow-hidden shrink-0 p-0.5 shadow-md">
+              <div className="w-10 h-10 rounded-2xl border border-[#D4AF37]/40 bg-black overflow-hidden shrink-0 p-0.5 shadow-md">
                 <img
-                  src="/images/secret_garden_logo.svg"
+                  src="/images/secret_garden_logo.jpg"
                   alt="Secret Garden Logo"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover rounded-2xl"
                 />
               </div>
               <div>

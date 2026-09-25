@@ -19,9 +19,9 @@ export const SecretGardenLogo: React.FC<SecretGardenLogoProps> = ({
       className={`relative inline-flex items-center justify-center rounded-2xl overflow-hidden shrink-0 shadow-sm ${className}`}
     >
       <img
-        src="/images/secret_garden_logo.svg"
+        src="/images/secret_garden_logo.jpg"
         alt="Secret Garden Hostel Logo"
-        className="w-full h-full object-contain"
+        className="w-full h-full object-cover"
       />
     </div>
   )
