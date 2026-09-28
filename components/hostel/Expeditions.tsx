@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import { TourBookingForm } from './TourBookingForm'
+import { TourSchema } from '@/components/seo/TourSchema'
 
 interface ExpeditionItem {
   id: string
@@ -86,6 +87,19 @@ export const Expeditions: React.FC = () => {
 
   return (
     <section id="expeditions" className="w-full bg-[#E8E8DF] py-20 md:py-32 border-b border-[#1B3320]/15 relative overflow-hidden">
+      {/* Tour Rich Snippet Schema for Google Crawlers */}
+      <TourSchema
+        tours={EXPEDITION_LIST.map((t) => ({
+          name: t.title,
+          price: t.price,
+          duration: t.duration,
+          description: t.description,
+          image: t.image,
+          url: `/#expeditions`,
+          features: t.features,
+        }))}
+      />
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Header */}
