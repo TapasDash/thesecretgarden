@@ -13,6 +13,14 @@ export const HeaderNavBar: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[#F5F5F0]/95 backdrop-blur-md border-b border-[#1B3320]/15">
+      {/* Direct Booking Best Price Guarantee Ribbon */}
+      <div className="bg-[#1B3320] text-[#F5F5F0] px-4 py-2 text-center text-[11px] sm:text-xs font-mono tracking-wide flex items-center justify-center gap-2 border-b border-[#D4AF37]/20">
+        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+        <span className="text-[#F5F5F0]/90">
+          <strong className="text-[#D4AF37] font-semibold">Book direct here.</strong> It’s always 10% cheaper than Hostelworld or Booking.com.
+        </span>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
         {/* Brand */}

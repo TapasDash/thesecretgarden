@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useMemo } from 'react'
-import { X, Check, ArrowRight, MessageSquare, ShieldCheck } from 'lucide-react'
+import { X, Check, ArrowRight, MessageSquare, ShieldCheck, Sparkles } from 'lucide-react'
 import { useHostelStore } from '@/lib/store'
 import { HOSTEL_CONFIG } from '@/lib/config'
 
@@ -95,9 +95,12 @@ export const BookingDrawer: React.FC = () => {
           <div>
             {/* Header: Clean & Breathable */}
             <div className="mb-6 pr-8">
-              <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-[#1B3320]/70 block mb-1">
-                Direct Reservation • Zero Deposit
-              </span>
+              <div className="p-3 bg-[#1B3320] text-[#F5F5F0] border border-[#D4AF37]/35 rounded-2xl shadow-sm mb-3 flex items-center gap-2.5">
+                <Sparkles className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                <p className="font-serif text-xs sm:text-sm font-bold text-white tracking-tight leading-snug">
+                  Book direct here. <span className="text-[#D4AF37]">It’s always 10% cheaper</span> than Hostelworld or Booking.com.
+                </p>
+              </div>
               <h2 className="font-serif text-3xl font-bold text-[#1B3320] tracking-tight">
                 Reserve your stay
               </h2>

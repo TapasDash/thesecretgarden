@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import { useHostelStore } from '@/lib/store'
 
 export const HeroImmersive: React.FC = () => {
@@ -34,6 +34,29 @@ export const HeroImmersive: React.FC = () => {
           <p className="text-lg sm:text-xl text-[#3E2723]/90 font-sans max-w-3xl leading-relaxed">
             A quiet garden courtyard two minutes from Cat Ba town center. Heavy wooden bunks that do not squeak, blackout curtains for proper sleep, and free family dinners every night.
           </p>
+
+          {/* Prominent Direct Booking 10% Guarantee Green Banner */}
+          <div className="mt-8 p-4 sm:p-5 bg-[#1B3320] text-[#F5F5F0] border border-[#D4AF37]/35 rounded-[1.75rem] shadow-[0_12px_36px_rgba(27,51,32,0.18)] max-w-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3.5">
+              <div className="w-10 h-10 rounded-2xl bg-[#D4AF37]/20 border border-[#D4AF37]/40 flex items-center justify-center shrink-0">
+                <Sparkles className="w-5 h-5 text-[#D4AF37]" />
+              </div>
+              <div>
+                <p className="font-serif text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-white leading-snug">
+                  Book direct here. <span className="text-[#D4AF37]">It’s always 10% cheaper</span> than Hostelworld or Booking.com.
+                </p>
+                <p className="text-xs font-mono text-[#F5F5F0]/70 uppercase tracking-wider mt-0.5">
+                  Zero booking fees • Free cancellation • Pay on arrival
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={() => openBooking()}
+              className="sm:shrink-0 px-5 py-2.5 bg-[#D4AF37] hover:bg-[#c29f30] text-[#1B3320] font-mono font-bold text-xs uppercase tracking-wider rounded-full shadow-sm active:scale-95 transition-all cursor-pointer text-center"
+            >
+              Get 10% Off
+            </button>
+          </div>
         </div>
 
         {/* Clean Direct Booking Bar */}

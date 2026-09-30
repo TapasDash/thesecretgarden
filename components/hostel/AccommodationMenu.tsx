@@ -116,6 +116,12 @@ export const AccommodationMenu: React.FC = () => {
             <p className="text-sm sm:text-base text-[#3E2723]/90 font-sans max-w-xl leading-relaxed">
               Solid wood frames, thick mattresses, cold AC running all night, and hot high-pressure showers.
             </p>
+            <div className="mt-4 p-3.5 sm:p-4 bg-[#1B3320] text-[#F5F5F0] border border-[#D4AF37]/35 rounded-2xl shadow-md flex items-center gap-3 max-w-xl">
+              <Sparkles className="w-5 h-5 text-[#D4AF37] shrink-0" />
+              <p className="font-serif text-sm sm:text-base font-bold text-white tracking-tight">
+                Book direct here. <span className="text-[#D4AF37]">It’s always 10% cheaper</span> than Hostelworld or Booking.com.
+              </p>
+            </div>
           </div>
 
           {/* Filter Pills */}
